@@ -9,15 +9,12 @@ function Banner() {
 
     return (
 
-        <div className={classes.homeContainer}>
+        <div className={classes.bannerContainer}>
             <img className={classes.clownImage} src={clown2} alt="clown"></img>
-            <h1 className={classes.bannerFont}>Do you want to play a game?</h1>
+            <h1 className={classes.fontColor}>Do you want to play a game?</h1>
 
 
         </div>
-
-
-
     );
 }
 
