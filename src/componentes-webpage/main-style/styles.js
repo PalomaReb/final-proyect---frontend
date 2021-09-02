@@ -44,6 +44,11 @@ export const useStyles = makeStyles((theme) => ({
         margin: "0",
         fontWeight: "normal",
         fontSize: "1.5rem",
-    }
+    },
+    footerButton: {
+        color: "white",
+        background: 'linear-gradient(45deg, #252527  30%, #000000 90%)',
+        margin: ".6rem",
+    },
 }));
 
