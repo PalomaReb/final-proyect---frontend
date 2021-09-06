@@ -1,0 +1,22 @@
+.personal-data_bigcontainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 85%;
+  margin: 2rem auto;
+}
+
+.personal-data_input-titelcontainer {
+  width: 25.56rem;
+  max-height: 18.75rem;
+  margin-right: 3.12rem;
+}
+
+.data_title {
+  font-weight: 400;
+  font-size: 1.56rem;
+  font-style: normal;
+  color: #d50102;
+  margin-bottom: 0.43rem;
+  margin-top: 0rem;
+  margin-left: 0.62rem;
+}

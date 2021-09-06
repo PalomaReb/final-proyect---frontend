@@ -1,15 +1,15 @@
-import { useStyles } from "../main-style/styles";
-import { Button } from '@material-ui/core'
-
-
+import { useStyles } from '../main-style/styles';
+import Button from '../buttons'
 
 function Footer(props) {
     const classes = useStyles();
     return (
         <div className={classes.homeContainer}>
-            <Button className={classes.footerButton} variant="text">Legal Terms</Button>
-            <Button className={classes.footerButton} variant="text">Cookies </Button>
-            <Button className={classes.footerButton} variant="text">General Data Protection Regulation</Button>
+            <Button color="primary" buttonInfo="Legal Terms"></Button>
+            <Button color="primary" buttonInfo="Cookies"></Button>
+            <Button color="primary" buttonInfo="General Data Protection Regulation"></Button>
+
+
 
         </div>
     );

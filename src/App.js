@@ -1,19 +1,49 @@
 
-import './App.css';
-import Banner from './componentes-webpage/banner';
-import Footer from './componentes-webpage/footer';
-import Header from './componentes-webpage/header';
+import { ThemeProvider } from '@material-ui/styles';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import theme from './theme/theme';
+import Home from './componentes-webpage/home';
+import RegisterUser from '../src/componentes-webpage/registerPage/register/registerPage';
+import LoginUser from './componentes-webpage/registerPage/login/loginAll';
+import NotFound from './404-page';
 import HowItWorks from './componentes-webpage/how-it-works';
+
+
 function App() {
   return (
-    <div className="App">
-      <Header></Header>
-      <Banner></Banner>
-      <HowItWorks></HowItWorks>
-      <Footer></Footer>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route path='/register'>
+            <RegisterUser></RegisterUser>
+          </Route>
+          <Route path='/login'>
+            <LoginUser></LoginUser>
+          </Route>
+          <Route path="/howitworks">
+            <HowItWorks></HowItWorks>
+          </Route>
+          <Route path='/404'>
+            <NotFound>
+            </NotFound>
+          </Route>
+          <Route path='/'>
+            <Home>
+            </Home>
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
 
-    </div>
   );
 }
 
 export default App;
+
+
+
+

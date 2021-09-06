@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import neonClown from '../../assets/images/neonClown.png'
 
 export const useStyles = makeStyles((theme) => ({
 
@@ -9,46 +10,60 @@ export const useStyles = makeStyles((theme) => ({
     },
     bannerContainer: {
         maxWidth: "100%",
-        backgroundColor: "black",
         margin: "0",
+        padding: "5rem",
+        height: "100vh",
     },
-    clownImage: {
-        opacity: "0.65",
-        width: "70%",
-        height: "100%",
-    },
-    fontColor: {
-        color: "#8d0a15",
-        margin: "0",
-        fontSize: "3rem"
-
+    backgroundHome: {
+        background: `url(${neonClown})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "380px",
+        backgroundColor: "black"
     },
     headerContainer: {
         display: "flex",
-
     },
-    headerButton: {
-        color: "#a20417",
-        background: 'linear-gradient(45deg, #252527  30%, #000000 90%)',
-        margin: ".6rem",
+    center: {
+        textAlign: "center",
+    },
+    title: {
+        textAlign: "center",
+        fontSize: "2.5rem",
+        fontWeight: "600",
     },
     howItWorks: {
         maxWidth: "100%",
         backgroundColor: "black",
         margin: "0",
-        minHeight: "16rem",
-        padding: "70px"
+        minHeight: "79vh",
+        padding: "70px",
+        letterSpacing: "5px",
     },
+    howItWorksP: {
+        margin: "3rem auto",
+        maxWidth: "60%",
+    },
+
     descriptionText: {
-        color: "#8d0a15",
         margin: "0",
         fontWeight: "normal",
         fontSize: "1.5rem",
     },
-    footerButton: {
-        color: "white",
-        background: 'linear-gradient(45deg, #252527  30%, #000000 90%)',
-        margin: ".6rem",
+    registerContainer: {
+        display: "flex",
+        backgroundColor: "#908b89",
+        margin: " 0 auto",
+    },
+    linkStyle: {
+        textDecoration: "none",
+    },
+    headerLink: {
+        '&:hover': {
+            color: "black",
+            // backgroundColor: "#d50102",
+            backgroundColor: theme.palette.primary.main,
+        },
     },
 }));
 
