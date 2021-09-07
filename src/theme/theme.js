@@ -13,6 +13,7 @@ const theme = createTheme({
     typography: {
         fontFamily: "'computer', 'sans-serif'",
         letterSpacing: "5px",
+        fontSize: "1.25rem",
         h1: {
             fontSize: "2rem",
         },
