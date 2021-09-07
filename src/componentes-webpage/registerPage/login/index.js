@@ -5,11 +5,13 @@ import { useStyles } from "../styles/styles";
 import "../styles/style.css";
 import Button from "@material-ui/core/Button";
 import hands from "../../../assets/images/hands.png";
+import { useHistory } from "react-router";
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 function Login() {
+    const history = useHistory();
     const classes = useStyles();
     const query = useQuery(); // obtengo los query params
     const [isLoading, setLoading] = useState(true); // state variable para controlar si estoy llamando al API o no
@@ -51,12 +53,17 @@ function Login() {
             // llamo al login
             fetch('http://localhost:5463/auth/login', options)
                 .then(r => r.json())
-                .then(d => console.log(d)) // aqui tendríamos el access token
+                .then(d => {
+                    sessionStorage.setItem('sessionToken', d.access_token);
+                    history.push('/howitworks')
+                }) // aqui tendríamos el access token
+
         } else {
             // mostrar error al usuario con el campo que no es válido
         }
 
     }
+
     return (
         <div className={classes.personalDataBigcontainerLogin}>
             <div className={classes.personalDataInputTitelcontainer}>
