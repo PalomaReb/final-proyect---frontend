@@ -1,5 +1,6 @@
 import { useStyles } from "../main-style/styles.js";
 import Button from "../buttons";
+import { Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 
