@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "../footer/index.js";
 import Header from "../header/index.js";
 import { useStyles } from "../main-style/styles.js";
+import { Link } from "react-router-dom";
 
 function HowItWorks() {
   // const checkUser = useAuth();
@@ -27,6 +28,9 @@ function HowItWorks() {
           cannot let you continue. The only way out is to complete all the
           levels.... Put your skills to the test.... if you dare.
         </Typography>
+        <Link className={classes.center} to="/game">
+          <Typography>Start now??</Typography>
+        </Link>
       </div>
       <Footer></Footer>
     </React.Fragment>
