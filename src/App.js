@@ -1,5 +1,6 @@
 
 import { ThemeProvider } from '@material-ui/styles';
+import GamePage from './games/gamePage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +19,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
+          <Route path="/game">
+            <GamePage></GamePage>
+          </Route>
           <Route path='/register'>
             <RegisterUser></RegisterUser>
           </Route>

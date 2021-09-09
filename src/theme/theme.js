@@ -2,8 +2,17 @@ import { createTheme } from "@material-ui/core";
 
 
 const theme = createTheme({
+    // root: {
+    //     backgroundcolor: "black",
+    //     minHeight: "100vh",
+    //     display: "flex",
+    //     flexDirection: "column",
+    // },
     palette: {
         primary: {
+            backgroundColor: {
+                default: "#black"
+            },
             main: '#d50102',
         },
         secondary: {
@@ -15,14 +24,30 @@ const theme = createTheme({
         letterSpacing: "5px",
         fontSize: "1.25rem",
         h1: {
-            fontSize: "2rem",
+            fontSize: "2.5rem",
+            letterSpacing: "5px",
+
+
+        },
+        h2: {
+            fontSize: "1.4rem",
+            letterSpacing: "5px",
+
         },
         p: {
 
+
         },
     },
-
-
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
 })
 
 export default theme

@@ -4,6 +4,15 @@
   box-sizing: border-box;
   font-size: 16px;
 }
+
+#root {
+  min-height: 100vh;
+  background-color: black;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
 @font-face {
   font-family: computer;
   src: url("./assets/PixeloidSans.ttf");

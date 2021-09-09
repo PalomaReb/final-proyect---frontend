@@ -26,6 +26,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     center: {
         textAlign: "center",
+        textDecoration: "none"
     },
     title: {
         textAlign: "center",
@@ -61,7 +62,6 @@ export const useStyles = makeStyles((theme) => ({
     headerLink: {
         '&:hover': {
             color: "black",
-            // backgroundColor: "#d50102",
             backgroundColor: theme.palette.primary.main,
         },
     },
