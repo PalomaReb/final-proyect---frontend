@@ -60,6 +60,7 @@ export const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
     },
     headerLink: {
+        textDecoration: "none",
         '&:hover': {
             color: "black",
             backgroundColor: theme.palette.primary.main,

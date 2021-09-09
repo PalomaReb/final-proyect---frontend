@@ -28,8 +28,8 @@ function HowItWorks() {
           cannot let you continue. The only way out is to complete all the
           levels.... Put your skills to the test.... if you dare.
         </Typography>
-        <Link className={classes.center} to="/game">
-          <Typography>Start now??</Typography>
+        <Link className={`${classes.center} ${classes.headerLink}`} to="/game">
+          <Typography color="secondary">Start now??</Typography>
         </Link>
       </div>
       <Footer></Footer>
