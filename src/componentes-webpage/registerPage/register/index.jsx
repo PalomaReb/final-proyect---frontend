@@ -2,7 +2,6 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { useStyles } from "../styles/styles";
 import "../styles/style.css";
-// import { useRef } from "react";
 import Button from "@material-ui/core/Button";
 import creep from "../../../assets/images/creep.jpg";
 
@@ -52,8 +51,6 @@ function Register() {
               type="email"
               name="email"
               label="Email Address"
-              // ref={emailRef}
-              // defaultValue="Email Adress"
               variant="outlined"
             />
             <TextField
@@ -62,7 +59,6 @@ function Register() {
               type="password"
               name="pass"
               label="Password"
-              // ref={passwordRef}
               variant="outlined"
             />
             <TextField
@@ -71,7 +67,6 @@ function Register() {
               type="password"
               name="repeated_pass"
               label="Repeate Password"
-              // ref={passwordRef}
               variant="outlined"
             />
             <div className={classes.registerButton}>
