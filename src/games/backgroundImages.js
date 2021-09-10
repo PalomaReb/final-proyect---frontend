@@ -1,12 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
-import face from '../../src/assets/images/face.jpg'
+import face from '../../src/assets/images/face.jpg';
+import doll from '../assets/images/doll.jpg';
 
 export const useStyles = makeStyles((theme) => ({
     imgForGame: {
         background: `url(${face})`,
         backgroundPosition: "right center",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "350px",
+        backgroundSize: "340px",
         backgroundColor: "black",
         margin: ".5rem",
         minHeight: "50vh",
@@ -14,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
 
     inputCenter: {
         textAlign: "center",
-        margin: "5rem 0",
+        margin: "4rem 0",
     },
 
     centerText: {
@@ -39,5 +40,22 @@ export const useStyles = makeStyles((theme) => ({
 
     acertijo: {
         marginLeft: "2rem",
+    },
+
+    //--------------------------GAME OVER PAGE--------------------------------------
+
+    gameOverBGI: {
+        background: `url(${doll})`,
+        backgroundPosition: "top center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        minWidth: "100%"
+    },
+    fontChange: {
+        textAlign: "right",
+        fontSize: "4.3rem",
+        color: "black"
+
     }
 }));
