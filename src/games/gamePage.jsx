@@ -5,9 +5,11 @@ import Header from "../componentes-webpage/header";
 import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 function GamePage() {
+  const history = useHistory();
+  const [userAnswer, setAnswer] = useState("");
   const { id } = useParams(); //aqui se crea una variable que recoge el ID del path param
   const [gameInfo, setGameInfo] = useState({}); //use state para pintar lo que se va a recoger de mongo
   useEffect(() => {
@@ -22,9 +24,11 @@ function GamePage() {
 
   // setTimeout(function () {
   //   window.location.href = "http://localhost:3000/death";
-  // }, 3000);
+  // }, 9000);
 
   const classes = useStyles();
+
+  const gameAnswer = gameInfo?.instructions?.answer;
 
   return (
     <React.Fragment>
@@ -35,11 +39,12 @@ function GamePage() {
         </Grid>
         <Grid item xs={12} md={7}>
           <Typography variant="h2" color="primary" className={classes.acertijo}>
-            {gameInfo?.instructions?.body[0]}
-            {gameInfo?.instructions?.body[1]}
-            {gameInfo?.instructions?.body[2]}
-            {gameInfo?.instructions?.body[3]}
-            {gameInfo?.instructions?.body[4]}
+            {gameInfo?.instructions?.body_es[0]}
+            {gameInfo?.instructions?.body_es[1]}
+            {gameInfo?.instructions?.body_es[2]}
+            {gameInfo?.instructions?.body_es[3]}
+            {gameInfo?.instructions?.body_es[4]}
+            {console.log("Magnum opus")}
           </Typography>
         </Grid>
         <Grid item xs={12} md={7} className={classes.inputCenter}>
@@ -50,8 +55,22 @@ function GamePage() {
             name="answer"
             label="RESPUESTA"
             variant="outlined"
+            value={userAnswer}
+            onChange={(e) => setAnswer(e.target.value)}
           />
-          <Button color="primary" buttonInfo="ESCAPAR?????"></Button>
+          <Button
+            onClick={() => {
+              if (userAnswer === gameAnswer) {
+                //guardar progreso del usuario y mandar a proximo game
+                setAnswer("");
+                let nextG = "";
+                nextG = id < 2 ? parseInt(id) + 1 : "/";
+                history.push(`${nextG}`);
+              }
+            }}
+            color="primary"
+            buttonInfo="ESCAPAR?????"
+          ></Button>
         </Grid>
       </Grid>
       <Footer></Footer>

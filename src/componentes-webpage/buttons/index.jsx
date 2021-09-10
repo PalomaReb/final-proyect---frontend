@@ -4,7 +4,11 @@ import { useStyles } from "./styles";
 function Buttons(props) {
   const classes = useStyles();
   return (
-    <Button className={`${classes.Buttons} ${props.className}`} variant="text">
+    <Button
+      className={`${classes.Buttons} ${props.className}`}
+      variant="text"
+      onClick={props.onClick}
+    >
       {props.buttonInfo}
     </Button>
   );

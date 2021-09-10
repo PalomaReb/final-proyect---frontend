@@ -30,7 +30,7 @@ function HowItWorks() {
         </Typography>
         <Link
           className={`${classes.center} ${classes.headerLink}`}
-          to="/game/escape404"
+          to="/game/1"
         >
           <Typography color="secondary">Start now??</Typography>
         </Link>
