@@ -2,24 +2,15 @@ import React from "react";
 import Register from "./index";
 import Header from "../../header";
 import Footer from "../../footer";
-import { useStyles } from "../../main-style/styles";
-import Button from "../../buttons";
-import { Link } from "react-router-dom";
+// import { useStyles } from "../../main-style/styles";
 
 function RegisterUser() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <React.Fragment>
       <Header></Header>
-      <div className={classes.registerContainer}>
-        <div>
-          <Register></Register>
-        </div>
-        <Link to="/howitworks">
-          <Button buttonInfo="Continue without registering"> </Button>
-        </Link>
-      </div>
+      <Register></Register>
       <Footer></Footer>
     </React.Fragment>
   );
