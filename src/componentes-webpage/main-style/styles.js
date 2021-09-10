@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     homeContainer: {
         maxWidth: "100%",
         backgroundColor: "black",
-        margin: "0",
+
     },
     bannerContainer: {
         maxWidth: "100%",
@@ -44,6 +44,9 @@ export const useStyles = makeStyles((theme) => ({
     howItWorksP: {
         margin: "3rem auto",
         maxWidth: "60%",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: "100%",
+        }
     },
 
     descriptionText: {

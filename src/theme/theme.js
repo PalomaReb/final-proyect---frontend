@@ -2,12 +2,7 @@ import { createTheme } from "@material-ui/core";
 
 
 const theme = createTheme({
-    // root: {
-    //     backgroundcolor: "black",
-    //     minHeight: "100vh",
-    //     display: "flex",
-    //     flexDirection: "column",
-    // },
+
     palette: {
         primary: {
             backgroundColor: {
@@ -26,8 +21,7 @@ const theme = createTheme({
         h1: {
             fontSize: "2.5rem",
             letterSpacing: "5px",
-
-
+            marginBottom: "1rem",
         },
         h2: {
             fontSize: "1.4rem",

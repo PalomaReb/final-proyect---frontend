@@ -2,9 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
 }
-
+a {
+  text-decoration: none;
+}
 #root {
   min-height: 100vh;
   background-color: black;
@@ -17,6 +18,12 @@
   font-family: computer;
   src: url("./assets/PixeloidSans.ttf");
 }
+
+@font-face {
+  font-family: death;
+  src: url("./assets/WhoAsksSatan-5vxx.ttf");
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
