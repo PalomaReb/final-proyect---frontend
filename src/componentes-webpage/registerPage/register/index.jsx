@@ -1,8 +1,11 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import { useStyles } from "../styles/styles";
+import { useStyles } from "./styles";
 import "../styles/style.css";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import Buttons from "../../buttons";
+import { Typography, Grid, Container } from "@material-ui/core";
 import creep from "../../../assets/images/creep.jpg";
 
 function Register() {
@@ -40,54 +43,59 @@ function Register() {
 
   const classes = useStyles();
   return (
-    <div className={classes.personalDataBigcontainer}>
-      <div className={classes.personalDataInputTitelcontainer}>
-        <h3 className="data_title">Register</h3>
-        <div className="input_container">
-          <form onSubmit={handleSubmit}>
-            <TextField
-              className={classes.bigInputData}
-              required
-              type="email"
-              name="email"
-              label="Email Address"
-              variant="outlined"
-            />
-            <TextField
-              required
-              className={classes.bigInputData}
-              type="password"
-              name="pass"
-              label="Password"
-              variant="outlined"
-            />
-            <TextField
-              required
-              className={classes.bigInputData}
-              type="password"
-              name="repeated_pass"
-              label="Repeate Password"
-              variant="outlined"
-            />
-            <div className={classes.registerButton}>
+    <Grid className={classes.greyContainer}>
+      <Container>
+        <Grid container className={classes.userContainer}>
+          <Grid item xs={12} md={6} className={classes.formContainer}>
+            <Typography variant="h1" color="primary">
+              Register
+            </Typography>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                className={classes.userInputs}
+                required
+                type="email"
+                name="email"
+                label="Email Address"
+                variant="outlined"
+              />
+              <TextField
+                required
+                className={classes.userInputs}
+                type="password"
+                name="pass"
+                label="Password"
+                variant="outlined"
+              />
+              <TextField
+                required
+                className={classes.userInputs}
+                type="password"
+                name="repeated_pass"
+                label="Repeate Password"
+                variant="outlined"
+              />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
-                className={classes.submit}
+                className={classes.submitBtn}
               >
                 Sign up
               </Button>
-            </div>
-          </form>
-        </div>
-      </div>
+            </form>
+            <Link to="/howitworks">
+              <Buttons buttonInfo="Continue without registering"></Buttons>
+            </Link>
+          </Grid>
 
-      <div className={classes.creepIMG}>
-        <img src={creep} alt="creep" className={classes.creepIMG} />
-      </div>
-    </div>
+          <Grid item xs={6} className={classes.imgContainer}>
+            <img src={creep} alt="creep" className={classes.creepIMG} />
+          </Grid>
+        </Grid>
+      </Container>
+    </Grid>
   );
 }
 export default Register;
