@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import theme from './theme/theme';
+import GameOver from './games/gameOver';
 import Home from './componentes-webpage/home';
 import RegisterUser from '../src/componentes-webpage/registerPage/register/registerPage';
 import LoginUser from './componentes-webpage/registerPage/login/loginAll';
@@ -19,8 +20,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route path="/game">
+          <Route path="/game/:id">
             <GamePage></GamePage>
+          </Route>
+          <Route path="/death">
+            <GameOver></GameOver>
           </Route>
           <Route path='/register'>
             <RegisterUser></RegisterUser>
@@ -41,6 +45,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+
     </ThemeProvider>
 
   );
