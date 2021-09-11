@@ -6,6 +6,7 @@ import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { useAuth } from "../hooks";
 
 function GamePage() {
   const history = useHistory();
@@ -21,6 +22,50 @@ function GamePage() {
         console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
       }); //pinta solo el id del juego
   }, [id]);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userAnswer === gameAnswer) {
+      //guardar progreso del usuario y mandar a proximo game
+      setAnswer("")
+      const gameMethod = id === '1' ? 'POST' : 'PUT';
+      const progress = {
+        method: gameMethod,
+        headers: {
+          "Content-type": "application/json", // aviso a mi servidor que le envio los datos en formato JSON
+        },
+        body: JSON.stringify({
+          gameId: id,
+          user: useAuth,
+          timeEnded: 
+          status:
+          points:
+          date:
+        }),
+      };
+      // llamo al login
+      fetch("http://localhost:5463/auth/login", progress)
+        .then((r) => r.json())
+        .then((d) => {
+          let nextG = "";
+          nextG = id < 2 ? parseInt(id) + 1 : "/";
+          history.push(`${nextG}`);
+        }); // aqui tendríamos el access token
+    } else {
+      // mostrar error al usuario con el campo que no es válido
+    }
+
+  };
+
+
+
+
+
+
+
+
+
 
   // setTimeout(function () {
   //   window.location.href = "http://localhost:3000/death";
@@ -60,13 +105,6 @@ function GamePage() {
           />
           <Button
             onClick={() => {
-              if (userAnswer === gameAnswer) {
-                //guardar progreso del usuario y mandar a proximo game
-                setAnswer("");
-                let nextG = "";
-                nextG = id < 2 ? parseInt(id) + 1 : "/";
-                history.push(`${nextG}`);
-              }
             }}
             color="primary"
             buttonInfo="ESCAPAR?????"
