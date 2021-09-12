@@ -3,9 +3,11 @@ import { Grid } from "@material-ui/core";
 import ButtonHome from "../buttons/buttonHome";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import { useAuth } from "../../hooks/index.js";
 
 function Home() {
   const classes = useStyles();
+  const userRoute = useAuth ? "/howitworks" : "/register";
 
   return (
     <Grid className={`${classes.bannerContainer} ${classes.backgroundHome}`}>
@@ -13,7 +15,7 @@ function Home() {
         Do you want to play a game?
       </Typography>
       <Grid className={classes.center}>
-        <Link to="/register">
+        <Link to={userRoute}>
           <ButtonHome buttonInfo="Yes"></ButtonHome>
         </Link>
         <Link to="/404">
