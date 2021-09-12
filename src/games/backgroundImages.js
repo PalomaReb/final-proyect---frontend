@@ -1,18 +1,26 @@
 import { makeStyles } from '@material-ui/core/styles';
 import face from '../../src/assets/images/face.jpg';
+import bathroom from "../assets/images/SAW-Bathroom.jpg";
 import doll from '../assets/images/doll.jpg';
 
 export const useStyles = makeStyles((theme) => ({
-    imgForGame: {
+    genericIMG: {
         background: `url(${face})`,
         backgroundPosition: "right center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "340px",
-        backgroundColor: "black",
-        margin: ".5rem",
-        minHeight: "50vh",
     },
 
+    bathroomIMG: {
+        background: `url(${bathroom})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+    },
+
+    gameContainer: {
+        minHeight: "50vh",
+    },
     inputCenter: {
         textAlign: "center",
         margin: "4rem 0",
@@ -40,6 +48,8 @@ export const useStyles = makeStyles((theme) => ({
 
     acertijo: {
         marginLeft: "2rem",
+        padding: "2rem",
+        background: "rgb(32 31 31 / 70%)"
     },
 
     //--------------------------GAME OVER PAGE--------------------------------------
