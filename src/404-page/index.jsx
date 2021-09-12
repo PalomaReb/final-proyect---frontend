@@ -1,5 +1,5 @@
 import { useStyles } from "../404-page/styles";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../componentes-webpage/header/index";
 import Footer from "../componentes-webpage/footer/index";
 import { Container, Typography, Button } from "@material-ui/core";
@@ -8,6 +8,11 @@ import { Link } from "react-router-dom";
 
 function NotFound() {
   const classes = useStyles();
+  const ptitle = "Página no encontrada";
+
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
 
   return (
     <React.Fragment>
