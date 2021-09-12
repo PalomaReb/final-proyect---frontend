@@ -26,7 +26,7 @@ function HowItWorks() {
           programming but I am here to put you to the test. You will be given
           some time to complete each level and if you do not pass, I am afraid I
           cannot let you continue. The only way out is to complete all the
-          levels.... Put your skills to the test.... if you dare.
+          levels... Put your skills to the test... if you dare.
         </Typography>
         <Link
           className={`${classes.center} ${classes.headerLink}`}
