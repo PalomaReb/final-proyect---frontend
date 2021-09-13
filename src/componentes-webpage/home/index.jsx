@@ -4,10 +4,16 @@ import ButtonHome from "../buttons/buttonHome";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { useAuth } from "../../hooks/index.js";
+import { useEffect } from "react";
 
 function Home() {
   const classes = useStyles();
   const userRoute = useAuth ? "/howitworks" : "/register";
+
+  const ptitle = "Home";
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
 
   return (
     <Grid className={`${classes.bannerContainer} ${classes.backgroundHome}`}>

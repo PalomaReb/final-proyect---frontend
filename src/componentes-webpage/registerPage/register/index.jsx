@@ -5,6 +5,7 @@ import "../styles/style.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Buttons from "../../buttons";
+import { useEffect } from "react";
 import {
   Typography,
   Grid,
@@ -15,6 +16,10 @@ import {
 import creep from "../../../assets/images/creep.jpg";
 
 function Register() {
+  const ptitle = "Register";
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
     e.preventDefault();
