@@ -105,8 +105,8 @@ function Login() {
                   </Button>
                 </div>
               </form>
-              <Link to="/howitworks">
-                <Buttons buttonInfo="Continue without registering"> </Buttons>
+              <Link to="/register">
+                <Buttons buttonInfo="Hacer cuenta nueva"> </Buttons>
               </Link>
             </Grid>
           </Grid>

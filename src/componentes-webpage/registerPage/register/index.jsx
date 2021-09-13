@@ -101,7 +101,7 @@ function Register() {
               </Button>
             </form>
             <Link to="/howitworks">
-              <Buttons buttonInfo="Continue without registering"></Buttons>
+              <Buttons buttonInfo="Continuar sin registrarme"> </Buttons>
             </Link>
             <FormControlLabel
               value="end"
@@ -110,6 +110,9 @@ function Register() {
               label="Acepto los términos y condiciones de uso"
               labelPlacement="end"
             />
+            <Link to="/login">
+              <Buttons buttonInfo="Ya tengo cuenta"> </Buttons>
+            </Link>
           </Grid>
 
           <Grid item xs={6} className={classes.imgContainer}>
