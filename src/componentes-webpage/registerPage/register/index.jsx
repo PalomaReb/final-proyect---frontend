@@ -117,19 +117,18 @@ function Register() {
                 {" "}
                 Registrarme
               </Button>
+              <FormControlLabel
+                value="end"
+                control={<Checkbox required={true} color="primary" />}
+                label="Acepto los términos y condiciones de uso"
+                labelPlacement="end"
+              />
             </form>
             <Typography>{emailVerified}</Typography>
 
             <Link to="/howitworks">
               <Buttons buttonInfo="Continuar sin registrarme"> </Buttons>
             </Link>
-            <FormControlLabel
-              value="end"
-              required
-              control={<Checkbox color="primary" />}
-              label="Acepto los términos y condiciones de uso"
-              labelPlacement="end"
-            />
             <Link to="/login">
               <Buttons buttonInfo="Ya tengo cuenta"> </Buttons>
             </Link>
