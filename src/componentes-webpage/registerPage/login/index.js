@@ -6,6 +6,8 @@ import "../styles/style.css";
 import Button from "@material-ui/core/Button";
 import hands from "../../../assets/images/hands.png";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import Buttons from "../../buttons";
 import { Typography, Grid, Container } from "@material-ui/core";
 
 function useQuery() {
@@ -69,29 +71,26 @@ function Login() {
     <Grid className={classes.backgroundContainer}>
       <Container>
         <Grid container className={classes.loginContainer}>
-          <Grid item xs={6} md={8} className={classes.formContainer}>
+          <Grid item xs={12} md={6} className={classes.formContainer}>
             <Typography variant="h1" color="primary">
               Log in
             </Typography>
             <Grid className="input_container">
               <form onSubmit={handleSubmit}>
                 <TextField
-                  className={classes.bigInputData}
+                  className={classes.userInput}
                   required
                   type="email"
                   name="email"
                   label="Email Address"
-                  // ref={emailRef}
-                  // defaultValue="Email Adress"
                   variant="outlined"
                 />
                 <TextField
-                  className={classes.bigInputData}
+                  className={classes.userInput}
                   required
                   type="password"
                   name="pass"
                   label="Password"
-                  // ref={passwordRef}
                   variant="outlined"
                 />
                 <div className={classes.registerButton}>
@@ -106,14 +105,17 @@ function Login() {
                   </Button>
                 </div>
               </form>
+              <Link to="/howitworks">
+                <Buttons buttonInfo="Continue without registering"> </Buttons>
+              </Link>
             </Grid>
           </Grid>
-          <Grid className={classes.imgContainer} item md={3} >
+          <Grid className={classes.imgContainer} item xs={6} md={6} >
             <img src={hands} alt="creep" className={classes.handsIMG} />
           </Grid>
         </Grid>
-      </Container>
-    </Grid>
+      </Container >
+    </Grid >
   );
 }
 

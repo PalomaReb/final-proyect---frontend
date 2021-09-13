@@ -22,12 +22,16 @@ function HowItWorks() {
       <Header></Header>
       <div className={classes.howItWorks}>
         <Typography className={classes.howItWorksP} color="primary">
-          Hello , you are here for a reason. You think you understand coding and
-          programming but I am here to put you to the test. You will be given
-          some time to complete each level and if you do not pass, I am afraid I
-          cannot let you continue. The only way out is to complete all the
-          levels... Put your skills to the test... if you dare.
+          {" "}
+          Hola, bienvenido al juego de tu vida. Estas aqui por algo. Crees que
+          entiendes de la programación, pero yo estoy aqui para decirte ponerte
+          a prueba. Se te dará un tiempo para completar cada nivel, si no lo
+          consigues, lastimosamente, no podrás continuar. La única forma de
+          salir de este juego es completando todos los niveles. Te sugiero que
+          no salgas de la pantalla, o no se guardará tu progreso y no podrás
+          salir. Es hora de poner tus conocimientos a prueba... si te atreves.
         </Typography>
+
         <Link
           className={`${classes.center} ${classes.headerLink}`}
           to="/game/1"

@@ -27,6 +27,7 @@ function Register() {
             // Genero el body como string
             email: e.target.email.value, // obtengo el value de un input por su name
             password: e.target.pass.value,
+            alias: e.target.alias.value,
           }),
         };
         // llamo al registro
@@ -57,6 +58,14 @@ function Register() {
                 type="email"
                 name="email"
                 label="Email Address"
+                variant="outlined"
+              />
+              <TextField
+                className={classes.userInputs}
+                required
+                type="text"
+                name="alias"
+                label="Alias"
                 variant="outlined"
               />
               <TextField

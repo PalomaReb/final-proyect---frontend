@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     userContainer: {
         justifyContent: "space-between",
         margin: "2.5rem 0",
-        width: "100%"
+        width: "100%",
     },
 
     formContainer: {
