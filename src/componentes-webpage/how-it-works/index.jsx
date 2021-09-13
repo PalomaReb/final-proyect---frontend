@@ -36,7 +36,7 @@ function HowItWorks() {
           className={`${classes.center} ${classes.headerLink}`}
           to="/game/1"
         >
-          <Typography color="secondary">Start now??</Typography>
+          <Typography color="secondary">Comenzar??</Typography>
         </Link>
       </div>
       <Footer></Footer>

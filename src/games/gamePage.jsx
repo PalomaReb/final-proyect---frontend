@@ -78,19 +78,23 @@ function GamePage() {
       deathTime - tlapse > 0 && userAnswer === gameAnswer
         ? "completed"
         : "dead";
-    const gameList = {
-      // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
-      gameId: id,
-      timeEnded: tlapse,
-      status: gameStatus,
-      date: new Date(),
-      points: deathTime - tlapse,
-    };
-    const userProgress = {
-      //Se inserta solo la primera vez, despues se tiene que relacionar con cada juego y actualizar el level
-      level: id,
-      user: useAuth,
-    };
+    const gameList = [
+      {
+        // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
+        gameId: id,
+        timeEnded: tlapse,
+        status: gameStatus,
+        date: new Date(),
+        points: deathTime - tlapse,
+      },
+    ];
+    const userProgress = [
+      {
+        //Se inserta solo la primera vez, despues se tiene que relacionar con cada juego y actualizar el level
+        level: id,
+        user: useAuth,
+      },
+    ];
     const progress = {
       method: gameMethod,
       headers: {
