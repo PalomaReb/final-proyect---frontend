@@ -20,6 +20,13 @@ function Login() {
   const [isLoading, setLoading] = useState(true); // state variable para controlar si estoy llamando al API o no
   const [isEmailValid, setEmailValidity] = useState(false); // use state para controlar si el email es válido o no
 
+
+  const ptitle = "login";
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
+
+
   useEffect(() => {
     // solo la primera vez llamo a la validación del token, recogiendo el valor por parámetro
     const token = query.get("token"); // obtengo el query param del token

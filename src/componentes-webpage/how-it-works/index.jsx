@@ -7,6 +7,11 @@ import { useStyles } from "../main-style/styles.js";
 import { Link } from "react-router-dom";
 
 function HowItWorks() {
+  const ptitle = "how it works";
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
+
   // const checkUser = useAuth();
   // const [name, setName] = useState("anonymous");
   const classes = useStyles();

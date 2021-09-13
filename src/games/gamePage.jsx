@@ -78,32 +78,35 @@ function GamePage() {
       deathTime - tlapse > 0 && userAnswer === gameAnswer
         ? "completed"
         : "dead";
-    const gameList = [
-      {
-        // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
-        gameId: id,
-        timeEnded: tlapse,
-        status: gameStatus,
-        date: new Date(),
-        points: deathTime - tlapse,
-      },
-    ];
-    const userProgress = [
-      {
-        //Se inserta solo la primera vez, despues se tiene que relacionar con cada juego y actualizar el level
-        level: id,
-        user: useAuth,
-      },
-    ];
+
+    const newUserProgress = {
+      gameList: [
+        {
+          // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
+          gameId: id,
+          timeEnded: tlapse,
+          status: gameStatus,
+          date: new Date(),
+          points: deathTime - tlapse,
+        },
+      ],
+      userProgress: [
+        {
+          //Se inserta solo la primera vez, despues se tiene que relacionar con cada juego y actualizar el level
+          level: id,
+          user: useAuth,
+        },
+      ],
+    };
     const progress = {
       method: gameMethod,
       headers: {
         "Content-type": "application/json", // aviso a mi servidor que le envio los datos en formato JSON
       },
-      body: JSON.stringify({ gameList: gameList, userProgress: userProgress }), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
+      body: JSON.stringify(newUserProgress), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
     };
     // inserto en su collection
-    fetch("http://localhost:5463/games/user-progress", progress);
+    fetch("http://localhost:5464/games/user-progress", progress);
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.
