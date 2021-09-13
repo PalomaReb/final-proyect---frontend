@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { useStyles } from "./styles";
 import "../styles/style.css";
@@ -20,6 +20,8 @@ function Register() {
   useEffect(() => {
     document.title = ptitle;
   }, []);
+
+  const [emailVerified, setEmailVerified] = useState("");
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
     e.preventDefault();
@@ -37,14 +39,24 @@ function Register() {
           body: JSON.stringify({
             // Genero el body como string
             email: e.target.email.value, // obtengo el value de un input por su name
-            password: e.target.pass.value,
             alias: e.target.alias.value,
+            password: e.target.pass.value,
           }),
         };
         // llamo al registro
         fetch("http://localhost:5463/auth/register", options)
-          .then((r) => r.json())
-          .then((d) => console.log(d));
+          .then(function (response) {
+            if (!response.ok) {
+              throw Error(response.status);
+            }
+            return response;
+          })
+          .then((data) => {
+            setEmailVerified("Revisa tu email para continuar");
+          })
+          .catch(function (error) {
+            setEmailVerified("Upps User is already registreded!!");
+          });
       } else {
         // Muestro al usuario el error de que las passwords no coinciden
       }
@@ -102,9 +114,12 @@ function Register() {
                 color="primary"
                 className={classes.submitBtn}
               >
-                Sign up
+                {" "}
+                Registrarme
               </Button>
             </form>
+            <Typography>{emailVerified}</Typography>
+
             <Link to="/howitworks">
               <Buttons buttonInfo="Continuar sin registrarme"> </Buttons>
             </Link>
