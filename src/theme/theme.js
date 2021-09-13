@@ -24,7 +24,7 @@ const theme = createTheme({
             marginBottom: "1rem",
         },
         h2: {
-            fontSize: "1.4rem",
+            fontSize: "1.2rem",
             letterSpacing: "5px",
 
         },

@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     gameContainer: {
-        minHeight: "50vh",
+        minHeight: "76vh",
     },
     inputCenter: {
         textAlign: "center",

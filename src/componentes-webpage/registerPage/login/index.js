@@ -66,48 +66,54 @@ function Login() {
   };
 
   return (
-    <div className={classes.personalDataBigcontainerLogin}>
-      <div className={classes.personalDataInputTitelcontainer}>
-        <Typography variant="h1" color="primary">
-          Log in
-        </Typography>
-        <div className="input_container">
-          <form onSubmit={handleSubmit}>
-            <TextField
-              className={classes.bigInputData}
-              required
-              type="email"
-              name="email"
-              label="Email Address"
-              // ref={emailRef}
-              // defaultValue="Email Adress"
-              variant="outlined"
-            />
-            <TextField
-              className={classes.bigInputData}
-              required
-              type="password"
-              name="pass"
-              label="Password"
-              // ref={passwordRef}
-              variant="outlined"
-            />
-            <div className={classes.registerButton}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Login in
-              </Button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <img src={hands} alt="creep" className={classes.handsIMG} />
-    </div>
+    <Grid className={classes.backgroundContainer}>
+      <Container>
+        <Grid container className={classes.loginContainer}>
+          <Grid item xs={6} md={8} className={classes.formContainer}>
+            <Typography variant="h1" color="primary">
+              Log in
+            </Typography>
+            <Grid className="input_container">
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  className={classes.bigInputData}
+                  required
+                  type="email"
+                  name="email"
+                  label="Email Address"
+                  // ref={emailRef}
+                  // defaultValue="Email Adress"
+                  variant="outlined"
+                />
+                <TextField
+                  className={classes.bigInputData}
+                  required
+                  type="password"
+                  name="pass"
+                  label="Password"
+                  // ref={passwordRef}
+                  variant="outlined"
+                />
+                <div className={classes.registerButton}>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                  >
+                    Login in
+                  </Button>
+                </div>
+              </form>
+            </Grid>
+          </Grid>
+          <Grid className={classes.imgContainer} item md={3} >
+            <img src={hands} alt="creep" className={classes.handsIMG} />
+          </Grid>
+        </Grid>
+      </Container>
+    </Grid>
   );
 }
 

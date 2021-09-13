@@ -8,47 +8,57 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { useAuth } from "../hooks";
 // import face from "../../src/assets/images/face.jpg";
-import BathroomGame from "./gameComponents/bathroom";
+import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 
 function GamePage() {
   const history = useHistory();
   const [userAnswer, setAnswer] = useState("");
-
+  //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
+  let tlapse = 0; // Cuenta segundos trasncurridos por cada juego
   const deathTime = 30; //300 serian 5 min
   const t = deathTime * 1000;
-
   // logica puntos:
   // tiempo que tienes para adivinar - el timepo que haz tardado en adivinar
   // da el tiempo que sobro
   //tiempo que sobro son los puntos del usuario
 
-  let tlapse = 0; // Cuenta segundos
-  //  const intervalo = setInterval(function () {
-  //   tlapse++;
-  //   console.log(tlapse); //Que alguien nos explieque esto, pls.
-  // }, 1000);
-  // const tiempo = setTimeout(function () {
-  //   clearTimeout(tiempo);
-  //   clearInterval(intervalo);
-  //   handleSubmit();
-  //   history.push("/death");
-  // }, t);
-
   const { id } = useParams(); //aqui se crea una variable que recoge el ID del path param
   const [gameInfo, setGameInfo] = useState({}); //use state para pintar lo que se va a recoger de mongo
-  let printNewGameSection = "";
+
   useEffect(() => {
     // para que se rederize el juego cuando se refresca la pagina
     fetch(`http://localhost:5463/games/${id}`) //llama al param "game" por id de juego
       .then((r) => r.json()) //promesa que devuelve el json
       .then((data) => {
         setGameInfo(data);
+        const ptitle = "LEVEL " + id;
+        document.title = ptitle;
         //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
-      }); //pinta solo el id del juego
-  }, [id]);
-  //eligiendo componentes opciones segun el juego
+      }); //pinta solo el id del juego y sus controles
 
+    const intervalo = setInterval(function () {
+      // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
+      tlapse++;
+      console.log(tlapse);
+    }, 1000);
+    const tiempo = setTimeout(function () {
+      // NOTA: No se reinicializa aquí el interval ni el timeout, el contador tlapse continua hasta que llega al final. La forma correcta es en el return del useEffect!!!!!!
+      // Funciones a ejecutar cuando se termine el tiempo.
+      handleSubmit();
+      history.replace("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
+    }, t);
+
+    return () => {
+      clearInterval(intervalo); // Limpiamos el interval ID
+      clearTimeout(tiempo); // Limpiamos el timeout ID
+      setAnswer(""); // Con esto se prentende limpiar el input en cada juego, pero no se si genera renderizados que no convienen.
+      tlapse = 0; // Reinicializamos el contador de segundos.
+    };
+  }, [id]);
+
+  let printNewGameSection = ""; // Sección dinámica para algunos juegos.
+  //eligiendo componentes opciones segun el juego
   if (id === "2") {
     printNewGameSection = (
       <ThemeWrapper>
@@ -62,8 +72,6 @@ function GamePage() {
 
   function handleSubmit() {
     //e.preventDefault();
-    // clearTimeout(tiempo);
-    // clearInterval(intervalo);
     //guardar progreso del usuario y mandar a proximo game
     const gameMethod = id === "1" ? "POST" : "PUT";
     const gameStatus =
@@ -90,22 +98,20 @@ function GamePage() {
       },
       body: JSON.stringify({ gameList: gameList, userProgress: userProgress }), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
     };
-    //console.log(progress);
     // inserto en su collection
     fetch("http://localhost:5463/games/user-progress", progress);
     //.then((r) => r.json())
-    //.then((d) => {});
-    setAnswer("");
-    let nextG = id < 3 ? parseInt(id) + 1 : "/";
-    history.push(`${nextG}`);
+    //.then((d) => {}); // Aquí se podría mostrar un mensaje.
+    setAnswer(""); // Se limpia la respuesta del usuario.
+    let nextG = id < 3 ? parseInt(id) + 1 : "/reviews"; // Se define la siguiente ruta.
+    history.replace(`${nextG}`);
   }
 
   const classes = useStyles();
 
   const gameAnswer = gameInfo?.instructions?.answer;
 
-  let gameClasses = `${classes.gameContainer} `;
-
+  let gameClasses = `${classes.gameContainer} `; // Clases dinámicas para Material UI
   if (id === "1" || id === "3") {
     gameClasses += `${classes.genericIMG}`;
   }
@@ -147,7 +153,6 @@ function GamePage() {
           />
           <Button
             onClick={() => {
-              console.log(userAnswer, gameAnswer);
               if (userAnswer === gameAnswer) {
                 // Paramos los contadores temporales (de las distintas dimensiones)
                 // clearTimeout(tiempo);

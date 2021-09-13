@@ -12,14 +12,14 @@ function LoginUser() {
     return (
         <React.Fragment>
             <Header></Header>
-            <div className={classes.registerContainer}>
-                <div>
-                    <Login></Login>
-                </div>
-                <Link to="/howitworks">
-                    <Button buttonInfo="Continue without registering"> </Button>
-                </Link>
-            </div>
+
+
+            <Login></Login>
+
+            <Link to="/howitworks">
+                <Button buttonInfo="Continue without registering"> </Button>
+            </Link>
+
             <Footer></Footer>
         </React.Fragment>
     );
