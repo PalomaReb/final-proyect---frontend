@@ -5,7 +5,13 @@ import "../styles/style.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Buttons from "../../buttons";
-import { Typography, Grid, Container } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  Container,
+  Checkbox,
+  FormControlLabel,
+} from "@material-ui/core";
 import creep from "../../../assets/images/creep.jpg";
 
 function Register() {
@@ -97,6 +103,13 @@ function Register() {
             <Link to="/howitworks">
               <Buttons buttonInfo="Continue without registering"></Buttons>
             </Link>
+            <FormControlLabel
+              value="end"
+              required
+              control={<Checkbox color="primary" />}
+              label="Acepto los términos y condiciones de uso"
+              labelPlacement="end"
+            />
           </Grid>
 
           <Grid item xs={6} className={classes.imgContainer}>
