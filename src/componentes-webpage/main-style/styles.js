@@ -38,7 +38,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: "black",
         margin: "0",
         minHeight: "79vh",
-        padding: "70px",
+        padding: "57px",
         letterSpacing: "5px",
     },
     howItWorksP: {

@@ -6,7 +6,7 @@ import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { useAuth } from "../hooks";
+import { useAuth, useUser } from "../hooks";
 // import face from "../../src/assets/images/face.jpg";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
@@ -14,6 +14,8 @@ import ThemeWrapper from "./gameComponents/themeChange";
 function GamePage() {
   const history = useHistory();
   const [userAnswer, setAnswer] = useState("");
+  const { user } = useUser();
+
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   let tlapse = 0; // Cuenta segundos trasncurridos por cada juego
   const deathTime = 30; //300 serian 5 min
@@ -28,7 +30,7 @@ function GamePage() {
 
   useEffect(() => {
     // para que se rederize el juego cuando se refresca la pagina
-    fetch(`http://localhost:5463/games/${id}`) //llama al param "game" por id de juego
+    fetch(`http://localhost:5464/games/${id}`) //llama al param "game" por id de juego
       .then((r) => r.json()) //promesa que devuelve el json
       .then((data) => {
         setGameInfo(data);
@@ -73,28 +75,24 @@ function GamePage() {
   function handleSubmit() {
     //e.preventDefault();
     //guardar progreso del usuario y mandar a proximo game
-    const gameMethod = id === "1" ? "POST" : "PUT";
+    const gameMethod = id === "1" ? "POST" : "PATCH";
     const gameStatus =
       deathTime - tlapse > 0 && userAnswer === gameAnswer
         ? "completed"
         : "dead";
 
     const newUserProgress = {
+      gameUser: useAuth,
+      // userProgress: {},
       gameList: [
         {
           // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
           gameId: id,
+          level: id,
           timeEnded: tlapse,
           status: gameStatus,
           date: new Date(),
           points: deathTime - tlapse,
-        },
-      ],
-      userProgress: [
-        {
-          //Se inserta solo la primera vez, despues se tiene que relacionar con cada juego y actualizar el level
-          level: id,
-          user: useAuth,
         },
       ],
     };
@@ -140,7 +138,7 @@ function GamePage() {
             {gameInfo?.instructions?.body_es[2]}
             {gameInfo?.instructions?.body_es[3]}
             {gameInfo?.instructions?.body_es[4]}
-            {console.log("Magnum opus")}
+            {/* {console.log("Magnum opus")} */}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>

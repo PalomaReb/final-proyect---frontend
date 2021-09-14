@@ -5,14 +5,17 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: "#908b89",
     },
     userInputs: {
-        width: "1000%",
+        width: "100%",
         margin: "1rem 0",
         borderRadius: "0.25rem",
         [theme.breakpoints.down('sm')]: {
             width: "fit-content",
         }
     },
-
+    inputContainer: {
+        flexDirection: "columns",
+        padding: "1rem"
+    },
 
     loginContainer: {
         // display: "flex",

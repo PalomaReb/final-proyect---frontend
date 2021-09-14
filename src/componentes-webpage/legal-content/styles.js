@@ -6,6 +6,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   legalContent: {
     color: "white",
-    margin: "2rem 0",
+    margin: "8rem 0",
   },
 }));

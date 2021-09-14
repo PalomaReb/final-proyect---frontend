@@ -9,12 +9,7 @@ function LoginUser() {
     return (
         <React.Fragment>
             <Header></Header>
-
-
             <Login></Login>
-
-
-
             <Footer></Footer>
         </React.Fragment>
     );

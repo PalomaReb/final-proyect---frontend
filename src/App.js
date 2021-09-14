@@ -16,6 +16,7 @@ import HowItWorks from './componentes-webpage/how-it-works';
 import TermsPage from './legal-pages/terms';
 import CookiesPage from './legal-pages/cookies';
 import GDPRPage from './legal-pages/gdpr';
+import Reviewsinput from '../src/componentes-webpage/reviews/reviewInput';
 
 
 function App() {
@@ -37,6 +38,10 @@ function App() {
           </Route>
           <Route path="/howitworks">
             <HowItWorks></HowItWorks>
+          </Route>
+          <Route path="/reviews">
+            <Reviewsinput>
+            </Reviewsinput>
           </Route>
           <Route path="/terms">
             <TermsPage></TermsPage>

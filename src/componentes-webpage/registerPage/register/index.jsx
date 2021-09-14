@@ -44,7 +44,7 @@ function Register() {
           }),
         };
         // llamo al registro
-        fetch("http://localhost:5463/auth/register", options)
+        fetch("http://localhost:5464/auth/register", options)
           .then(function (response) {
             if (!response.ok) {
               throw Error(response.status);

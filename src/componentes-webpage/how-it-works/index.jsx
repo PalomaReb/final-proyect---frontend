@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 // import { useAuth } from "../../hooks/index.js";
 import Footer from "../footer/index.js";
@@ -25,9 +25,8 @@ function HowItWorks() {
   return (
     <React.Fragment>
       <Header></Header>
-      <div className={classes.howItWorks}>
+      <Grid className={classes.howItWorks}>
         <Typography className={classes.howItWorksP} color="primary">
-          {" "}
           Hola, bienvenido al juego de tu vida. Estas aqui por algo. Crees que
           entiendes de la programación, pero yo estoy aqui para decirte ponerte
           a prueba. Se te dará un tiempo para completar cada nivel, si no lo
@@ -43,7 +42,7 @@ function HowItWorks() {
         >
           <Typography color="secondary">Comenzar??</Typography>
         </Link>
-      </div>
+      </Grid>
       <Footer></Footer>
     </React.Fragment>
   );

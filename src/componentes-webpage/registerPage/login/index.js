@@ -32,7 +32,7 @@ function Login() {
     const token = query.get("token"); // obtengo el query param del token
     if (token !== null) {
       // llamamos a nuestro API para hacer check del validity
-      fetch(`http://localhost:5463/auth/validate?token=${token}`) // validamos tipo GET pasando el token por query param
+      fetch(`http://localhost:5464/auth/validate?token=${token}`) // validamos tipo GET pasando el token por query param
         .then((r) => {
           setLoading(false); // dejamos de cargar
           if (!r.ok) throw new Error("No se ha validado correctamente"); // si no okey lanzamos error que captura el catch
@@ -63,10 +63,11 @@ function Login() {
         }),
       };
       // llamo al login
-      fetch("http://localhost:5463/auth/login", options)
+      fetch("http://localhost:5464/auth/login", options)
         .then((r) => r.json())
         .then((d) => {
-          sessionStorage.setItem("sessionToken", d.access_token);
+          sessionStorage.setItem("sessionToken", d.access_token)
+          sessionStorage.setItem("email", d.email);
           history.push("/howitworks");
         }); // aqui tendríamos el access token
     } else {
@@ -82,10 +83,10 @@ function Login() {
             <Typography variant="h1" color="primary">
               Log in
             </Typography>
-            <Grid className="input_container">
+            <Grid className={classes.inputContainer}>
               <form onSubmit={handleSubmit}>
                 <TextField
-                  className={classes.userInput}
+                  className={classes.inputContainer}
                   required
                   type="email"
                   name="email"
@@ -93,7 +94,7 @@ function Login() {
                   variant="outlined"
                 />
                 <TextField
-                  className={classes.userInput}
+                  className={classes.inputContainer}
                   required
                   type="password"
                   name="pass"
