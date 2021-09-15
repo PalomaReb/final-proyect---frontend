@@ -9,6 +9,10 @@ export const useStyles = makeStyles((theme) => ({
         padding: "1.3rem"
     },
 
+    inputs: {
+        // padding: "2rem"
+    },
+
     userContainer: {
         justifyContent: "space-between",
         margin: "2.5rem 0",
@@ -25,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
 
     teethIMG: {
         borderRadius: "4.5rem",
-        height: "20rem",
+        height: "18rem",
         margin: "10px 2rem",
         boxShadow: "25px 10px 8px 10px #3c3b3b",
         [theme.breakpoints.down('sm')]: {

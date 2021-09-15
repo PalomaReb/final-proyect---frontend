@@ -1,29 +1,24 @@
 import { useEffect, useState } from "react";
 
 
-export const useAuth = sessionStorage.getItem('email') /*() => {
+export const useAuth = sessionStorage.getItem('sessionToken')
+console.log(useAuth) /*() => {
 
 //     return sessionStorage.getItem('sessionToken') !== "" && sessionStorage.getItem('sessionToken') !== null;
 
 // }*/
 export function useUser() {
-    const [user, setUser] = useState(null)
+    const [userInfo, setUser] = useState(null)
     useEffect(() => {
-        if (useAuth === null || useAuth === undefined) {
-            fetch
-                ('http://localhost:5464/user/userInfo')
-                .then((r) => r.json())
-                .then((data) => {
-                    sessionStorage.setItem("usuario", data)
-                    setUser(data)
-                }
-
-                );
-        }
-        else {
-            console.log('ya hay usuario')
-        }
+        fetch
+            ('http://localhost:5464/user/userInfo')
+            .then((r) => r.json())
+            .then((data) => {
+                sessionStorage.setItem("usuario", data)
+                setUser(data)
+            }
+            );
     }, []);
-    return { user, setUser }
+    return { userInfo, setUser }
 }
 

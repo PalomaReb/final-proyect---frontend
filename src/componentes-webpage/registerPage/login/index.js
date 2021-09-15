@@ -67,7 +67,6 @@ function Login() {
         .then((r) => r.json())
         .then((d) => {
           sessionStorage.setItem("sessionToken", d.access_token)
-          sessionStorage.setItem("email", d.email);
           history.push("/howitworks");
         }); // aqui tendríamos el access token
     } else {

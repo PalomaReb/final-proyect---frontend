@@ -13,9 +13,47 @@ import teeth from "../../assets/images/teeth.jpg";
 import Header from "../header";
 import Footer from "../footer";
 import React from "react";
+import { useHistory } from "react-router";
+import { useAuth } from "../../hooks";
+import { useEffect } from "react";
 
 function Reviewsinput() {
+  const ptitle = "user review page";
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
+
   const classes = useStyles();
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    // gestiono el submit del formulario
+    e.preventDefault();
+    if (e.target.checkValidity()) {
+      // compruebo que todos los campos del formulario son validos
+      // genero el objeto options para llamar al login
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${useAuth}`, // aviso a mi servidor que le envio los datos en formato JSON
+        },
+        body: JSON.stringify({
+          // Genero el body como string
+          alias: e.target.alias.value,
+          review: e.target.review.value,
+        }),
+      };
+      // llamo al login
+      fetch("http://localhost:5464/user/reviews", options)
+        .then((r) => r.json())
+        .then((d) => {
+          history.push("/userReviews");
+        }); // aqui tendríamos el access token
+    } else {
+      // mostrar error al usuario con el campo que no es válido
+    }
+  };
 
   return (
     <React.Fragment>
@@ -35,12 +73,12 @@ function Reviewsinput() {
                 Haz jugado con valentia y honor. Deja un review sobre tu
                 experencia! Gracias por participar!
               </Typography>
-              <form className={classes.inputs}>
+              <form onSubmit={handleSubmit} className={classes.inputs}>
                 <TextField
                   required
-                  type="email"
-                  name="email"
-                  label="Email Address"
+                  type="text"
+                  name="alias"
+                  label="alias"
                   variant="outlined"
                 />
 
@@ -49,6 +87,7 @@ function Reviewsinput() {
                   aria-label="minimum height"
                   minRows={6}
                   placeholder="Write review here"
+                  name="review"
                 />
 
                 <Button
@@ -68,7 +107,7 @@ function Reviewsinput() {
                 <Buttons buttonInfo="Ver reviews"> </Buttons>
               </Link>
             </Grid>
-            <Grid item xs={6} className={classes.imgContainer}>
+            <Grid item xs={6} md={6} className={classes.imgContainer}>
               <img src={teeth} alt="teeth" className={classes.teethIMG} />
             </Grid>
           </Grid>

@@ -6,15 +6,20 @@ import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { useAuth, useUser } from "../hooks";
+import { useAuth } from "../hooks";
 // import face from "../../src/assets/images/face.jpg";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 
 function GamePage() {
+  const ptitle = "death page";
+  useEffect(() => {
+    document.title = ptitle;
+  }, []);
+
   const history = useHistory();
   const [userAnswer, setAnswer] = useState("");
-  const { user } = useUser();
+  // const { userInfo } = useUser();
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   let tlapse = 0; // Cuenta segundos trasncurridos por cada juego
@@ -80,7 +85,7 @@ function GamePage() {
       deathTime - tlapse > 0 && userAnswer === gameAnswer
         ? "completed"
         : "dead";
-
+    console.log(useAuth);
     const newUserProgress = {
       gameUser: useAuth,
       // userProgress: {},
@@ -113,7 +118,6 @@ function GamePage() {
   }
 
   const classes = useStyles();
-
   const gameAnswer = gameInfo?.instructions?.answer;
 
   let gameClasses = `${classes.gameContainer} `; // Clases dinámicas para Material UI
