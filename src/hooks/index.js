@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 
 export const useAuth = sessionStorage.getItem('sessionToken')
-console.log(useAuth) /*() => {
 
 //     return sessionStorage.getItem('sessionToken') !== "" && sessionStorage.getItem('sessionToken') !== null;
 

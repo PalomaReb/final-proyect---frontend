@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
 
     Buttons: {
         color: "#d50102",
-        margin: "1rem",
+        margin: ".5rem",
         fontSize: "1rem",
     },
 

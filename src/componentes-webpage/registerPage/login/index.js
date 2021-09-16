@@ -9,6 +9,7 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import Buttons from "../../buttons";
 import { Typography, Grid, Container } from "@material-ui/core";
+import { useAuth } from '../../../hooks/index'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -18,7 +19,8 @@ function Login() {
   const classes = useStyles();
   const query = useQuery(); // obtengo los query params
   const [isLoading, setLoading] = useState(true); // state variable para controlar si estoy llamando al API o no
-  const [isEmailValid, setEmailValidity] = useState(false); // use state para controlar si el email es válido o no
+  const [isEmailValid, setEmailValidity] = useState(false);
+  // use state para controlar si el email es válido o no
 
 
   const ptitle = "login";
@@ -44,6 +46,7 @@ function Login() {
       setEmailValidity(false); // mostramos error
     }
   }, []);
+  console.log(useAuth)
 
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
@@ -54,7 +57,9 @@ function Login() {
       const options = {
         method: "POST",
         headers: {
-          "Content-type": "application/json", // aviso a mi servidor que le envio los datos en formato JSON
+          "Content-type": "application/json",
+
+          // aviso a mi servidor que le envio los datos en formato JSON
         },
         body: JSON.stringify({
           // Genero el body como string
@@ -62,11 +67,10 @@ function Login() {
           password: e.target.pass.value,
         }),
       };
-      // llamo al login
       fetch("http://localhost:5464/auth/login", options)
         .then((r) => r.json())
         .then((d) => {
-          sessionStorage.setItem("sessionToken", d.access_token)
+          sessionStorage.setItem("sessionToken", d.access_token);
           history.push("/howitworks");
         }); // aqui tendríamos el access token
     } else {

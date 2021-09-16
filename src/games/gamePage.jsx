@@ -6,7 +6,7 @@ import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { useAuth } from "../hooks";
+// import { useAuth } from "../hooks";
 // import face from "../../src/assets/images/face.jpg";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
@@ -78,6 +78,7 @@ function GamePage() {
   // }
 
   function handleSubmit() {
+    const sessionToken = sessionStorage.getItem("sessionToken");
     //e.preventDefault();
     //guardar progreso del usuario y mandar a proximo game
     const gameMethod = id === "1" ? "POST" : "PATCH";
@@ -85,9 +86,7 @@ function GamePage() {
       deathTime - tlapse > 0 && userAnswer === gameAnswer
         ? "completed"
         : "dead";
-    console.log(useAuth);
     const newUserProgress = {
-      gameUser: useAuth,
       // userProgress: {},
       gameList: [
         {
@@ -104,7 +103,9 @@ function GamePage() {
     const progress = {
       method: gameMethod,
       headers: {
-        "Content-type": "application/json", // aviso a mi servidor que le envio los datos en formato JSON
+        "Content-type": "application/json",
+        Authorization: `Bearer ${sessionToken}`,
+        // aviso a mi servidor que le envio los datos en formato JSON
       },
       body: JSON.stringify(newUserProgress), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
     };

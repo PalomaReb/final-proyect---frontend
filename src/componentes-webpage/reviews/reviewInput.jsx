@@ -2,7 +2,6 @@ import {
   Container,
   Grid,
   Typography,
-  TextField,
   TextareaAutosize,
   Button,
 } from "@material-ui/core";
@@ -14,7 +13,7 @@ import Header from "../header";
 import Footer from "../footer";
 import React from "react";
 import { useHistory } from "react-router";
-import { useAuth } from "../../hooks";
+// import { useAuth } from "../../hooks";
 import { useEffect } from "react";
 
 function Reviewsinput() {
@@ -27,31 +26,26 @@ function Reviewsinput() {
   const history = useHistory();
 
   const handleSubmit = (e) => {
-    // gestiono el submit del formulario
+    const sessionToken = sessionStorage.getItem("sessionToken");
     e.preventDefault();
     if (e.target.checkValidity()) {
-      // compruebo que todos los campos del formulario son validos
-      // genero el objeto options para llamar al login
       const options = {
         method: "POST",
         headers: {
           "Content-type": "application/json",
-          Authorization: `Bearer ${useAuth}`, // aviso a mi servidor que le envio los datos en formato JSON
+          Authorization: `Bearer ${sessionToken}`,
         },
+
         body: JSON.stringify({
-          // Genero el body como string
-          alias: e.target.alias.value,
           review: e.target.review.value,
         }),
       };
-      // llamo al login
       fetch("http://localhost:5464/user/reviews", options)
         .then((r) => r.json())
         .then((d) => {
-          history.push("/userReviews");
-        }); // aqui tendríamos el access token
+          history.push("/view-reviews");
+        });
     } else {
-      // mostrar error al usuario con el campo que no es válido
     }
   };
 
@@ -67,21 +61,13 @@ function Reviewsinput() {
               </Typography>
               <Typography
                 className={classes.finalSentence}
-                variant="h5"
-                color="black"
+                variant="h3"
+                color="#000000"
               >
                 Haz jugado con valentia y honor. Deja un review sobre tu
                 experencia! Gracias por participar!
               </Typography>
               <form onSubmit={handleSubmit} className={classes.inputs}>
-                <TextField
-                  required
-                  type="text"
-                  name="alias"
-                  label="alias"
-                  variant="outlined"
-                />
-
                 <TextareaAutosize
                   className={classes.textArea}
                   aria-label="minimum height"
@@ -103,7 +89,7 @@ function Reviewsinput() {
               <Link to="/">
                 <Buttons buttonInfo="Home"> </Buttons>
               </Link>
-              <Link to="/">
+              <Link to="/view-reviews">
                 <Buttons buttonInfo="Ver reviews"> </Buttons>
               </Link>
             </Grid>

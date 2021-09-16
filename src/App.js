@@ -17,6 +17,7 @@ import TermsPage from './legal-pages/terms';
 import CookiesPage from './legal-pages/cookies';
 import GDPRPage from './legal-pages/gdpr';
 import Reviewsinput from '../src/componentes-webpage/reviews/reviewInput';
+import ViewReview from './componentes-webpage/reviews/viewReview';
 
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
           <Route path="/reviews">
             <Reviewsinput>
             </Reviewsinput>
+          </Route>
+          <Route path="/view-reviews">
+            <ViewReview></ViewReview>
           </Route>
           <Route path="/terms">
             <TermsPage></TermsPage>

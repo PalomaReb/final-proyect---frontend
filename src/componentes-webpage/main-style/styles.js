@@ -19,7 +19,6 @@ export const useStyles = makeStyles((theme) => ({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "380px",
-        backgroundColor: "black"
     },
     headerContainer: {
         display: "flex",
