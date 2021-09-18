@@ -102,7 +102,9 @@ function Login() {
                   type="password"
                   name="pass"
                   label="Password"
+                  inputProps={{ minLength: 8 }}
                   variant="outlined"
+
                 />
                 <div className={classes.registerButton}>
                   <Button

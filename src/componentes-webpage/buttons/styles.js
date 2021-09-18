@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     buttonHome: {
-        color: "black",
+        color: "white",
         margin: "2rem",
         fontSize: "1.5rem",
     },

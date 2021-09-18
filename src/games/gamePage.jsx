@@ -6,20 +6,63 @@ import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-// import { useAuth } from "../hooks";
-// import face from "../../src/assets/images/face.jpg";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
+// import Sound from "react-sound";
+import MindReader from "./gameComponents/mindReader";
+
+function calculateRandomIndex() {
+  return Math.floor(Math.random() * 7);
+}
 
 function GamePage() {
-  const ptitle = "death page";
-  useEffect(() => {
-    document.title = ptitle;
-  }, []);
-
+  const classes = useStyles();
   const history = useHistory();
   const [userAnswer, setAnswer] = useState("");
-  // const { userInfo } = useUser();
+  const [ax, setAx] = useState(calculateRandomIndex()); //Para el juego de MindReader
+  const [showReload, setShowReload] = useState(false);
+  const alphaArray = [
+    "C",
+    "o",
+    "d",
+    "-",
+    "e",
+    "r",
+    "i",
+    "a",
+    "n",
+    "b",
+    "f",
+    "h",
+    "{",
+    "☘",
+    "l",
+    "v",
+    "x",
+    "ℨ",
+    "℘",
+    "☢",
+    "z",
+    "I",
+    "J",
+    "M",
+    ":)",
+    "Ω",
+    "℧",
+    "N",
+    "R",
+    "S",
+    "T",
+    "U",
+    "m",
+    "6",
+    "^",
+    "u",
+    "☣",
+    "☠",
+    "☯",
+    "]",
+  ];
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   let tlapse = 0; // Cuenta segundos trasncurridos por cada juego
@@ -66,20 +109,53 @@ function GamePage() {
 
   let printNewGameSection = ""; // Sección dinámica para algunos juegos.
   //eligiendo componentes opciones segun el juego
-  if (id === "2") {
-    printNewGameSection = (
-      <ThemeWrapper>
-        <BathroomGame></BathroomGame>
-      </ThemeWrapper>
-    );
+  let gameClasses = `${classes.gameContainer} `; // Clases dinámicas para Material UI
+  switch (id) {
+    case "1":
+      gameClasses += `${classes.genericIMG}`;
+      console.log("Magnum opus");
+      break;
+
+    case "2":
+      gameClasses += `${classes.bathroomIMG}`;
+      printNewGameSection = (
+        <ThemeWrapper>
+          <BathroomGame></BathroomGame>
+        </ThemeWrapper>
+      );
+      break;
+
+    case "4":
+      //if (gameInfo?.instructions?.logic) { // Este If puede sobrar si se controla todo por ID. Aunque la configuración desde BBDD es útil para cuando crezca el volumen de juegos.
+      printNewGameSection = (
+        <MindReader
+          ax={ax}
+          arr={alphaArray}
+          showReload={showReload}
+          response={(e) => {
+            e.preventDefault();
+            e.target.innerHTML = alphaArray[ax];
+            setShowReload(true);
+          }}
+          reload={(e) => {
+            e.target.previousSibling.children[0].children[0].cells[0].innerHTML =
+              "¿?";
+            setShowReload(false);
+            setAx(calculateRandomIndex());
+          }}
+        ></MindReader>
+      );
+      //}
+      break;
+
+    default:
+      gameClasses += `${classes.genericIMG}`;
   }
-  // if (gameInfo?.instructions?.logic) {
-  //   printNewGameSection = <MindReader></MindReader>;
-  // }
+
+  const gameAnswer = gameInfo?.instructions?.answer; // Respuesta correcta de cada juego. REcuperado de la BBDD.
 
   function handleSubmit() {
     const sessionToken = sessionStorage.getItem("sessionToken");
-    //e.preventDefault();
     //guardar progreso del usuario y mandar a proximo game
     const gameMethod = id === "1" ? "POST" : "PATCH";
     const gameStatus =
@@ -87,7 +163,6 @@ function GamePage() {
         ? "completed"
         : "dead";
     const newUserProgress = {
-      // userProgress: {},
       gameList: [
         {
           // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
@@ -114,19 +189,8 @@ function GamePage() {
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.
-    let nextG = id < 3 ? parseInt(id) + 1 : "/reviews"; // Se define la siguiente ruta.
+    let nextG = id < 4 ? parseInt(id) + 1 : "/alive"; // Se define la siguiente ruta.
     history.replace(`${nextG}`);
-  }
-
-  const classes = useStyles();
-  const gameAnswer = gameInfo?.instructions?.answer;
-
-  let gameClasses = `${classes.gameContainer} `; // Clases dinámicas para Material UI
-  if (id === "1" || id === "3") {
-    gameClasses += `${classes.genericIMG}`;
-  }
-  if (id === "2") {
-    gameClasses += `${classes.bathroomIMG}`;
   }
 
   return (
@@ -143,7 +207,6 @@ function GamePage() {
             {gameInfo?.instructions?.body_es[2]}
             {gameInfo?.instructions?.body_es[3]}
             {gameInfo?.instructions?.body_es[4]}
-            {/* {console.log("Magnum opus")} */}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -164,9 +227,6 @@ function GamePage() {
           <Button
             onClick={() => {
               if (userAnswer === gameAnswer) {
-                // Paramos los contadores temporales (de las distintas dimensiones)
-                // clearTimeout(tiempo);
-                // clearInterval(intervalo);
                 handleSubmit();
               } else {
                 //"Sigue intentandolo!"

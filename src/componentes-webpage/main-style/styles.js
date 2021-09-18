@@ -36,11 +36,20 @@ export const useStyles = makeStyles((theme) => ({
         maxWidth: "100%",
         backgroundColor: "black",
         margin: "0",
-        minHeight: "79vh",
-        padding: "57px",
+        minHeight: "50vh",
+        padding: "15px 57px 15x 57px",
         letterSpacing: "5px",
     },
     howItWorksP: {
+        margin: "2rem auto",
+        textAlign: "justify",
+        maxWidth: "60%",
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: "100%",
+        }
+    },
+    howItWorksH1: {
+        textAlign: "center",
         margin: "3rem auto",
         maxWidth: "60%",
         [theme.breakpoints.down('sm')]: {
@@ -68,5 +77,9 @@ export const useStyles = makeStyles((theme) => ({
             backgroundColor: theme.palette.primary.main,
         },
     },
+    displayNone: {
+        display: "none"
+    },
+
 }));
 

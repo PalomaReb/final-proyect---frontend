@@ -18,6 +18,7 @@ import CookiesPage from './legal-pages/cookies';
 import GDPRPage from './legal-pages/gdpr';
 import Reviewsinput from '../src/componentes-webpage/reviews/reviewInput';
 import ViewReview from './componentes-webpage/reviews/viewReview';
+import SurvivalPage from './games/endPage'
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/death">
             <GameOver></GameOver>
+          </Route>
+          <Route path="/alive">
+            <SurvivalPage></SurvivalPage>
           </Route>
           <Route path='/register'>
             <RegisterUser></RegisterUser>

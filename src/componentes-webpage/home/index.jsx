@@ -22,7 +22,7 @@ function Home() {
       </Typography>
       <Grid className={classes.center}>
         <Link to={userRoute}>
-          <ButtonHome buttonInfo="Yes"></ButtonHome>
+          <ButtonHome color="secondary" buttonInfo="Yes"></ButtonHome>
         </Link>
         <Link to="/404">
           <ButtonHome buttonInfo="No"></ButtonHome>

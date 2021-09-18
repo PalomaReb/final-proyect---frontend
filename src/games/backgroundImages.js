@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import face from '../../src/assets/images/face.jpg';
 import bathroom from "../assets/images/SAW-Bathroom.jpg";
 import doll from '../assets/images/doll.jpg';
+import alive from '../assets/images/alive.jpg';
 
 export const useStyles = makeStyles((theme) => ({
     genericIMG: {
@@ -67,5 +68,25 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: "4.3rem",
         color: "black"
 
+    },
+
+    //______________________________ALIVE__________________________________
+
+
+
+
+    aliveIMG: {
+        background: `url(${alive})`,
+        backgroundPosition: "top center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        minHeight: "80vh",
+        minWidth: "100%",
+    },
+
+    text: {
+        margin: "auto",
+        width: "50%",
+        padding: "10px"
     }
 }));

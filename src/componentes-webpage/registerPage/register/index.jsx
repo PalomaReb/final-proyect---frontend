@@ -80,7 +80,7 @@ function Register() {
                 required
                 type="email"
                 name="email"
-                label="Email Address"
+                label="Email"
                 variant="outlined"
               />
               <TextField

@@ -45,11 +45,12 @@ export const useStyles = makeStyles((theme) => ({
 
 
     cardContainer: {
-        minHeight: "fit content",
-        width: "17rem",
+        height: "18rem",
+        width: "18rem",
         display: "flex",
         flexDirection: "column",
-        margin: ".5rem"
+        margin: ".5rem",
+        borderRadius: "40px",
 
     },
 
@@ -58,14 +59,11 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     thankYouIMG: {
-
-        width: "17rem",
-
-        opacity: ".8",
-        '&:hover': {
-            opacity: "1"
-        },
-        height: "7rem",
+        width: "18rem",
+        margin: "0",
+        height: "8rem",
 
     },
+
+
 }));

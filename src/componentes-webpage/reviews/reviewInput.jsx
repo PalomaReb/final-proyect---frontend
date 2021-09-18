@@ -4,6 +4,7 @@ import {
   Typography,
   TextareaAutosize,
   Button,
+  TextField,
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 import Buttons from "../buttons";
@@ -38,11 +39,12 @@ function Reviewsinput() {
 
         body: JSON.stringify({
           review: e.target.review.value,
+          alias: e.target.alias.value,
         }),
       };
       fetch("http://localhost:5464/user/reviews", options)
         .then((r) => r.json())
-        .then((d) => {
+        .then(() => {
           history.push("/view-reviews");
         });
     } else {
@@ -68,6 +70,14 @@ function Reviewsinput() {
                 experencia! Gracias por participar!
               </Typography>
               <form onSubmit={handleSubmit} className={classes.inputs}>
+                <TextField
+                  className={classes.userInputs}
+                  required
+                  type="text"
+                  name="alias"
+                  label="Alias"
+                  variant="outlined"
+                />
                 <TextareaAutosize
                   className={classes.textArea}
                   aria-label="minimum height"
@@ -75,16 +85,17 @@ function Reviewsinput() {
                   placeholder="Write review here"
                   name="review"
                 />
-
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  className={classes.submitBtn}
-                >
-                  Submit
-                </Button>
+                <div className={classes.registerButton}>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                  >
+                    Review!
+                  </Button>
+                </div>
               </form>
               <Link to="/">
                 <Buttons buttonInfo="Home"> </Buttons>
