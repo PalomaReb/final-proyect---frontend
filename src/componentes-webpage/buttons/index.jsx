@@ -8,6 +8,7 @@ function Buttons(props) {
       className={`${classes.Buttons} ${props.className}`}
       variant="text"
       onClick={props.onClick}
+      color={props.color}
     >
       {props.buttonInfo}
     </Button>

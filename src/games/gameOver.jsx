@@ -2,6 +2,7 @@ import { useStyles } from "./backgroundImages";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
 
 const innerPageTheme = createTheme({
   typography: {
@@ -11,6 +12,8 @@ const innerPageTheme = createTheme({
 
 function GameOver() {
   const classes = useStyles();
+  const [t, i18n] = useTranslation("global");
+
   return (
     <ThemeProvider theme={innerPageTheme}>
       <Grid className={classes.gameOverBGI}>
@@ -21,18 +24,18 @@ function GameOver() {
               color="primary"
               className={classes.fontChange}
             >
-              You thought you could escape, but there is no escaping your fate.
+              {t("deathPage.title")}
             </Typography>
           </Grid>
           <Grid container className={classes.fourofour}>
-            <Grid item xs={12}>
-              <Link to="/">
+            <Grid item align="center" xs={12}>
+              <Link className={classes.link} to="/">
                 <Button
                   variant="contained"
                   color="primary"
-                  className={classes.FoFbtn}
+                  className={classes.btnGameOver}
                 >
-                  Go Home
+                  {t("deathPage.btnHome")}
                 </Button>
               </Link>
             </Grid>

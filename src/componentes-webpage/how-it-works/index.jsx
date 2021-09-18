@@ -5,7 +5,7 @@ import Footer from "../footer/index.js";
 import Header from "../header/index.js";
 import { useStyles } from "../main-style/styles.js";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 function HowItWorks() {
   const ptitle = "how it works";
   useEffect(() => {
@@ -14,6 +14,7 @@ function HowItWorks() {
 
   const [name, setName] = useState("anonymous");
   const classes = useStyles();
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     if (useAuth !== null) {
@@ -41,23 +42,19 @@ function HowItWorks() {
           variant="h1"
           color="primary"
         >
-          CODE OR DIE
+          {t("HowItWorks.title")}
         </Typography>
         <Typography className={classes.howItWorksP} color="primary">
-          {`Hola, ${name}, bienvenido al juego de tu vida. Estas aqui por algo. Crees que
-          entiendes de la programación, pero yo estoy aqui para ponerte
-          a prueba. Se te dará un tiempo para completar cada nivel, si no lo
-          consigues, lastimosamente, no podrás continuar. La única forma de
-          salir de este juego es completando todos los niveles. Te sugiero que
-          no salgas de la pantalla, o no se guardará tu progreso y no podrás
-          salir. Es hora de poner tus conocimientos a prueba... si te atreves.`}
+          {t("HowItWorks.hello")}
+          {name}
+          {t("HowItWorks.mainText")}
         </Typography>
 
         <Link
           className={`${classes.center} ${classes.headerLink}`}
           to="/game/1"
         >
-          <Typography color="secondary">Comenzar??</Typography>
+          <Typography color="secondary">{t("HowItWorks.btn")}</Typography>
         </Link>
       </Grid>
       <Footer></Footer>

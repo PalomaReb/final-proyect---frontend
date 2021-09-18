@@ -11,6 +11,7 @@ import Buttons from "../../buttons";
 import { Typography, Grid, Container } from "@material-ui/core";
 import { useAuth } from '../../../hooks/index'
 
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }

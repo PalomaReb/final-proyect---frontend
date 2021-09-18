@@ -1,0 +1,80 @@
+{
+  "Home": {
+    "title": "Do you want to play a game?",
+    "btnYes": "Yes",
+    "btnNo": "No"
+  },
+
+  "Header": {
+    "home": "Home",
+    "register": "Register",
+    "logIn": "Log in",
+    "usrRvw": "Reviews",
+    "review": "Give a review",
+    "game": "Go to game"
+  },
+
+  "Footer": {
+    "legalTerms": "Legal Terms",
+    "cookies": "Cookies",
+    "gdpr": "GDPR"
+  },
+  "Register": {
+    "title": "Register",
+    "email": "Email",
+    "alias": "Alias",
+    "password": "Password",
+    "rPassword": "Repeat Password",
+    "btnReg": "Register me",
+    "privacy": "I accept term and conditions of use",
+    "btnContinue": "Continue without registering",
+    "btnLogin": "I already have an account"
+  },
+
+  "Login": {
+    "title": "Log in",
+    "Email": "Email",
+    "password": "Password",
+    "btnLogin": "Log in",
+    "btnAccount": "Create a new account"
+  },
+
+  "HowItWorks": {
+    "title": "Code or Die",
+    "hello": "Hello ",
+    "mainText": " and welcome to the game of your life. You are here for a reason. You think you understand programming but I am here to put you to the test.You will be given some time to complete the levels presented, if you do not pass them, you will not be able to contiue. The only way out is to complete all the levels. I recommend that you do not switch pages because if you do, your progress will not be saved and you will not be able to leave. It is time to put your skills to the test... if you dare.",
+    "btn": "Begin?"
+  },
+  "Reviews": {
+    "title": "Reviews",
+    "mainText": "No one has survived to tell the tale"
+  },
+
+  "404": {
+    "title": "404! This is not the exit you are looking for. You have the wrong code.",
+    "btnHome": "Go home"
+  },
+
+  "usrRvw": {
+    "title": "Give your review!",
+    "mainText": "You have played with honor and pride. Leave a review below about your expirience! Thank you for participating!",
+    "btnAlias": "Alias",
+    "txtBox": "Write a review here",
+    "btnReview": "Review",
+    "btnHome": "Home",
+    "btnviewReview": "View Reviews"
+  },
+
+  "game": {
+    "input": "Answer",
+    "btnInput": "Escape???"
+  },
+  "alive": {
+    "text": "You have SURVIVED the game thanks to your vast knowledge! Congratulations! For now... ",
+    "btnReviews": "Leave your review"
+  },
+  "deathPage": {
+    "title": "You thought you could escape, but there is no escaping your fate",
+    "btnHome": "Go home"
+  }
+}

@@ -4,21 +4,27 @@ import Button from "../componentes-webpage/buttons/index";
 import Header from "../componentes-webpage/header";
 import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useHistory, useParams } from "react-router";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 // import Sound from "react-sound";
 import MindReader from "./gameComponents/mindReader";
+import SandTimer from "../assets/images/reloj-arena.gif";
+import { UserState } from "../functions/index";
+import { useAuth } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 function calculateRandomIndex() {
   return Math.floor(Math.random() * 7);
 }
 
 function GamePage() {
+  const [t, i18n] = useTranslation("global");
   const classes = useStyles();
   const history = useHistory();
   const [userAnswer, setAnswer] = useState("");
+  const tlapse = useRef(0);
   const [ax, setAx] = useState(calculateRandomIndex()); //Para el juego de MindReader
   const [showReload, setShowReload] = useState(false);
   const alphaArray = [
@@ -65,9 +71,9 @@ function GamePage() {
   ];
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
-  let tlapse = 0; // Cuenta segundos trasncurridos por cada juego
-  const deathTime = 30; //300 serian 5 min
-  const t = deathTime * 1000;
+  // Cuenta segundos trasncurridos por cada juego
+  const deathTime = 300; //300 serian 5 min
+  const time = deathTime * 1000;
   // logica puntos:
   // tiempo que tienes para adivinar - el timepo que haz tardado en adivinar
   // da el tiempo que sobro
@@ -84,12 +90,30 @@ function GamePage() {
         setGameInfo(data);
         const ptitle = "LEVEL " + id;
         document.title = ptitle;
+
         //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
       }); //pinta solo el id del juego y sus controles
 
+    if (useAuth !== null) {
+      const sessionToken = sessionStorage.getItem("sessionToken");
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${sessionToken}`,
+          // aviso a mi servidor que le envio los datos en formato JSON
+        },
+      };
+      console.log("404!!");
+      fetch("http://localhost:5464/games/user-progress", options)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+      //return data;
+    }
+
     const intervalo = setInterval(function () {
       // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
-      tlapse++;
+      tlapse.current++;
       console.log(tlapse);
     }, 1000);
     const tiempo = setTimeout(function () {
@@ -97,13 +121,13 @@ function GamePage() {
       // Funciones a ejecutar cuando se termine el tiempo.
       handleSubmit();
       history.replace("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
-    }, t);
+    }, time);
 
     return () => {
       clearInterval(intervalo); // Limpiamos el interval ID
       clearTimeout(tiempo); // Limpiamos el timeout ID
       setAnswer(""); // Con esto se prentende limpiar el input en cada juego, pero no se si genera renderizados que no convienen.
-      tlapse = 0; // Reinicializamos el contador de segundos.
+      tlapse.current = 0; // Reinicializamos el contador de segundos.
     };
   }, [id]);
 
@@ -159,7 +183,7 @@ function GamePage() {
     //guardar progreso del usuario y mandar a proximo game
     const gameMethod = id === "1" ? "POST" : "PATCH";
     const gameStatus =
-      deathTime - tlapse > 0 && userAnswer === gameAnswer
+      deathTime - tlapse.current > 0 && userAnswer === gameAnswer
         ? "completed"
         : "dead";
     const newUserProgress = {
@@ -168,10 +192,10 @@ function GamePage() {
           // Añadir objeto por cada juego que realiza el usuario. Se debe realacionar con el usuario
           gameId: id,
           level: id,
-          timeEnded: tlapse,
+          timeEnded: tlapse.current,
           status: gameStatus,
           date: new Date(),
-          points: deathTime - tlapse,
+          points: deathTime - tlapse.current,
         },
       ],
     };
@@ -198,7 +222,14 @@ function GamePage() {
       <Header></Header>
       <Grid container xs={12} className={gameClasses}>
         <Grid item xs={12} className={classes.backgroundGame}>
-          <Typography className={classes.timer} color="primary"></Typography>
+          <Typography className={classes.timer} color="primary">
+            {" "}
+            <img
+              src={SandTimer}
+              className={classes.timerIMG}
+              alt="sand timer"
+            />
+          </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" color="primary" className={classes.acertijo}>
@@ -219,7 +250,7 @@ function GamePage() {
             className={classes.inputBackGround}
             type="password"
             name="answer"
-            label="RESPUESTA"
+            label={t("game.input")}
             variant="outlined"
             /*value={userAnswer}*/
             onBlur={(e) => setAnswer(e.target.value)}
@@ -233,7 +264,7 @@ function GamePage() {
               }
             }}
             color="primary"
-            buttonInfo="ESCAPAR?????"
+            buttonInfo={t("game.btnInput")}
           ></Button>
         </Grid>
       </Grid>

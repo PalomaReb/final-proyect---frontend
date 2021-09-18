@@ -5,10 +5,12 @@ import Footer from "../componentes-webpage/footer/index";
 import { Container, Typography, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function NotFound() {
   const classes = useStyles();
   const ptitle = "Página no encontrada";
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     document.title = ptitle;
@@ -23,8 +25,7 @@ function NotFound() {
           <Grid container className={classes.fourofour}>
             <Grid item xs={12} md={5} className={classes.title}>
               <Typography variant="h1" color="primary">
-                404! This is not the exit you are looking for. You have the
-                wrong code.
+                {t("404.title")}
               </Typography>
             </Grid>
             <Grid item xs={12} md={3} className={classes.baseText}>
@@ -48,7 +49,7 @@ function NotFound() {
                   color="primary"
                   className={classes.FoFbtn}
                 >
-                  Go Home
+                  {t("404.btnHome")}
                 </Button>
               </Link>
             </Grid>

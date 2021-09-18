@@ -19,57 +19,77 @@ import GDPRPage from './legal-pages/gdpr';
 import Reviewsinput from '../src/componentes-webpage/reviews/reviewInput';
 import ViewReview from './componentes-webpage/reviews/viewReview';
 import SurvivalPage from './games/endPage'
+import { I18nextProvider } from 'react-i18next';
+import globalEs from './langauges/espa.json'
+import globalEn from './langauges/eng.json'
+import i18next from 'i18next';
+
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: "en",
+  resources: {
+    es: {
+      global: globalEs
+    },
+    en: {
+      global: globalEn
+    },
+  }
+})
 
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route path="/game/:id">
-            <GamePage></GamePage>
-          </Route>
-          <Route path="/death">
-            <GameOver></GameOver>
-          </Route>
-          <Route path="/alive">
-            <SurvivalPage></SurvivalPage>
-          </Route>
-          <Route path='/register'>
-            <RegisterUser></RegisterUser>
-          </Route>
-          <Route path='/login'>
-            <LoginUser></LoginUser>
-          </Route>
-          <Route path="/howitworks">
-            <HowItWorks></HowItWorks>
-          </Route>
-          <Route path="/reviews">
-            <Reviewsinput>
-            </Reviewsinput>
-          </Route>
-          <Route path="/view-reviews">
-            <ViewReview></ViewReview>
-          </Route>
-          <Route path="/terms">
-            <TermsPage></TermsPage>
-          </Route>
-          <Route path="/cookies">
-            <CookiesPage></CookiesPage>
-          </Route>
-          <Route path="/gdpr">
-            <GDPRPage></GDPRPage>
-          </Route>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-          <Route>
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-      </Router>
+    <I18nextProvider i18n={i18next}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route path="/game/:id">
+              <GamePage></GamePage>
+            </Route>
+            <Route path="/death">
+              <GameOver></GameOver>
+            </Route>
+            <Route path="/alive">
+              <SurvivalPage></SurvivalPage>
+            </Route>
+            <Route path='/register'>
+              <RegisterUser></RegisterUser>
+            </Route>
+            <Route path='/login'>
+              <LoginUser></LoginUser>
+            </Route>
+            <Route path="/howitworks">
+              <HowItWorks></HowItWorks>
+            </Route>
+            <Route path="/reviews">
+              <Reviewsinput>
+              </Reviewsinput>
+            </Route>
+            <Route path="/view-reviews">
+              <ViewReview></ViewReview>
+            </Route>
+            <Route path="/terms">
+              <TermsPage></TermsPage>
+            </Route>
+            <Route path="/cookies">
+              <CookiesPage></CookiesPage>
+            </Route>
+            <Route path="/gdpr">
+              <GDPRPage></GDPRPage>
+            </Route>
+            <Route exact path='/'>
+              <Home></Home>
+            </Route>
+            <Route>
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </Router>
 
-    </ThemeProvider>
+      </ThemeProvider>
+
+    </I18nextProvider>
 
   );
 }

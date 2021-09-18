@@ -52,7 +52,9 @@ function ViewReview(props) {
               ))}
             </Carousel>
           ) : (
-            ""
+            <Typography color="primary" variant="h2">
+              Nadie ha sobrevivido para contar su historia...
+            </Typography>
           )}
         </Container>
       </Grid>

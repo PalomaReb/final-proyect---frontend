@@ -38,9 +38,11 @@ export const useStyles = makeStyles((theme) => ({
         color: "#d50102",
         direction: "row",
         textAlign: "right",
-        margin: "2rem",
+        margin: "0rem 2rem",
     },
-
+    timerIMG: {
+        width: "3rem",
+    },
     inputBackGround: {
         backgroundColor: "#424242",
         borderRadius: "1rem",
@@ -64,17 +66,31 @@ export const useStyles = makeStyles((theme) => ({
         minWidth: "100%"
     },
     fontChange: {
-        textAlign: "right",
+        textAlign: "center",
         fontSize: "4.3rem",
-        color: "black"
+        color: "black",
+        padding: "1rem",
+        background: "rgb(255 255 255 / 40%)",
 
+        [theme.breakpoints.down('sm')]: {
+            color: "red",
+            background: "rgb(32 31 31 / 60%)",
+        },
+    },
+    btnGameOver: {
+        backgroundColor: "black",
+        fontSize: "1.5rem",
+        margin: "2rem auto",
+        '&:hover': {
+            backgroundColor: "red",
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "1rem",
+
+        },
     },
 
     //______________________________ALIVE__________________________________
-
-
-
-
     aliveIMG: {
         background: `url(${alive})`,
         backgroundPosition: "top center",
