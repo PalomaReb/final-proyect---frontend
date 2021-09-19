@@ -1,17 +1,16 @@
+import React, { useEffect, useState, useRef } from "react";
 import { Grid, Typography, TextField } from "@material-ui/core";
-import React from "react";
 import Button from "../componentes-webpage/buttons/index";
 import Header from "../componentes-webpage/header";
 import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
-import { useEffect, useState, useRef } from "react";
 import { useHistory, useParams } from "react-router";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 // import Sound from "react-sound";
 import MindReader from "./gameComponents/mindReader";
-import SandTimer from "../assets/images/reloj-arena.gif";
-import { UserState } from "../functions/index";
+import SandTimer from '../assets/images/reloj-arena.gif';
+//import { UserState } from "../functions/index";
 import { useAuth } from "../hooks";
 import { useTranslation } from "react-i18next";
 
@@ -71,9 +70,8 @@ function GamePage() {
   ];
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
-  // Cuenta segundos trasncurridos por cada juego
+// Cuenta segundos trasncurridos por cada juego
   const deathTime = 300; //300 serian 5 min
-  const time = deathTime * 1000;
   // logica puntos:
   // tiempo que tienes para adivinar - el timepo que haz tardado en adivinar
   // da el tiempo que sobro
@@ -88,13 +86,11 @@ function GamePage() {
       .then((r) => r.json()) //promesa que devuelve el json
       .then((data) => {
         setGameInfo(data);
-        const ptitle = "LEVEL " + id;
-        document.title = ptitle;
-
+        document.title = t("game.metaTitlePart1") + id + t("game.metaTitlePart2");
         //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
       }); //pinta solo el id del juego y sus controles
 
-    if (useAuth !== null) {
+    /*if (useAuth !== null) { // Hay una función para esto.
       const sessionToken = sessionStorage.getItem("sessionToken");
       const options = {
         method: "GET",
@@ -109,19 +105,19 @@ function GamePage() {
         .then((response) => response.json())
         .then((data) => console.log(data));
       //return data;
-    }
+    }*/
 
     const intervalo = setInterval(function () {
       // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
       tlapse.current++;
-      console.log(tlapse);
+      console.log(tlapse.current);
     }, 1000);
     const tiempo = setTimeout(function () {
       // NOTA: No se reinicializa aquí el interval ni el timeout, el contador tlapse continua hasta que llega al final. La forma correcta es en el return del useEffect!!!!!!
       // Funciones a ejecutar cuando se termine el tiempo.
       handleSubmit();
       history.replace("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
-    }, time);
+    }, deathTime * 1000);
 
     return () => {
       clearInterval(intervalo); // Limpiamos el interval ID
@@ -129,7 +125,7 @@ function GamePage() {
       setAnswer(""); // Con esto se prentende limpiar el input en cada juego, pero no se si genera renderizados que no convienen.
       tlapse.current = 0; // Reinicializamos el contador de segundos.
     };
-  }, [id]);
+  }, [id, t, history]);
 
   let printNewGameSection = ""; // Sección dinámica para algunos juegos.
   //eligiendo componentes opciones segun el juego
@@ -175,8 +171,15 @@ function GamePage() {
     default:
       gameClasses += `${classes.genericIMG}`;
   }
-
   const gameAnswer = gameInfo?.instructions?.answer; // Respuesta correcta de cada juego. REcuperado de la BBDD.
+  let txt = []; // Array donde insertamos el texo del juego desde el backend y en su idioma correposndiente.
+  switch (i18n.options.lng) {
+    case "es":
+      //txt = gameInfo?.instructions?.body_es;
+      txt = gameInfo?.instructions?.body_es;
+      break;
+    default: txt = gameInfo?.instructions?.body_eng;
+  }
 
   function handleSubmit() {
     const sessionToken = sessionStorage.getItem("sessionToken");
@@ -222,22 +225,16 @@ function GamePage() {
       <Header></Header>
       <Grid container xs={12} className={gameClasses}>
         <Grid item xs={12} className={classes.backgroundGame}>
-          <Typography className={classes.timer} color="primary">
-            {" "}
-            <img
-              src={SandTimer}
-              className={classes.timerIMG}
-              alt="sand timer"
-            />
-          </Typography>
+          <Typography className={classes.timer} color="primary"><img src={SandTimer} className={classes.timerIMG} alt="sand timer"/></Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" color="primary" className={classes.acertijo}>
-            {gameInfo?.instructions?.body_es[0]}
+            {txt?.map((clue) => clue)}
+            {/*gameInfo?.instructions?.body_es[0]}
             {gameInfo?.instructions?.body_es[1]}
             {gameInfo?.instructions?.body_es[2]}
             {gameInfo?.instructions?.body_es[3]}
-            {gameInfo?.instructions?.body_es[4]}
+            {gameInfo?.instructions?.body_es[4]*/}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>

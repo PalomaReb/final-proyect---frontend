@@ -1,3 +1,4 @@
+import React from "react";
 import { useStyles } from "./mindReaderstyles";
 import { Grid, Typography } from "@material-ui/core";
 import Table from '@material-ui/core/Table';

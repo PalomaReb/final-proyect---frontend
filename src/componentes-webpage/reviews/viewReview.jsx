@@ -1,28 +1,25 @@
+import React, { useState, useEffect } from "react";
 import { Grid, Container, Typography } from "@material-ui/core";
-import React from "react";
 import Header from "../header";
 import Footer from "../footer";
 import ReviewCard from "./cardComponent";
 import { useStyles } from "./styles";
 import red from "../../assets/images/red.jpg";
-import { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useTranslation } from "react-i18next";
 
 function ViewReview(props) {
   const classes = useStyles();
   const [review, setReview] = useState([]);
+  const [t, i18n] = useTranslation("global");
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5464/user/userInfo")
-  //     .then((r) => r.json())
-  //     .then((data) => setName(data.alias));
-  // });
   useEffect(() => {
+    document.title = t("Reviews.title");
     fetch("http://localhost:5464/user/reviews")
       .then((r) => r.json())
       .then((data) => setReview(data));
-  }, []);
+  }, [t]);
 
   return (
     <React.Fragment>
@@ -31,7 +28,7 @@ function ViewReview(props) {
         <Container>
           <Grid>
             <Typography variant="h1" color="primary">
-              Reviews de usuarios
+              {t("Reviews.title")}
             </Typography>
           </Grid>
           {review.length > 0 ? (
@@ -53,7 +50,7 @@ function ViewReview(props) {
             </Carousel>
           ) : (
             <Typography color="primary" variant="h2">
-              Nadie ha sobrevivido para contar su historia...
+              {t("Reviews.mainText")}
             </Typography>
           )}
         </Container>

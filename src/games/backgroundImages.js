@@ -11,7 +11,6 @@ export const useStyles = makeStyles((theme) => ({
         backgroundRepeat: "no-repeat",
         backgroundSize: "340px",
     },
-
     bathroomIMG: {
         background: `url(${bathroom})`,
         backgroundPosition: "center",
@@ -26,29 +25,26 @@ export const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         margin: "4rem 0",
     },
-
     centerText: {
         direction: "row",
         padding: "3.6rem",
         maxWidth: "60%",
         minHeight: "16rem",
     },
-
     timer: {
         color: "#d50102",
         direction: "row",
         textAlign: "right",
         margin: "0rem 2rem",
     },
-    timerIMG: {
-        width: "3rem",
+    timerIMG:{
+      width:"3.2rem",
     },
     inputBackGround: {
         backgroundColor: "#424242",
         borderRadius: "1rem",
         color: "#d50102",
     },
-
     acertijo: {
         marginLeft: "2rem",
         padding: "2rem",
@@ -71,7 +67,6 @@ export const useStyles = makeStyles((theme) => ({
         color: "black",
         padding: "1rem",
         background: "rgb(255 255 255 / 40%)",
-
         [theme.breakpoints.down('sm')]: {
             color: "red",
             background: "rgb(32 31 31 / 60%)",
@@ -86,11 +81,11 @@ export const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
             fontSize: "1rem",
-
         },
     },
 
     //______________________________ALIVE__________________________________
+
     aliveIMG: {
         background: `url(${alive})`,
         backgroundPosition: "top center",
@@ -99,7 +94,6 @@ export const useStyles = makeStyles((theme) => ({
         minHeight: "80vh",
         minWidth: "100%",
     },
-
     text: {
         margin: "auto",
         width: "50%",

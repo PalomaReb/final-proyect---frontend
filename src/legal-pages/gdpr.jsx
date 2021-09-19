@@ -11,9 +11,6 @@ function GDPRPage() {
     <React.Fragment>
       <h2>Quiénes somos</h2>
       <p>
-        La dirección de nuestra web es: <a href="">URL</a>.
-      </p>
-      <p>
         De acuerdo con lo establecido por la Ley Orgánica 15/1999 de 13 de
         diciembre, de Protección de Datos de Carácter Personal, el Real Decreto
         1720/2007 de 21 de diciembre por el que se aprueba el Reglamento de
@@ -168,7 +165,7 @@ function GDPRPage() {
         oposición al tratamiento de sus datos personales, en los términos y en
         las condiciones previstos en la LOPD, escribiendo a la dirección de
         correo{" "}
-        <a href="mailto:paloma.rebolleda@gmail.com" target="_blank">
+        <a href="mailto:paloma.rebolleda@gmail.com">
           paloma.rebolleda@gmail.com
         </a>
         .

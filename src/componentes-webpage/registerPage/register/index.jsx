@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import { useStyles } from "./styles";
 import "../styles/style.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Buttons from "../../buttons";
-import { useEffect } from "react";
 import {
   Typography,
   Grid,
@@ -14,6 +13,7 @@ import {
   FormControlLabel,
 } from "@material-ui/core";
 import creep from "../../../assets/images/creep.jpg";
+import { useTranslation } from "react-i18next";
 
 function Register() {
   const ptitle = "Register";
@@ -21,6 +21,7 @@ function Register() {
     document.title = ptitle;
   }, []);
 
+  const [t, i18n] = useTranslation("global");
   const [emailVerified, setEmailVerified] = useState("");
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
@@ -72,7 +73,7 @@ function Register() {
         <Grid container className={classes.userContainer}>
           <Grid item xs={12} md={6} className={classes.formContainer}>
             <Typography variant="h1" color="primary">
-              Register
+              {t("Register.title")}
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
@@ -80,7 +81,7 @@ function Register() {
                 required
                 type="email"
                 name="email"
-                label="Email"
+                label={t("Register.email")}
                 variant="outlined"
               />
               <TextField
@@ -88,7 +89,7 @@ function Register() {
                 required
                 type="text"
                 name="alias"
-                label="Alias"
+                label={t("Register.alias")}
                 variant="outlined"
               />
               <TextField
@@ -96,7 +97,7 @@ function Register() {
                 className={classes.userInputs}
                 type="password"
                 name="pass"
-                label="Password"
+                label={t("Register.password")}
                 inputProps={{ minLength: 8 }}
                 variant="outlined"
               />
@@ -105,7 +106,7 @@ function Register() {
                 className={classes.userInputs}
                 type="password"
                 name="repeated_pass"
-                label="Repeate Password"
+                label={t("Register.rPassword")}
                 variant="outlined"
               />
               <Button
@@ -116,22 +117,22 @@ function Register() {
                 className={classes.submitBtn}
               >
                 {" "}
-                Registrarme
+                {t("Register.btnReg")}
               </Button>
               <FormControlLabel
                 value="end"
                 control={<Checkbox required={true} color="primary" />}
-                label="Acepto los términos y condiciones de uso"
+                label={t("Register.privacy")}
                 labelPlacement="end"
               />
             </form>
             <Typography>{emailVerified}</Typography>
 
             <Link to="/howitworks">
-              <Buttons buttonInfo="Continuar sin registrarme"> </Buttons>
+              <Buttons buttonInfo={t("Register.btnContinue")}> </Buttons>
             </Link>
             <Link to="/login">
-              <Buttons buttonInfo="Ya tengo cuenta"> </Buttons>
+              <Buttons buttonInfo={t("Register.btnLogin")}> </Buttons>
             </Link>
           </Grid>
 

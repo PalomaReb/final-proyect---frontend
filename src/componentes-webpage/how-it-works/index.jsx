@@ -1,22 +1,19 @@
-import { Grid, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import { Grid, Typography } from "@material-ui/core";
 import { useAuth } from "../../hooks/index.js";
 import Footer from "../footer/index.js";
 import Header from "../header/index.js";
 import { useStyles } from "../main-style/styles.js";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-function HowItWorks() {
-  const ptitle = "how it works";
-  useEffect(() => {
-    document.title = ptitle;
-  }, []);
 
+function HowItWorks() {
+  const [t, i18n] = useTranslation("global");
   const [name, setName] = useState("anonymous");
   const classes = useStyles();
-  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
+    document.title = t("HowItWorks.metaTitle");
     if (useAuth !== null) {
       const sessionToken = sessionStorage.getItem("sessionToken");
       const options = {
@@ -31,7 +28,7 @@ function HowItWorks() {
         .then((r) => r.json())
         .then((data) => setName(data.alias));
     }
-  });
+  },[t]);
 
   return (
     <React.Fragment>
@@ -45,9 +42,7 @@ function HowItWorks() {
           {t("HowItWorks.title")}
         </Typography>
         <Typography className={classes.howItWorksP} color="primary">
-          {t("HowItWorks.hello")}
-          {name}
-          {t("HowItWorks.mainText")}
+          {t("HowItWorks.hello") + name + t("HowItWorks.mainText")}
         </Typography>
 
         <Link

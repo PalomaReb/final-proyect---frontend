@@ -9,8 +9,7 @@ export const useAuth = sessionStorage.getItem('sessionToken')
 export function useUser() {
     const [userInfo, setUser] = useState(null)
     useEffect(() => {
-        fetch
-            ('http://localhost:5464/user/userInfo')
+        fetch('http://localhost:5464/user/userInfo')
             .then((r) => r.json())
             .then((data) => {
                 sessionStorage.setItem("usuario", data)
@@ -20,4 +19,3 @@ export function useUser() {
     }, []);
     return { userInfo, setUser }
 }
-

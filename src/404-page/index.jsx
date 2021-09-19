@@ -1,5 +1,5 @@
-import { useStyles } from "../404-page/styles";
 import React, { useEffect } from "react";
+import { useStyles } from "../404-page/styles";
 import Header from "../componentes-webpage/header/index";
 import Footer from "../componentes-webpage/footer/index";
 import { Container, Typography, Button } from "@material-ui/core";
@@ -9,12 +9,11 @@ import { useTranslation } from "react-i18next";
 
 function NotFound() {
   const classes = useStyles();
-  const ptitle = "Página no encontrada";
   const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
-    document.title = ptitle;
-  }, []);
+    document.title = t("404.metaTitle");
+  }, [t]);
 
   return (
     <React.Fragment>

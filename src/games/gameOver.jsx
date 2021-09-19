@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useStyles } from "./backgroundImages";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -14,6 +15,10 @@ function GameOver() {
   const classes = useStyles();
   const [t, i18n] = useTranslation("global");
 
+  useEffect(() => {
+    document.title = t("deathPage.metaTitle");
+  }, [t]);
+
   return (
     <ThemeProvider theme={innerPageTheme}>
       <Grid className={classes.gameOverBGI}>
@@ -24,7 +29,7 @@ function GameOver() {
               color="primary"
               className={classes.fontChange}
             >
-              {t("deathPage.title")}
+               {t("deathPage.title")}
             </Typography>
           </Grid>
           <Grid container className={classes.fourofour}>

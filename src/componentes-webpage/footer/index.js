@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { useStyles } from '../main-style/styles';
 import Button from '../buttons';
@@ -18,7 +19,5 @@ function Footer(props) {
     );
 
 }
-
-
 
 export default Footer

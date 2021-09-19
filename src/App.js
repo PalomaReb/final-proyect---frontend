@@ -1,4 +1,4 @@
-
+import React from "react";
 import { ThemeProvider } from '@material-ui/styles';
 import {
   BrowserRouter as Router,
@@ -18,7 +18,7 @@ import CookiesPage from './legal-pages/cookies';
 import GDPRPage from './legal-pages/gdpr';
 import Reviewsinput from '../src/componentes-webpage/reviews/reviewInput';
 import ViewReview from './componentes-webpage/reviews/viewReview';
-import SurvivalPage from './games/endPage'
+import SurvivalPage from './games/endPage';
 import { I18nextProvider } from 'react-i18next';
 import globalEs from './langauges/espa.json'
 import globalEn from './langauges/eng.json'
@@ -26,7 +26,7 @@ import i18next from 'i18next';
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "en",
+  lng: "es",
   resources: {
     es: {
       global: globalEs
@@ -86,11 +86,8 @@ function App() {
             </Route>
           </Switch>
         </Router>
-
       </ThemeProvider>
-
     </I18nextProvider>
-
   );
 }
 

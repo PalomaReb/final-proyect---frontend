@@ -1,3 +1,4 @@
+import React from "react";
 import { useStyles } from '../main-style/styles';
 import Button from '../buttons'
 import { Link } from "react-router-dom";
@@ -42,14 +43,3 @@ function Header(props) {
     );
 }
 export default Header
-
-
-
-
-
-
-
-
-
-
-

@@ -40,6 +40,7 @@
   },
 
   "HowItWorks": {
+    "metaTitle": "How it works | Code or Die",
     "title": "Code or Die",
     "hello": "Hello ",
     "mainText": " and welcome to the game of your life. You are here for a reason. You think you understand programming but I am here to put you to the test.You will be given some time to complete the levels presented, if you do not pass them, you will not be able to contiue. The only way out is to complete all the levels. I recommend that you do not switch pages because if you do, your progress will not be saved and you will not be able to leave. It is time to put your skills to the test... if you dare.",
@@ -51,6 +52,7 @@
   },
 
   "404": {
+    "metaTitle": "Not Found",
     "title": "404! This is not the exit you are looking for. You have the wrong code.",
     "btnHome": "Go home"
   },
@@ -66,14 +68,18 @@
   },
 
   "game": {
+    "metaTitlePart1": "Level ",
+    "metaTitlePart2": " | Code or Die",
     "input": "Answer",
     "btnInput": "Escape???"
   },
   "alive": {
+    "metaTitle": "Congratulations! | Code or Die",
     "text": "You have SURVIVED the game thanks to your vast knowledge! Congratulations! For now... ",
     "btnReviews": "Leave your review"
   },
   "deathPage": {
+    "metaTitle": "Game Over | Code or Die",
     "title": "You thought you could escape, but there is no escaping your fate",
     "btnHome": "Go home"
   }

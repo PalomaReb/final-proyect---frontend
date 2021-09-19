@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useStyles } from "../styles/styles";
 import "../styles/style.css";
 import Button from "@material-ui/core/Button";
 import hands from "../../../assets/images/hands.png";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import Buttons from "../../buttons";
 import { Typography, Grid, Container } from "@material-ui/core";
 import { useAuth } from '../../../hooks/index'
-
+import { useTranslation } from "react-i18next";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -22,15 +21,11 @@ function Login() {
   const [isLoading, setLoading] = useState(true); // state variable para controlar si estoy llamando al API o no
   const [isEmailValid, setEmailValidity] = useState(false);
   // use state para controlar si el email es válido o no
-
-
-  const ptitle = "login";
-  useEffect(() => {
-    document.title = ptitle;
-  }, []);
+  const [t, i18n] = useTranslation("global");
 
 
   useEffect(() => {
+    document.title = t("Login.title");
     // solo la primera vez llamo a la validación del token, recogiendo el valor por parámetro
     const token = query.get("token"); // obtengo el query param del token
     if (token !== null) {
@@ -46,7 +41,7 @@ function Login() {
       setLoading(false); // dejamos de cargar
       setEmailValidity(false); // mostramos error
     }
-  }, []);
+  }, [t, query]);
   console.log(useAuth)
 
   const handleSubmit = (e) => {
@@ -85,7 +80,7 @@ function Login() {
         <Grid container className={classes.loginContainer}>
           <Grid item xs={12} md={6} className={classes.formContainer}>
             <Typography variant="h1" color="primary">
-              Log in
+              {t("Login.title")}
             </Typography>
             <Grid className={classes.inputContainer}>
               <form onSubmit={handleSubmit}>
@@ -94,7 +89,7 @@ function Login() {
                   required
                   type="email"
                   name="email"
-                  label="Email Address"
+                  label={t("Login.Email")}
                   variant="outlined"
                 />
                 <TextField
@@ -102,7 +97,7 @@ function Login() {
                   required
                   type="password"
                   name="pass"
-                  label="Password"
+                  label={t("Login.password")}
                   inputProps={{ minLength: 8 }}
                   variant="outlined"
 
@@ -115,12 +110,12 @@ function Login() {
                     color="primary"
                     className={classes.submit}
                   >
-                    Login in
+                    {t("Login.btnLogin")}
                   </Button>
                 </div>
               </form>
               <Link to="/register">
-                <Buttons buttonInfo="Hacer cuenta nueva"> </Buttons>
+                <Buttons buttonInfo={t("Login.btnAccount")}> </Buttons>
               </Link>
             </Grid>
           </Grid>

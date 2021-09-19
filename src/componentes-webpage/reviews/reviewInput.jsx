@@ -16,12 +16,14 @@ import React from "react";
 import { useHistory } from "react-router";
 // import { useAuth } from "../../hooks";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function Reviewsinput() {
-  const ptitle = "user review page";
+  const [t, i18n] = useTranslation("global");
+
   useEffect(() => {
-    document.title = ptitle;
-  }, []);
+    document.title = t("usrRvw.title");
+  }, [t]);
 
   const classes = useStyles();
   const history = useHistory();
@@ -59,15 +61,14 @@ function Reviewsinput() {
           <Grid container className={classes.userContainer}>
             <Grid item xs={12} md={6} className={classes.formContainer}>
               <Typography variant="h1" color="primary">
-                Reviews
+                {t("usrRvw.title")}
               </Typography>
               <Typography
                 className={classes.finalSentence}
                 variant="h3"
                 color="#000000"
               >
-                Haz jugado con valentia y honor. Deja un review sobre tu
-                experencia! Gracias por participar!
+                {t("usrRvw.mainText")}
               </Typography>
               <form onSubmit={handleSubmit} className={classes.inputs}>
                 <TextField
@@ -75,14 +76,14 @@ function Reviewsinput() {
                   required
                   type="text"
                   name="alias"
-                  label="Alias"
+                  label={t("usrRvw.btnAlias")}
                   variant="outlined"
                 />
                 <TextareaAutosize
                   className={classes.textArea}
                   aria-label="minimum height"
                   minRows={6}
-                  placeholder="Write review here"
+                  placeholder={t("usrRvw.txtBox")}
                   name="review"
                 />
                 <div className={classes.registerButton}>
@@ -93,15 +94,15 @@ function Reviewsinput() {
                     color="primary"
                     className={classes.submit}
                   >
-                    Review!
+                    {t("usrRvw.btnReview")}
                   </Button>
                 </div>
               </form>
               <Link to="/">
-                <Buttons buttonInfo="Home"> </Buttons>
+                <Buttons buttonInfo={t("usrRvw.btnHome")}> </Buttons>
               </Link>
               <Link to="/view-reviews">
-                <Buttons buttonInfo="Ver reviews"> </Buttons>
+                <Buttons buttonInfo={t("usrRvw.btnviewReview")}> </Buttons>
               </Link>
             </Grid>
             <Grid item xs={6} md={6} className={classes.imgContainer}>
