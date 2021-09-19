@@ -9,7 +9,7 @@ import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 // import Sound from "react-sound";
 import MindReader from "./gameComponents/mindReader";
-import SandTimer from '../assets/images/reloj-arena.gif';
+import SandTimer from "../assets/images/reloj-arena.gif";
 //import { UserState } from "../functions/index";
 import { useAuth } from "../hooks";
 import { useTranslation } from "react-i18next";
@@ -70,7 +70,7 @@ function GamePage() {
   ];
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
-// Cuenta segundos trasncurridos por cada juego
+  // Cuenta segundos trasncurridos por cada juego
   const deathTime = 300; //300 serian 5 min
   // logica puntos:
   // tiempo que tienes para adivinar - el timepo que haz tardado en adivinar
@@ -86,7 +86,8 @@ function GamePage() {
       .then((r) => r.json()) //promesa que devuelve el json
       .then((data) => {
         setGameInfo(data);
-        document.title = t("game.metaTitlePart1") + id + t("game.metaTitlePart2");
+        document.title =
+          t("game.metaTitlePart1") + id + t("game.metaTitlePart2");
         //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
       }); //pinta solo el id del juego y sus controles
 
@@ -178,7 +179,8 @@ function GamePage() {
       //txt = gameInfo?.instructions?.body_es;
       txt = gameInfo?.instructions?.body_es;
       break;
-    default: txt = gameInfo?.instructions?.body_eng;
+    default:
+      txt = gameInfo?.instructions?.body_eng;
   }
 
   function handleSubmit() {
@@ -225,16 +227,17 @@ function GamePage() {
       <Header></Header>
       <Grid container xs={12} className={gameClasses}>
         <Grid item xs={12} className={classes.backgroundGame}>
-          <Typography className={classes.timer} color="primary"><img src={SandTimer} className={classes.timerIMG} alt="sand timer"/></Typography>
+          <Typography className={classes.timer} color="primary">
+            <img
+              src={SandTimer}
+              className={classes.timerIMG}
+              alt="sand timer"
+            />
+          </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" color="primary" className={classes.acertijo}>
             {txt?.map((clue) => clue)}
-            {/*gameInfo?.instructions?.body_es[0]}
-            {gameInfo?.instructions?.body_es[1]}
-            {gameInfo?.instructions?.body_es[2]}
-            {gameInfo?.instructions?.body_es[3]}
-            {gameInfo?.instructions?.body_es[4]*/}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>

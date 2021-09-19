@@ -7,7 +7,6 @@ import { Typography } from "@material-ui/core";
 import { useAuth } from "../../hooks/index.js";
 import { useTranslation } from "react-i18next";
 
-
 function Home() {
   const classes = useStyles();
   const userRoute = useAuth ? "/howitworks" : "/register";
@@ -24,7 +23,10 @@ function Home() {
       </Typography>
       <Grid className={classes.center}>
         <Link to={userRoute}>
-          <ButtonHome color="secondary" buttonInfo={t("Home.btnYes")}></ButtonHome>
+          <ButtonHome
+            color="secondary"
+            buttonInfo={t("Home.btnYes")}
+          ></ButtonHome>
         </Link>
         <Link to="/404">
           <ButtonHome buttonInfo={t("Home.btnNo")}></ButtonHome>
