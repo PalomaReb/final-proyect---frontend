@@ -70,6 +70,10 @@
   "game": {
     "metaTitlePart1": "Nivel ",
     "metaTitlePart2": " | Code or Die",
+    "timerSec": "segundos",
+    "timerTL": "Mala suerte...",
+    "timerHU": "¡Espabila!",
+    "timerRM": "Te quedan...",
     "input": "Respuesta",
     "btnInput": "Escapar???"
   },

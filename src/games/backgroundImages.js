@@ -36,9 +36,10 @@ export const useStyles = makeStyles((theme) => ({
         direction: "row",
         textAlign: "right",
         margin: "0rem 2rem",
+        float: "right"
     },
-    timerIMG:{
-      width:"3.2rem",
+    timerIMG: {
+        width: "3.2rem",
     },
     inputBackGround: {
         backgroundColor: "#424242",

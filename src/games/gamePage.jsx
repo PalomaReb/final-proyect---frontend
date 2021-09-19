@@ -7,11 +7,13 @@ import { useStyles } from "./backgroundImages";
 import { useHistory, useParams } from "react-router";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
-// import Sound from "react-sound";
 import MindReader from "./gameComponents/mindReader";
 import SandTimer from "../assets/images/reloj-arena.gif";
 //import { UserState } from "../functions/index";
 import { useAuth } from "../hooks";
+import ReactAudioPlayer from "react-audio-player";
+import sawSong from "../assets/sound/sawThemeSong.mp3";
+// import PlaySound from "./sounds";
 import { useTranslation } from "react-i18next";
 
 function calculateRandomIndex() {
@@ -176,7 +178,6 @@ function GamePage() {
   let txt = []; // Array donde insertamos el texo del juego desde el backend y en su idioma correposndiente.
   switch (i18n.options.lng) {
     case "es":
-      //txt = gameInfo?.instructions?.body_es;
       txt = gameInfo?.instructions?.body_es;
       break;
     default:
@@ -234,6 +235,13 @@ function GamePage() {
               alt="sand timer"
             />
           </Typography>
+          <ReactAudioPlayer
+            autoPlay
+            source
+            src={sawSong}
+            type="audio/mpeg"
+          ></ReactAudioPlayer>
+          {/* <PlaySound>play</PlaySound> */}
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" color="primary" className={classes.acertijo}>

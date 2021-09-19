@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStyles } from "./backgroundImages";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
+import laugh from "../assets/sound/evilLaugh.mp3";
+import ReactAudioPlayer from "react-audio-player";
 
 const innerPageTheme = createTheme({
   typography: {
@@ -29,8 +31,14 @@ function GameOver() {
               color="primary"
               className={classes.fontChange}
             >
-               {t("deathPage.title")}
+              {t("deathPage.title")}
             </Typography>
+            <ReactAudioPlayer
+              autoPlay
+              source
+              src={laugh}
+              type="audio/mpeg"
+            ></ReactAudioPlayer>
           </Grid>
           <Grid container className={classes.fourofour}>
             <Grid item align="center" xs={12}>
