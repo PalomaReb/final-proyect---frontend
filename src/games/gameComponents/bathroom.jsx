@@ -1,7 +1,7 @@
 import { Grid, Switch, Typography } from "@material-ui/core";
 import { useStyles } from "./bathroomstyle";
 import { ThemeContext } from "./themeChange";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import React from "react";
 

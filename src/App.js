@@ -26,7 +26,7 @@ import i18next from 'i18next';
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "es",
+  lng: "en",
   resources: {
     es: {
       global: globalEs

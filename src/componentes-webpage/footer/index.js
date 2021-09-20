@@ -7,10 +7,10 @@ import { useTranslation } from "react-i18next";
 
 function Footer(props) {
     const classes = useStyles();
-    const [t, i18n] = useTranslation("global");
+    const [t] = useTranslation("global");
     return (
         <Container>
-            <Grid container xs={12} className={classes.homeContainer}>
+            <Grid item xs={12} className={classes.homeContainer}>
                 <Link to='/terms'><Button color="primary" buttonInfo={t("Footer.legalTerms")}></Button></Link>
                 <Link to='/cookies'><Button color="primary" buttonInfo={t("Footer.cookies")}></Button></Link>
                 <Link to='/gdpr'><Button color="primary" buttonInfo={t("Footer.gdpr")}></Button></Link>

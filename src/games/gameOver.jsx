@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useStyles } from "./backgroundImages";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ const innerPageTheme = createTheme({
 
 function GameOver() {
   const classes = useStyles();
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     document.title = t("deathPage.metaTitle");

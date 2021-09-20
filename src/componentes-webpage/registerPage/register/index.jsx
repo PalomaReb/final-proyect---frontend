@@ -21,7 +21,7 @@ function Register() {
     document.title = ptitle;
   }, []);
 
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
   const [emailVerified, setEmailVerified] = useState("");
   const handleSubmit = (e) => {
     // gestiono el submit del formulario

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useStyles } from "../404-page/styles";
+import { useStyles } from "./styles";
 import Header from "../componentes-webpage/header/index";
 import Footer from "../componentes-webpage/footer/index";
 import { Container, Typography, Button } from "@material-ui/core";
@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 function NotFound() {
   const classes = useStyles();
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     document.title = t("404.metaTitle");

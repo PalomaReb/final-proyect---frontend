@@ -73,7 +73,7 @@ function GamePage() {
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   // Cuenta segundos trasncurridos por cada juego
-  const deathTime = 300; //300 serian 5 min
+  const deathTime = 180; //300 serian 5 min
   // logica puntos:
   // tiempo que tienes para adivinar - el timepo que haz tardado en adivinar
   // da el tiempo que sobro
@@ -225,7 +225,7 @@ function GamePage() {
   return (
     <React.Fragment>
       <Header></Header>
-      <Grid container xs={12} className={gameClasses}>
+      <Grid item xs={12} className={gameClasses}>
         <Grid item xs={12} className={classes.backgroundGame}>
           <Typography className={classes.timer} color="primary">
             <img

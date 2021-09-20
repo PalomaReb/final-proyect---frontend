@@ -8,7 +8,7 @@ import ButtonHome from "../componentes-webpage/buttons/buttonHome";
 import { useTranslation } from "react-i18next";
 
 function SurvivalPage() {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     document.title = t("alive.metaTitle");
