@@ -3,14 +3,14 @@ import { Grid, Container, Typography } from "@material-ui/core";
 import Header from "../header";
 import Footer from "../footer";
 import ReviewCard from "./cardComponent";
-import { useStyles } from "./styles";
+// import { useStyles } from "./styles";
 import red from "../../assets/images/red.jpg";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTranslation } from "react-i18next";
 
 function ViewReview(props) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [review, setReview] = useState([]);
   const [t] = useTranslation("global");
 

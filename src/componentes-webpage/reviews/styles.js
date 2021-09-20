@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
     greyContainer: {
         backgroundColor: "#908b89",
-        minHeight: "90vh",
+        minHeight: "75vh",
     },
     finalSentence: {
         padding: ".7rem"
@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme) => ({
     teethIMG: {
         borderRadius: "4.5rem",
         height: "18rem",
-        margin: "88px 2rem",
+        margin: "45px 2rem",
         boxShadow: "25px 10px 8px 10px #3c3b3b",
         [theme.breakpoints.down('sm')]: {
             display: "none"

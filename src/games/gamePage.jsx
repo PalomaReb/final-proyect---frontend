@@ -236,7 +236,8 @@ function GamePage() {
           </Typography>
           <ReactAudioPlayer
             autoPlay
-            loop={true}
+            key={id}
+            // loop={true}
             source
             src={sawSong}
             type="audio/mpeg"

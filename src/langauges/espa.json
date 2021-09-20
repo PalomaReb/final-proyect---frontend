@@ -43,7 +43,7 @@
     "metaTitle": "Cómo funciona | Code or Die",
     "title": "Code or Die",
     "hello": "Hola ",
-    "mainText": " y bienvenido al juego de tu vida. Estas aqui por algo. Crees que entiendes de la programación, pero yo estoy aqui para ponerte a prueba. Se te dará un tiempo para completar cada nivel, si no lo consigues, lastimosamente, no podrás continuar. La única forma de salir de este juego es completando todos los niveles. Te sugiero que no salgas de la pantalla, o no se guardará tu progreso y no podrás salir. Es hora de poner tus conocimientos a prueba... si te atreves.",
+    "mainText": " y bienvenid@ al juego de tu vida. Estas aqui por algo. Crees que entiendes de la programación, pero yo estoy aqui para ponerte a prueba. Se te dará un tiempo para completar cada nivel, si no lo consigues, lastimosamente, no podrás continuar. La única forma de salir de este juego es completando todos los niveles. Te sugiero que no salgas de la pantalla, o no se guardará tu progreso y no podrás salir. Es hora de poner tus conocimientos a prueba... si te atreves.",
     "btn": "¿Comenzar?"
   },
   "Reviews": {
@@ -59,13 +59,13 @@
 
   "usrRvw": {
     "title": "Comparte tu experiencia",
-    "mainText": "Haz Haz jugado con valentia y honor. Deja un review sobre tu experencia! Gracias por participar!",
+    "mainText": "Has jugado con valentia y honor. Deja un review sobre tu experencia! Gracias por participar!",
     "btnAlias": "Alias",
     "txtBox": "Escribe aqui tu experiencia",
     "btnReview": "Enviar",
     "rvwSent": "¡Tu experiencia se ha mandado! ¡Gracias! Ve a ver las experiencias de tod@s.",
     "btnHome": "Inicio",
-    "btnviewReview": "Ver las experiencias de otros"
+    "btnviewReview": "Ver las experiencias de otr@s"
   },
 
   "game": {
