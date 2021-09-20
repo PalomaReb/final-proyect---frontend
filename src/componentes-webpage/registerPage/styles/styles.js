@@ -14,17 +14,13 @@ export const useStyles = makeStyles((theme) => ({
     },
     inputContainer: {
         flexDirection: "columns",
-        padding: "1rem"
+        margin: "1rem"
     },
 
     loginContainer: {
-        // display: "flex",
         justifyContent: "space-between",
         margin: "2.5rem 0",
         width: "100%",
-        // marginLeft: "6rem",
-        // paddingBottom: "0",
-        // padding: "6rem",
     },
     formContainer: {
         textAlign: "center",

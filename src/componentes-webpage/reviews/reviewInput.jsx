@@ -12,13 +12,15 @@ import { Link } from "react-router-dom";
 import teeth from "../../assets/images/teeth.jpg";
 import Header from "../header";
 import Footer from "../footer";
-import React from "react";
-import { useHistory } from "react-router";
+import React, { useState } from "react";
+// import { useHistory } from "react-router";
 // import { useAuth } from "../../hooks";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 function Reviewsinput() {
+  const [sendReview, setSendReview] = useState("");
+
   const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
@@ -26,7 +28,7 @@ function Reviewsinput() {
   }, [t]);
 
   const classes = useStyles();
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleSubmit = (e) => {
     const sessionToken = sessionStorage.getItem("sessionToken");
@@ -46,10 +48,18 @@ function Reviewsinput() {
       };
       fetch("http://localhost:5464/user/reviews", options)
         .then((r) => r.json())
-        .then(() => {
-          history.push("/view-reviews");
+        .then(function (response) {
+          if (!response.ok) {
+            throw Error(response.status);
+          }
+          return response;
+        })
+        .then((data) => {
+          setSendReview(t("usrRvw.rvwSent"));
+        })
+        .catch(function (error) {
+          setSendReview(t("usrRvw.rvwSent"));
         });
-    } else {
     }
   };
 
@@ -98,6 +108,7 @@ function Reviewsinput() {
                   </Button>
                 </div>
               </form>
+              <Typography>{sendReview}</Typography>
               <Link to="/">
                 <Buttons buttonInfo={t("usrRvw.btnHome")}> </Buttons>
               </Link>

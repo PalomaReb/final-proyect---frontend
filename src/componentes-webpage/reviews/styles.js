@@ -13,6 +13,9 @@ export const useStyles = makeStyles((theme) => ({
     inputs: {
         padding: "2rem"
     },
+    userInputs: {
+        margin: "1rem"
+    },
 
     userContainer: {
         justifyContent: "space-between",
