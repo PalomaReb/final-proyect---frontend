@@ -67,6 +67,8 @@ export const useStyles = makeStyles((theme) => ({
         height: "8rem",
 
     },
-
+    viewContainer: {
+        minHeight: "70vh",
+    },
 
 }));
