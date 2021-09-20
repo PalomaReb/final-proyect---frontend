@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 
-export const useAuth = sessionStorage.getItem('sessionToken')
+export const useAuth = function () {
+    return sessionStorage.getItem('sessionToken') !== "" && sessionStorage.getItem('sessionToken') !== null;
 
-//     return sessionStorage.getItem('sessionToken') !== "" && sessionStorage.getItem('sessionToken') !== null;
+}
 
-// }*/
+
 export function useUser() {
     const [userInfo, setUser] = useState(null)
     useEffect(() => {

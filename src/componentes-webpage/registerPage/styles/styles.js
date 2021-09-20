@@ -16,7 +16,8 @@ export const useStyles = makeStyles((theme) => ({
     inputContainer: {
         width: "80%",
         flexDirection: "columns",
-        margin: "1rem"
+        margin: "1rem",
+        justifyContent: "center"
     },
 
     loginContainer: {

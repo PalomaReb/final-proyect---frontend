@@ -103,7 +103,7 @@ function GamePage() {
     //     },
     //   };
     //   console.log("404!!");
-    //   fetch("http://localhost:5464/games/user-progress", options)
+    //   fetch("http://localhost:5464/userProgress/userProgressData", options)
     //     .then((r) => r.json())
     //     .then((data) => console.log(data));
     //   //return data;
@@ -214,7 +214,7 @@ function GamePage() {
       body: JSON.stringify(newUserProgress), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
     };
     // inserto en su collection
-    fetch("http://localhost:5464/games/user-progress", progress);
+    fetch("http://localhost:5464/userProgress/userProgressData", progress);
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.

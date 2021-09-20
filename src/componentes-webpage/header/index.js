@@ -12,11 +12,12 @@ function Header(props) {
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
     }
+    const isAuth = useAuth();
 
     let loggedclasses = `${classes.headerLink} `;
     let notLoggedClasses = `${classes.headerLink} `;
 
-    if (useAuth !== null) {
+    if (isAuth) {
         loggedclasses += `${classes.displayNone}`;
     }
     else {

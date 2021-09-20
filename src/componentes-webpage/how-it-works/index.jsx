@@ -8,16 +8,19 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function HowItWorks() {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
   const [name, setName] = useState("anonymous");
   const classes = useStyles();
+  const isAuth = useAuth();
 
   useEffect(() => {
     document.title = t("HowItWorks.metaTitle");
-    if (useAuth !== null) {
+  }, [t]);
+
+  useEffect(() => {
+    if (isAuth) {
       const sessionToken = sessionStorage.getItem("sessionToken");
       const options = {
-        method: "GET",
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${sessionToken}`,
@@ -27,7 +30,7 @@ function HowItWorks() {
         .then((r) => r.json())
         .then((data) => setName(data.alias));
     }
-  }, [t]);
+  }, [isAuth]);
 
   return (
     <React.Fragment>
