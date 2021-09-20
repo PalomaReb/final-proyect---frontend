@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 function ViewReview(props) {
   const classes = useStyles();
   const [review, setReview] = useState([]);
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     document.title = t("Reviews.title");
@@ -37,6 +37,7 @@ function ViewReview(props) {
               showThumbs={false}
               infiniteLoop={true}
               centerMode={true}
+              centerSlidePercentage={50}
               showStatus={false}
             >
               {review.map((userReview, i) => (
