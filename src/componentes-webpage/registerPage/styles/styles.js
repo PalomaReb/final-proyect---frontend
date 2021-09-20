@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
     backgroundContainer: {
         backgroundColor: "#908b89",
+        height: "80vh"
     },
     userInputs: {
         width: "100%",
@@ -13,6 +14,7 @@ export const useStyles = makeStyles((theme) => ({
         }
     },
     inputContainer: {
+        width: "80%",
         flexDirection: "columns",
         margin: "1rem"
     },

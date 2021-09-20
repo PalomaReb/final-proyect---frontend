@@ -93,22 +93,21 @@ function GamePage() {
         //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
       }); //pinta solo el id del juego y sus controles
 
-    /*if (useAuth !== null) { // Hay una función para esto.
-      const sessionToken = sessionStorage.getItem("sessionToken");
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${sessionToken}`,
-          // aviso a mi servidor que le envio los datos en formato JSON
-        },
-      };
-      console.log("404!!");
-      fetch("http://localhost:5464/games/user-progress", options)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-      //return data;
-    }*/
+    // if (useAuth !== null) { // Hay una función para esto.
+    //   const sessionToken = sessionStorage.getItem("sessionToken");
+    //   const options = {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-type": "application/json",
+    //       Authorization: `Bearer ${sessionToken}`,
+    //     },
+    //   };
+    //   console.log("404!!");
+    //   fetch("http://localhost:5464/games/user-progress", options)
+    //     .then((r) => r.json())
+    //     .then((data) => console.log(data));
+    //   //return data;
+    // }
 
     const intervalo = setInterval(function () {
       // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
@@ -237,6 +236,7 @@ function GamePage() {
           </Typography>
           <ReactAudioPlayer
             autoPlay
+            loop={true}
             source
             src={sawSong}
             type="audio/mpeg"

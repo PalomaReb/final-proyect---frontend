@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Container } from "@material-ui/core";
 import { useAuth } from "../../hooks/index.js";
 import Footer from "../footer/index.js";
 import Header from "../header/index.js";
@@ -21,36 +21,37 @@ function HowItWorks() {
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${sessionToken}`,
-          // aviso a mi servidor que le envio los datos en formato JSON
         },
       };
       fetch("http://localhost:5464/user/userInfo", options)
         .then((r) => r.json())
         .then((data) => setName(data.alias));
     }
-  },[t]);
+  }, [t]);
 
   return (
     <React.Fragment>
       <Header></Header>
-      <Grid className={classes.howItWorks}>
-        <Typography
-          className={classes.howItWorksH1}
-          variant="h1"
-          color="primary"
-        >
-          {t("HowItWorks.title")}
-        </Typography>
-        <Typography className={classes.howItWorksP} color="primary">
-          {t("HowItWorks.hello") + name + t("HowItWorks.mainText")}
-        </Typography>
+      <Grid item xs={12} className={classes.howItWorks}>
+        <Container>
+          <Typography
+            className={classes.howItWorksH1}
+            variant="h1"
+            color="primary"
+          >
+            {t("HowItWorks.title")}
+          </Typography>
+          <Typography className={classes.howItWorksP} color="primary">
+            {t("HowItWorks.hello") + name + t("HowItWorks.mainText")}
+          </Typography>
 
-        <Link
-          className={`${classes.center} ${classes.headerLink}`}
-          to="/game/1"
-        >
-          <Typography color="secondary">{t("HowItWorks.btn")}</Typography>
-        </Link>
+          <Link
+            className={`${classes.center} ${classes.headerLink}`}
+            to="/game/1"
+          >
+            <Typography color="secondary">{t("HowItWorks.btn")}</Typography>
+          </Link>
+        </Container>
       </Grid>
       <Footer></Footer>
     </React.Fragment>
