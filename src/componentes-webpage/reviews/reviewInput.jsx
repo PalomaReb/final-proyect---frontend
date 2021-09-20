@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 function Reviewsinput() {
   const [sendReview, setSendReview] = useState("");
 
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     document.title = t("usrRvw.title");
@@ -73,6 +73,7 @@ function Reviewsinput() {
               <Typography variant="h1" color="primary">
                 {t("usrRvw.title")}
               </Typography>
+
               <Typography
                 className={classes.finalSentence}
                 variant="h3"

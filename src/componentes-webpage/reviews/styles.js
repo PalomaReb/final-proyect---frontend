@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
         minHeight: "90vh",
     },
     finalSentence: {
-        padding: "1.7rem"
+        padding: ".7rem"
     },
 
     inputs: {
@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme) => ({
     teethIMG: {
         borderRadius: "4.5rem",
         height: "18rem",
-        margin: "10px 2rem",
+        margin: "88px 2rem",
         boxShadow: "25px 10px 8px 10px #3c3b3b",
         [theme.breakpoints.down('sm')]: {
             display: "none"

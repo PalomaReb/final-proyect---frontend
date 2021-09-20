@@ -10,7 +10,7 @@ import ThemeWrapper from "./gameComponents/themeChange";
 import MindReader from "./gameComponents/mindReader";
 import SandTimer from "../assets/images/reloj-arena.gif";
 //import { UserState } from "../functions/index";
-import { useAuth } from "../hooks";
+// import { useAuth } from "../hooks";
 import ReactAudioPlayer from "react-audio-player";
 import sawSong from "../assets/sound/sawThemeSong.mp3";
 // import PlaySound from "./sounds";
@@ -92,8 +92,8 @@ function GamePage() {
           t("game.metaTitlePart1") + id + t("game.metaTitlePart2");
         //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
       }); //pinta solo el id del juego y sus controles
-
-    // if (useAuth !== null) { // Hay una función para esto.
+    //const isAuth = useAuth();
+    // if (isAuth !== null) { // Hay una función para esto.
     //   const sessionToken = sessionStorage.getItem("sessionToken");
     //   const options = {
     //     method: "GET",

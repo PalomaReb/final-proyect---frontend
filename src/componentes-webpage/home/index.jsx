@@ -9,8 +9,9 @@ import { useTranslation } from "react-i18next";
 
 function Home() {
   const classes = useStyles();
-  const userRoute = useAuth ? "/howitworks" : "/register";
-  const [t, i18n] = useTranslation("global");
+  const isAuth = useAuth();
+  const userRoute = isAuth ? "/howitworks" : "/register";
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     document.title = t("Home.title");

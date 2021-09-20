@@ -77,20 +77,12 @@ function GDPRPage() {
         nos facilitas estarán ubicados en los servidores de Paloma Rebolleda.
         Podrás ejercer tus derechos de acceso, rectificación, limitación y
         suprimir los datos en{" "}
-        <a class="green" href="mailto:paloma.rebolleda@gmail.com">
-          paloma.rebolleda@gmail.com
+        <a class="green" href="mailto:code.or.die2021@gmail.com">
+          code.or.die2021@gmail.com
         </a>{" "}
         así como el derecho a presentar una reclamación ante una autoridad de
         control. Puedes consultar la información adicional y detallada sobre
         Protección de Datos en la presente política de privacidad.
-      </p>
-      <h3>Envío de currículums</h3>
-      <p>
-        El envío de currículums a través de esta página web supone el
-        consentimiento por su parte para la inclusión y tratamiento de sus datos
-        en el fichero CURRÍCULUMS, registrado por esta empresa ante la AGPD. Los
-        datos obtenidos de su currículum podrán ser utilizados con fines de
-        selección de personal para posibles contrataciones de esta empresa.
       </p>
       <h3>Cookies</h3>
       <p>
@@ -164,10 +156,7 @@ function GDPRPage() {
         Podrá ejercer su derecho de acceso, rectificación, cancelación y
         oposición al tratamiento de sus datos personales, en los términos y en
         las condiciones previstos en la LOPD, escribiendo a la dirección de
-        correo{" "}
-        <a href="mailto:paloma.rebolleda@gmail.com">
-          paloma.rebolleda@gmail.com
-        </a>
+        correo <a href="code.or.die2021@gmail.com">code.or.die2021@gmail.com</a>
         .
       </p>
       <p>

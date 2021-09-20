@@ -49,7 +49,7 @@ export const useStyles = makeStyles((theme) => ({
     acertijo: {
         marginLeft: "2rem",
         padding: "2rem",
-        background: "rgb(32 31 31 / 70%)"
+        background: "rgb(32 31 31 / 75%)"
     },
 
     //--------------------------GAME OVER PAGE--------------------------------------

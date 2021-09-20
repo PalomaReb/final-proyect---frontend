@@ -15,13 +15,14 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 function Login() {
+  const isAuth = useAuth();
   const history = useHistory();
   const classes = useStyles();
   const query = useQuery(); // obtengo los query params
   const [isLoading, setLoading] = useState(true); // state variable para controlar si estoy llamando al API o no
   const [isEmailValid, setEmailValidity] = useState(false);
   // use state para controlar si el email es válido o no
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
 
   useEffect(() => {
@@ -42,7 +43,7 @@ function Login() {
       setEmailValidity(false); // mostramos error
     }
   }, [t, query]);
-  console.log(useAuth)
+  console.log(isAuth)
 
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
