@@ -33,13 +33,12 @@ export const useStyles = makeStyles((theme) => ({
     },
     timer: {
         color: "#d50102",
-        direction: "row",
-        textAlign: "right",
         margin: "0rem 2rem",
         float: "right"
     },
     timerIMG: {
-        width: "3.2rem",
+        width: "2rem",
+        opacity: ".7"
     },
     inputBackGround: {
         backgroundColor: "#424242",

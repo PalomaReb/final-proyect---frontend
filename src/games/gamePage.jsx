@@ -8,13 +8,15 @@ import { useHistory, useParams } from "react-router";
 import BathroomGame from "../games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 import MindReader from "./gameComponents/mindReader";
-import SandTimer from "../assets/images/reloj-arena.gif";
 //import { UserState } from "../functions/index";
 // import { useAuth } from "../hooks";
 import ReactAudioPlayer from "react-audio-player";
 import sawSong from "../assets/sound/sawThemeSong.mp3";
-// import PlaySound from "./sounds";
 import { useTranslation } from "react-i18next";
+
+import RenderTime from "./gameComponents/timer"; // componente común de los juegos ( timer )
+import { alphaArray } from "./gameComponents/alphaArray"; // array de símbolos para el juego 4
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function calculateRandomIndex() {
   return Math.floor(Math.random() * 7);
@@ -25,51 +27,9 @@ function GamePage() {
   const classes = useStyles();
   const history = useHistory();
   const [userAnswer, setAnswer] = useState("");
-  const tlapse = useRef(0);
+  const tlapse = useRef(0); //tiempo para calcular los puntos.
   const [ax, setAx] = useState(calculateRandomIndex()); //Para el juego de MindReader
   const [showReload, setShowReload] = useState(false);
-  const alphaArray = [
-    "C",
-    "o",
-    "d",
-    "-",
-    "e",
-    "r",
-    "i",
-    "a",
-    "n",
-    "b",
-    "f",
-    "h",
-    "{",
-    "☘",
-    "l",
-    "v",
-    "x",
-    "ℨ",
-    "℘",
-    "☢",
-    "z",
-    "I",
-    "J",
-    "M",
-    ":)",
-    "Ω",
-    "℧",
-    "N",
-    "R",
-    "S",
-    "T",
-    "U",
-    "m",
-    "6",
-    "^",
-    "u",
-    "☣",
-    "☠",
-    "☯",
-    "]",
-  ];
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   // Cuenta segundos trasncurridos por cada juego
@@ -118,7 +78,7 @@ function GamePage() {
       // NOTA: No se reinicializa aquí el interval ni el timeout, el contador tlapse continua hasta que llega al final. La forma correcta es en el return del useEffect!!!!!!
       // Funciones a ejecutar cuando se termine el tiempo.
       handleSubmit();
-      history.replace("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
+      history.push("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
     }, deathTime * 1000);
 
     return () => {
@@ -218,22 +178,37 @@ function GamePage() {
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.
-    let nextG = id < 4 ? parseInt(id) + 1 : "/alive"; // Se define la siguiente ruta.
-    history.replace(`${nextG}`);
+    if (id < 4) history.replace(`${parseInt(id) + 1}`);
+    else history.push("/alive");
   }
 
   return (
     <React.Fragment>
       <Header></Header>
-      <Grid item xs={12} className={gameClasses}>
+      <Grid container className={gameClasses}>
         <Grid item xs={12} className={classes.backgroundGame}>
-          <Typography className={classes.timer} color="primary">
-            <img
-              src={SandTimer}
-              className={classes.timerIMG}
-              alt="sand timer"
-            />
-          </Typography>
+          <Grid className={classes.timer} align="center">
+            <CountdownCircleTimer
+              key={id}
+              isPlaying
+              size="74"
+              strokeWidth="4"
+              strokeLinecap="square"
+              trailColor="rgb(0,0,0,.2)"
+              duration={deathTime - 3}
+              colors={[
+                ["#000000", 0.2],
+                ["#332f2f", 0.2],
+                ["#906363", 0.1],
+                ["#bf5555", 0.2],
+                ["#a30000"],
+              ]}
+              onComplete={() => [true, 5000]}
+            >
+              {RenderTime}
+            </CountdownCircleTimer>
+          </Grid>
+
           <ReactAudioPlayer
             autoPlay
             key={id}
@@ -242,7 +217,6 @@ function GamePage() {
             src={sawSong}
             type="audio/mpeg"
           ></ReactAudioPlayer>
-          {/* <PlaySound>play</PlaySound> */}
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" color="primary" className={classes.acertijo}>
