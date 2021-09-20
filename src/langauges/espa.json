@@ -59,7 +59,7 @@
 
   "usrRvw": {
     "title": "Comparte tu experiencia",
-    "mainText": "Has jugado con valentia y honor. Deja un review sobre tu experencia! Gracias por participar!",
+    "mainText": "Has jugado con valentia y honor. Deja un comentario sobre tu experencia! Gracias por participar!",
     "btnAlias": "Alias",
     "txtBox": "Escribe aqui tu experiencia",
     "btnReview": "Enviar",
@@ -80,7 +80,7 @@
   },
   "alive": {
     "metaTitle": "¡Enhorabuena! | Code or Die",
-    "text": "Has logrado un MUY buen trabajo... Sobreviviste gracias a tus conocimientos y tu sabiduría. Felicidades... por ahora....",
+    "text": "Has logrado un muy buen trabajo... Sobreviviste gracias a tus conocimientos y tu sabiduría. Felicidades... por ahora....",
     "btnReviews": "Comenta tu experiencia"
   },
   "deathPage": {
