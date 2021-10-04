@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useStyles } from '../main-style/styles';
 import Button from '../buttons';
 import { Container, Grid } from '@material-ui/core';
@@ -11,9 +11,9 @@ function Footer(props) {
     return (
         <Container>
             <Grid item xs={12} className={classes.homeContainer}>
-                <Link to='/terms'><Button color="primary" buttonInfo={t("Footer.legalTerms")}></Button></Link>
-                <Link to='/cookies'><Button color="primary" buttonInfo={t("Footer.cookies")}></Button></Link>
-                <Link to='/gdpr'><Button color="primary" buttonInfo={t("Footer.gdpr")}></Button></Link>
+                <NavLink activeClassName={classes.active} to='/terms'><Button color="primary" buttonInfo={t("Footer.legalTerms")}></Button></NavLink>
+                <NavLink activeClassName={classes.active} to='/cookies'><Button color="primary" buttonInfo={t("Footer.cookies")}></Button></NavLink>
+                <NavLink activeClassName={classes.active} to='/gdpr'><Button color="primary" buttonInfo={t("Footer.gdpr")}></Button></NavLink>
             </Grid>
         </Container>
     );

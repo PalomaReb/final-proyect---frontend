@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
     backgroundContainer: {
         backgroundColor: "#908b89",
-        height: "75vh"
+        height: "80vh"
     },
     userInputs: {
         width: "100%",
@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
     inputContainer: {
         width: "80%",
         flexDirection: "columns",
-        margin: "1rem",
+        margin: "1rem auto",
         justifyContent: "center"
     },
 
@@ -37,14 +37,18 @@ export const useStyles = makeStyles((theme) => ({
 
     },
     handsIMG: {
-        height: "26rem",
+        height: "30rem",
+        position: "absolute",
+        right: "12%",
+        button: "12vh",
         marginLeft: "4rem",
+
+    },
+    imgContainer: {
+        textAlign: "center",
         [theme.breakpoints.down('sm')]: {
             display: "none"
         }
-    },
-    imgContainer: {
-        textAlign: "center"
     },
 
 }));

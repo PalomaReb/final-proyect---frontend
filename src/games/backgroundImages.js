@@ -19,11 +19,11 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     gameContainer: {
-        minHeight: "76vh",
+        minHeight: "80vh",
     },
     inputCenter: {
         textAlign: "center",
-        margin: "4rem 0",
+        margin: "3.5rem 0",
     },
     centerText: {
         direction: "row",
@@ -59,7 +59,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
-        minWidth: "100%"
+        padding: "2.7rem"
     },
     fontChange: {
         textAlign: "center",
@@ -92,7 +92,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "80vh",
-        minWidth: "100%",
+        padding: "2.7rem 1rem"
     },
     text: {
         margin: "auto",

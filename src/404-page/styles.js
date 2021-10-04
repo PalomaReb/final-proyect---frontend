@@ -12,6 +12,7 @@ export const useStyles = makeStyles((theme) => ({
 
     fourofour: {
         width: "100%",
+        minHeight: "80vh",
         justifyContent: "space-between",
         padding: "2.7rem 2rem",
     },

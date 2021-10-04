@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStyles } from "./backgroundImages";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -16,11 +16,27 @@ const innerPageTheme = createTheme({
 function GameOver() {
   const classes = useStyles();
   const [t] = useTranslation("global");
+  const [audio, setAudio] = useState("");
 
   useEffect(() => {
     document.title = t("deathPage.metaTitle");
   }, [t]);
 
+  useEffect(() => {
+    const susto = setTimeout(function () {
+      setAudio(
+        <ReactAudioPlayer
+          autoPlay
+          source
+          src={laugh}
+          type="audio/mpeg"
+        ></ReactAudioPlayer>
+      );
+    }, 300);
+    return () => {
+      clearTimeout(susto);
+    };
+  }, []);
   return (
     <ThemeProvider theme={innerPageTheme}>
       <Grid className={classes.gameOverBGI}>
@@ -33,12 +49,7 @@ function GameOver() {
             >
               {t("deathPage.title")}
             </Typography>
-            <ReactAudioPlayer
-              autoPlay
-              source
-              src={laugh}
-              type="audio/mpeg"
-            ></ReactAudioPlayer>
+            {audio}
           </Grid>
           <Grid container className={classes.fourofour}>
             <Grid item align="center" xs={12}>

@@ -14,7 +14,8 @@ export const useStyles = makeStyles((theme) => ({
         padding: "2rem"
     },
     userInputs: {
-        margin: "1rem"
+        margin: "1rem",
+        width: "80%",
     },
 
     userContainer: {
@@ -68,7 +69,14 @@ export const useStyles = makeStyles((theme) => ({
 
     },
     viewContainer: {
-        minHeight: "70vh",
+        minHeight: "80vh",
+        paddingTop: "2rem",
+        paddingBottom: "1rem"
     },
-
+    textArea: {
+        width: "80%",
+        marginBottom: "1rem",
+        padding: ".6rem",
+        backgroundColor: "rgb(230, 218, 218, .3)",
+    }
 }));

@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     howItWorks: {
         maxWidth: "100%",
         backgroundColor: "black",
-        minHeight: "50vh",
+        minHeight: "80vh",
         letterSpacing: "5px",
     },
     howItWorksP: {
@@ -43,7 +43,7 @@ export const useStyles = makeStyles((theme) => ({
         textAlign: "justify",
         maxWidth: "60%",
         [theme.breakpoints.down('sm')]: {
-            maxWidth: "100%",
+            maxWidth: "90%",
         }
     },
     howItWorksH1: {
@@ -51,7 +51,7 @@ export const useStyles = makeStyles((theme) => ({
         margin: "3rem auto",
         maxWidth: "60%",
         [theme.breakpoints.down('sm')]: {
-            maxWidth: "100%",
+            maxWidth: "90%",
         }
     },
 
@@ -75,6 +75,14 @@ export const useStyles = makeStyles((theme) => ({
             backgroundColor: theme.palette.primary.main,
         },
     },
+    active: {
+        // backgroundColor: theme.palette.primary.main,
+        // paddng: "8rem 0 rem",
+        // borderRadius: "5px"
+        textDecoration: "underline",
+        color: theme.palette.primary.main
+    },
+
     displayNone: {
         display: "none"
     },

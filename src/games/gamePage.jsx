@@ -30,6 +30,7 @@ function GamePage() {
   const tlapse = useRef(0); //tiempo para calcular los puntos.
   const [ax, setAx] = useState(calculateRandomIndex()); //Para el juego de MindReader
   const [showReload, setShowReload] = useState(false);
+  const numGames = 4;
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   // Cuenta segundos trasncurridos por cada juego
@@ -43,51 +44,57 @@ function GamePage() {
   const [gameInfo, setGameInfo] = useState({}); //use state para pintar lo que se va a recoger de mongo
 
   useEffect(() => {
+    document.title = t("game.metaTitlePart1") + id + t("game.metaTitlePart2");
+  }, [t, id]);
+
+  useEffect(() => {
     // para que se rederize el juego cuando se refresca la pagina
-    fetch(`http://localhost:5464/games/${id}`) //llama al param "game" por id de juego
-      .then((r) => r.json()) //promesa que devuelve el json
-      .then((data) => {
-        setGameInfo(data);
-        document.title =
-          t("game.metaTitlePart1") + id + t("game.metaTitlePart2");
-        //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
-      }); //pinta solo el id del juego y sus controles
-    //const isAuth = useAuth();
-    // if (isAuth !== null) { // Hay una función para esto.
-    //   const sessionToken = sessionStorage.getItem("sessionToken");
-    //   const options = {
-    //     method: "GET",
-    //     headers: {
-    //       "Content-type": "application/json",
-    //       Authorization: `Bearer ${sessionToken}`,
-    //     },
-    //   };
-    //   console.log("404!!");
-    //   fetch("http://localhost:5464/userProgress/userProgressData", options)
-    //     .then((r) => r.json())
-    //     .then((data) => console.log(data));
-    //   //return data;
-    // }
+    if (id > 0 && id <= numGames) {
+      fetch(`http://localhost:5464/games/${id}`) //llama al param "game" por id de juego
+        .then((r) => r.json()) //promesa que devuelve el json
+        .then((data) => {
+          setGameInfo(data);
+          setAnswer("");
+          //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
+        }); //pinta solo el id del juego y sus controles
+      //const isAuth = useAuth();
+      // if (isAuth !== null) { // Hay una función para esto.
+      //   const sessionToken = sessionStorage.getItem("sessionToken");
+      //   const options = {
+      //     method: "GET",
+      //     headers: {
+      //       "Content-type": "application/json",
+      //       Authorization: `Bearer ${sessionToken}`,
+      //     },
+      //   };
+      //   console.log("404!!");
+      //   fetch("http://localhost:5464/userProgress/userProgressData", options)
+      //     .then((r) => r.json())
+      //     .then((data) => console.log(data));
+      //   //return data;
+      // }
 
-    const intervalo = setInterval(function () {
-      // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
-      tlapse.current++;
-      console.log(tlapse.current);
-    }, 1000);
-    const tiempo = setTimeout(function () {
-      // NOTA: No se reinicializa aquí el interval ni el timeout, el contador tlapse continua hasta que llega al final. La forma correcta es en el return del useEffect!!!!!!
-      // Funciones a ejecutar cuando se termine el tiempo.
-      handleSubmit();
-      history.push("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
-    }, deathTime * 1000);
+      const intervalo = setInterval(function () {
+        // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
+        tlapse.current++;
+        console.log(tlapse.current);
+      }, 1000);
+      const tiempo = setTimeout(function () {
+        // NOTA: No se reinicializa aquí el interval ni el timeout, el contador tlapse continua hasta que llega al final. La forma correcta es en el return del useEffect!!!!!!
+        // Funciones a ejecutar cuando se termine el tiempo.
+        handleSubmit();
+        history.push("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
+      }, deathTime * 1000);
 
-    return () => {
-      clearInterval(intervalo); // Limpiamos el interval ID
-      clearTimeout(tiempo); // Limpiamos el timeout ID
-      setAnswer(""); // Con esto se prentende limpiar el input en cada juego, pero no se si genera renderizados que no convienen.
-      tlapse.current = 0; // Reinicializamos el contador de segundos.
-    };
-  }, [id, t, history]);
+      return () => {
+        clearInterval(intervalo); // Limpiamos el interval ID
+        clearTimeout(tiempo); // Limpiamos el timeout ID
+        tlapse.current = 0; // Reinicializamos el contador de segundos.
+      };
+    } else {
+      history.replace("/404");
+    }
+  }, [id, history]);
 
   let printNewGameSection = ""; // Sección dinámica para algunos juegos.
   //eligiendo componentes opciones segun el juego
@@ -178,7 +185,7 @@ function GamePage() {
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.
-    if (id < 4) history.replace(`${parseInt(id) + 1}`);
+    if (id < numGames) history.replace(`${parseInt(id) + 1}`);
     else history.push("/alive");
   }
 
@@ -235,8 +242,8 @@ function GamePage() {
             name="answer"
             label={t("game.input")}
             variant="outlined"
-            /*value={userAnswer}*/
-            onBlur={(e) => setAnswer(e.target.value)}
+            value={userAnswer}
+            onChange={(e) => setAnswer(e.target.value)}
           />
           <Button
             onClick={() => {

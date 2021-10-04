@@ -24,9 +24,12 @@ function Login() {
   // use state para controlar si el email es válido o no
   const [t] = useTranslation("global");
 
-
   useEffect(() => {
     document.title = t("Login.title");
+  }, [t]);
+
+  useEffect(() => {
+
     // solo la primera vez llamo a la validación del token, recogiendo el valor por parámetro
     const token = query.get("token"); // obtengo el query param del token
     if (token !== null) {
@@ -42,8 +45,7 @@ function Login() {
       setLoading(false); // dejamos de cargar
       setEmailValidity(false); // mostramos error
     }
-  }, [t, query]);
-  console.log(isAuth)
+  }, [query]);
 
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
@@ -79,11 +81,11 @@ function Login() {
     <Grid className={classes.backgroundContainer}>
       <Container>
         <Grid container className={classes.loginContainer}>
-          <Grid item xs={12} md={6} className={classes.formContainer}>
+          <Grid item xs={12} md={6} className={classes.formContainer} align="center">
             <Typography variant="h1" color="primary">
               {t("Login.title")}
             </Typography>
-            <Grid className={classes.inputContainer}>
+            <Grid className={classes.inputContainer} align="center">
               <form onSubmit={handleSubmit}>
                 <TextField
                   className={classes.inputContainer}
@@ -120,7 +122,7 @@ function Login() {
               </Link>
             </Grid>
           </Grid>
-          <Grid className={classes.imgContainer} item xs={6} md={6} >
+          <Grid className={classes.imgContainer} item xs={6}>
             <img src={hands} alt="creep" className={classes.handsIMG} />
           </Grid>
         </Grid>
