@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Header from "../componentes-webpage/header";
-import Footer from "../componentes-webpage/footer";
-import LegalContent from "../componentes-webpage/legal-content";
+import Header from "../../componentes-webpage/header";
+import Footer from "../../componentes-webpage/footer";
+import LegalContent from "../../componentes-webpage/legal-content";
 
 function GDPRPage() {
   //Esto se debería recuperar del idoma JSON.

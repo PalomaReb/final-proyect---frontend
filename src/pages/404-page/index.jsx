@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useStyles } from "./styles";
-import Header from "../componentes-webpage/header/index";
-import Footer from "../componentes-webpage/footer/index";
+import Header from "../../componentes-webpage/header/index";
+import Footer from "../../componentes-webpage/footer/index";
 import { Container, Typography, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";

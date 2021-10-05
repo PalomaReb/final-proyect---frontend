@@ -3,7 +3,7 @@ import { useStyles } from '../main-style/styles';
 import Button from '../buttons'
 import { NavLink } from "react-router-dom";
 import { Container, Grid } from '@material-ui/core';
-import { useAuth } from '../../hooks';
+import { useAuth } from '../hooks';
 import { useTranslation } from "react-i18next";
 
 function Header(props) {

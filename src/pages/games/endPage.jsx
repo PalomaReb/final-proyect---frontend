@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
-import { useStyles } from "./backgroundImages";
-import Header from "../componentes-webpage/header";
-import Footer from "../componentes-webpage/footer";
+import { useStyles } from "../../componentes-webpage/games/backgroundImages";
+import Header from "../../componentes-webpage/header";
+import Footer from "../../componentes-webpage/footer";
 import { Link } from "react-router-dom";
-import ButtonHome from "../componentes-webpage/buttons/buttonHome";
+import ButtonHome from "../../componentes-webpage/buttons/buttonHome";
 import { useTranslation } from "react-i18next";
 
 function SurvivalPage() {

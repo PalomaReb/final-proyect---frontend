@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Container, Typography } from "@material-ui/core";
-import Header from "../header";
-import Footer from "../footer";
+import Header from "../../componentes-webpage/header";
+import Footer from "../../componentes-webpage/footer";
 import ReviewCard from "./cardComponent";
 import { useStyles } from "./styles";
 import red from "../../assets/images/red.jpg";

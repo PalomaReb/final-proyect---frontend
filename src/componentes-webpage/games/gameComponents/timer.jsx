@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useStyles } from "../backgroundImages";
 import { Typography } from "@material-ui/core";
-import SandTimer from "../../assets/images/reloj-arena.gif";
+import SandTimer from "../../../assets/images/reloj-arena.gif";
 
 const RenderTime = ({ remainingTime }) => {
   const [t] = useTranslation("global");

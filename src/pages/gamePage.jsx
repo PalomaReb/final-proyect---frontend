@@ -5,7 +5,7 @@ import Header from "../componentes-webpage/header";
 import Footer from "../componentes-webpage/footer";
 import { useStyles } from "./backgroundImages";
 import { useHistory, useParams } from "react-router";
-import BathroomGame from "../games/gameComponents/bathroom";
+import BathroomGame from "../componentes-webpage/games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 import MindReader from "./gameComponents/mindReader";
 //import { UserState } from "../functions/index";

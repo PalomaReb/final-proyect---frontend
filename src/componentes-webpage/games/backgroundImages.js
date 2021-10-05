@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
-import face from '../../src/assets/images/face.jpg';
-import bathroom from "../assets/images/SAW-Bathroom.jpg";
-import doll from '../assets/images/doll.jpg';
-import alive from '../assets/images/alive.jpg';
+import face from '../../assets/images/face.jpg';
+import bathroom from "../../assets/images/SAW-Bathroom.jpg";
+import doll from '../../assets/images/doll.jpg';
+import alive from '../../assets/images/alive.jpg';
 
 export const useStyles = makeStyles((theme) => ({
     genericIMG: {

@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./index";
-import Header from "../../header";
-import Footer from "../../footer";
+import Header from "../../../componentes-webpage/header";
+import Footer from "../../../componentes-webpage/footer";
 
 function LoginUser() {
     ;

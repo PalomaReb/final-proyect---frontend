@@ -1,7 +1,7 @@
 import React from "react";
 import Register from "./index";
-import Header from "../../header";
-import Footer from "../../footer";
+import Header from "../../../componentes-webpage/header";
+import Footer from "../../../componentes-webpage/footer";
 // import { useStyles } from "../../main-style/styles";
 
 function RegisterUser() {

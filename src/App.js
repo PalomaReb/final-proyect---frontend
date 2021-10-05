@@ -6,19 +6,19 @@ import {
   Route,
 } from "react-router-dom";
 import theme from './theme/theme';
-import GamePage from './games/gamePage';
-import GameOver from './games/gameOver';
-import Home from './componentes-webpage/home';
-import RegisterUser from '../src/componentes-webpage/registerPage/register/registerPage';
-import LoginUser from './componentes-webpage/registerPage/login/loginAll';
-import NotFound from './404-page';
-import HowItWorks from './componentes-webpage/how-it-works';
-import TermsPage from './legal-pages/terms';
-import CookiesPage from './legal-pages/cookies';
-import GDPRPage from './legal-pages/gdpr';
-import Reviewsinput from '../src/componentes-webpage/reviews/reviewInput';
-import ViewReview from './componentes-webpage/reviews/viewReview';
-import SurvivalPage from './games/endPage';
+import GamePage from './pages/games/gamePage';
+import GameOver from './pages/games/gameOver';
+import Home from './pages/home/index';
+import RegisterUser from './pages/registerPage/register/registerPage';
+import LoginUser from './pages/registerPage/login/loginAll';
+import NotFound from './pages/404-page/index';
+import HowItWorks from './pages/how-it-works/index';
+import TermsPage from './pages/legal-pages/terms';
+import CookiesPage from './pages/legal-pages/cookies';
+import GDPRPage from './pages/legal-pages/gdpr';
+import Reviewsinput from './pages/reviews/reviewInput';
+import ViewReview from './pages/reviews/viewReview';
+import SurvivalPage from './pages/games/endPage';
 import { I18nextProvider } from 'react-i18next';
 import globalEs from './langauges/espa.json'
 import globalEn from './langauges/eng.json'

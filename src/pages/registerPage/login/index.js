@@ -6,9 +6,9 @@ import "../styles/style.css";
 import Button from "@material-ui/core/Button";
 import hands from "../../../assets/images/hands.png";
 import { useHistory } from "react-router";
-import Buttons from "../../buttons";
+import Buttons from "../../../componentes-webpage/buttons/index";
 import { Typography, Grid, Container } from "@material-ui/core";
-import { useAuth } from '../../../hooks/index'
+import { useAuth } from '../../../componentes-webpage/hooks'
 import { useTranslation } from "react-i18next";
 
 function useQuery() {

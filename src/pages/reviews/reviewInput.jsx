@@ -7,11 +7,11 @@ import {
   TextField,
 } from "@material-ui/core";
 import { useStyles } from "./styles";
-import Buttons from "../buttons";
+import Buttons from "../../componentes-webpage/buttons";
 import { Link } from "react-router-dom";
 import teeth from "../../assets/images/teeth.jpg";
-import Header from "../header";
-import Footer from "../footer";
+import Header from "../../componentes-webpage/header";
+import Footer from "../../componentes-webpage/footer";
 import React, { useState } from "react";
 // import { useHistory } from "react-router";
 // import { useAuth } from "../../hooks";

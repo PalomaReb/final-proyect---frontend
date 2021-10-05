@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useStyles } from "./backgroundImages";
+import { useStyles } from "../../componentes-webpage/games/backgroundImages";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
-import laugh from "../assets/sound/evilLaugh.mp3";
+import laugh from "../../assets/sound/evilLaugh.mp3";
 import ReactAudioPlayer from "react-audio-player";
 
 const innerPageTheme = createTheme({

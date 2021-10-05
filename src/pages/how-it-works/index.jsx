@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
-import { useAuth } from "../../hooks/index.js";
-import Footer from "../footer/index.js";
-import Header from "../header/index.js";
-import { useStyles } from "../main-style/styles.js";
+import { useAuth } from "../../componentes-webpage/hooks/index";
+import Footer from "../../componentes-webpage/footer/index.js";
+import Header from "../../componentes-webpage/header/index.js";
+import { useStyles } from "../../componentes-webpage/main-style/styles.js";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 

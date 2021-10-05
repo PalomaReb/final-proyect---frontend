@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Typography } from "@material-ui/core";
-import Header from "../componentes-webpage/header";
-import Footer from "../componentes-webpage/footer";
-import LegalContent from "../componentes-webpage/legal-content";
+import Header from "../../componentes-webpage/header";
+import Footer from "../../componentes-webpage/footer";
+import LegalContent from "../../componentes-webpage/legal-content";
 
 function CookiesPage() {
   //Esto se debería recuperar del idoma JSON.
