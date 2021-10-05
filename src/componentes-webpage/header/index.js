@@ -36,7 +36,6 @@ function Header(props) {
                             <NavLink activeClassName={classes.active} to='/login'><Button className={loggedclasses} color="primary" buttonInfo={t("Header.logIn")}></Button></NavLink>
                             <NavLink activeClassName={classes.active} to='/reviews'><Button className={notLoggedClasses} color="primary" buttonInfo={t("Header.review")}></Button></NavLink>
                             <NavLink activeClassName={classes.active} to='/view-reviews'><Button className={classes.headerLink} color="primary" buttonInfo={t("Header.usrRvw")}></Button></NavLink>
-                            <NavLink activeClassName={classes.active} to='/game/1'><Button className={notLoggedClasses} color="primary" buttonInfo={t("Header.game")}></Button></NavLink>
                         </Grid>
                         <Grid item xs={3} align="right">
                             <Button buttonInfo="En" onClick={() => { i18n.options.lng = "en"; changeLanguage('en') }}></Button>

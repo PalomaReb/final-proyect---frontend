@@ -55,25 +55,7 @@ function GamePage() {
         .then((data) => {
           setGameInfo(data);
           setAnswer("");
-          //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
         }); //pinta solo el id del juego y sus controles
-      //const isAuth = useAuth();
-      // if (isAuth !== null) { // Hay una función para esto.
-      //   const sessionToken = sessionStorage.getItem("sessionToken");
-      //   const options = {
-      //     method: "GET",
-      //     headers: {
-      //       "Content-type": "application/json",
-      //       Authorization: `Bearer ${sessionToken}`,
-      //     },
-      //   };
-      //   console.log("404!!");
-      //   fetch("http://localhost:5464/userProgress/userProgressData", options)
-      //     .then((r) => r.json())
-      //     .then((data) => console.log(data));
-      //   //return data;
-      // }
-
       const intervalo = setInterval(function () {
         // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
         tlapse.current++;

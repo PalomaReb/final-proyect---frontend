@@ -5,6 +5,7 @@ import Footer from "../../componentes-webpage/footer/index.js";
 import Header from "../../componentes-webpage/header/index.js";
 import { useStyles } from "../../componentes-webpage/main-style/styles.js";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import { useTranslation } from "react-i18next";
 
 function HowItWorks() {
@@ -12,10 +13,49 @@ function HowItWorks() {
   const [name, setName] = useState("anonymous");
   const classes = useStyles();
   const isAuth = useAuth();
+  const history = useHistory();
+  const numGames = 4;
 
   useEffect(() => {
     document.title = t("HowItWorks.metaTitle");
   }, [t]);
+
+  function guideUserToCorrectGame() {
+    if (isAuth) {
+      // Hay una función para esto.
+      const sessionToken = sessionStorage.getItem("sessionToken");
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${sessionToken}`,
+        },
+      };
+      fetch("http://localhost:5464/userProgress/userProgressData", options)
+        .then((r) => r.json())
+        .then((data) => {
+          console.log(data);
+          if (data !== null && data.gameList.length > 0) {
+            if (data.gameList[data.gameList.length - 1].status === "dead") {
+              history.push(
+                "/game/" + data.gameList[data.gameList.length - 1].gameId
+              );
+            } else {
+              if (data.gameList.length === numGames) {
+                history.push("/game/1");
+              } else {
+                history.push("/game/" + parseInt(data.gameList.length + 1));
+              }
+            }
+          } else {
+            history.push("/game/1");
+          }
+        });
+      //return data;
+    } else {
+      history.push("/game/1");
+    }
+  }
 
   useEffect(() => {
     if (isAuth) {
@@ -48,12 +88,13 @@ function HowItWorks() {
             {t("HowItWorks.hello") + name + t("HowItWorks.mainText")}
           </Typography>
 
-          <Link
-            className={`${classes.center} ${classes.headerLink}`}
-            to="/game/1"
+          <Typography
+            className={`${classes.center}`}
+            color="secondary"
+            onClick={(e) => guideUserToCorrectGame()}
           >
-            <Typography color="secondary">{t("HowItWorks.btn")}</Typography>
-          </Link>
+            {t("HowItWorks.btn")}
+          </Typography>
         </Container>
       </Grid>
       <Footer></Footer>
