@@ -4,7 +4,6 @@ import { useAuth } from "../../componentes-webpage/hooks/index";
 import Footer from "../../componentes-webpage/footer/index.js";
 import Header from "../../componentes-webpage/header/index.js";
 import { useStyles } from "../../componentes-webpage/main-style/styles.js";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { useTranslation } from "react-i18next";
 
@@ -22,7 +21,6 @@ function HowItWorks() {
 
   function guideUserToCorrectGame() {
     if (isAuth) {
-      // Hay una función para esto.
       const sessionToken = sessionStorage.getItem("sessionToken");
       const options = {
         method: "GET",
@@ -32,10 +30,11 @@ function HowItWorks() {
         },
       };
       fetch("http://localhost:5464/userProgress/userProgressData", options)
-        .then((r) => r.json())
+        .then((r) => {
+          if (r) r.json();
+        })
         .then((data) => {
-          console.log(data);
-          if (data !== null && data.gameList.length > 0) {
+          if (data && data.gameList.length > 0) {
             if (data.gameList[data.gameList.length - 1].status === "dead") {
               history.push(
                 "/game/" + data.gameList[data.gameList.length - 1].gameId

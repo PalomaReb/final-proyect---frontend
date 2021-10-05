@@ -19,7 +19,9 @@ function TermsPage() {
       >
         Yo, Paloma Rebolleda, no me hago responsable del contenido público de
         esta web (imágenes o textos). Tampoco asumo responsabilidades por los
-        posibles problemas de salud derivados del uso de esta página web.
+        posibles problemas de salud derivados del uso de esta página web. Esta
+        página fue creada como trabajo final de un curso y no tiene ningún animo
+        de lucro.
       </Typography>
       <Typography color="secondary" component="p" variant="p" align="center">
         ADVERTENCIA! Se recomienda un uso responsable de la página, así como
