@@ -19,6 +19,7 @@ import GDPRPage from './pages/legal-pages/gdpr';
 import Reviewsinput from './pages/reviews/reviewInput';
 import ViewReview from './pages/reviews/viewReview';
 import SurvivalPage from './pages/games/endPage';
+
 import { I18nextProvider } from 'react-i18next';
 import globalEs from './langauges/espa.json'
 import globalEn from './langauges/eng.json'
@@ -36,7 +37,6 @@ i18next.init({
     },
   }
 })
-
 
 function App() {
   return (
