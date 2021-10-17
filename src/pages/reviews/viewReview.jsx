@@ -16,7 +16,7 @@ function ViewReview(props) {
 
   useEffect(() => {
     document.title = t("Reviews.title");
-    fetch("http://localhost:5464/user/reviews")
+    fetch("https://code-or-die-backend.herokuapp.com/user/reviews")
       .then((r) => r.json())
       .then((data) => setReview(data));
   }, [t]);

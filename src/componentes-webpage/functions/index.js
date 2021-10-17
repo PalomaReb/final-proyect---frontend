@@ -15,7 +15,7 @@ export function UserState() {
                     Authorization: `Bearer ${sessionToken}`,
                 },
             };
-            fetch("http://localhost:5464/userProgress/userProgressData", options)
+            fetch("https://code-or-die-backend.herokuapp.com/userProgress/userProgressData", options)
                 .then((r) => r.json())
                 .then((data) => {
                     console.log(data);

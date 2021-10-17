@@ -46,7 +46,7 @@ function Reviewsinput() {
           alias: e.target.alias.value,
         }),
       };
-      fetch("http://localhost:5464/user/reviews", options)
+      fetch("https://code-or-die-backend.herokuapp.com/user/reviews", options)
         .then((r) => r.json())
         .then(function (response) {
           if (!response.ok) {

@@ -66,7 +66,7 @@ function Login() {
           password: e.target.pass.value,
         }),
       };
-      fetch("http://localhost:5464/auth/login", options)
+      fetch("https://code-or-die-backend.herokuapp.com/auth/login", options)
         .then((r) => r.json())
         .then((d) => {
           sessionStorage.setItem("sessionToken", d.access_token);

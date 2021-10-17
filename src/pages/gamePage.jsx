@@ -9,7 +9,6 @@ import BathroomGame from "../componentes-webpage/games/gameComponents/bathroom";
 import ThemeWrapper from "./gameComponents/themeChange";
 import MindReader from "./gameComponents/mindReader";
 //import { UserState } from "../functions/index";
-// import { useAuth } from "../hooks";
 import ReactAudioPlayer from "react-audio-player";
 import sawSong from "../assets/sound/sawThemeSong.mp3";
 import { useTranslation } from "react-i18next";
@@ -50,29 +49,13 @@ function GamePage() {
   useEffect(() => {
     // para que se rederize el juego cuando se refresca la pagina
     if (id > 0 && id <= numGames) {
-      fetch(`http://localhost:5464/games/${id}`) //llama al param "game" por id de juego
+      fetch(`https://code-or-die-backend.herokuapp.com/games/${id}`) //llama al param "game" por id de juego
         .then((r) => r.json()) //promesa que devuelve el json
         .then((data) => {
           setGameInfo(data);
           setAnswer("");
           //console.log(data); //promesa que busca los datos de game y usa el setGameInfo para redendizar la pagina
         }); //pinta solo el id del juego y sus controles
-      //const isAuth = useAuth();
-      // if (isAuth !== null) { // Hay una función para esto.
-      //   const sessionToken = sessionStorage.getItem("sessionToken");
-      //   const options = {
-      //     method: "GET",
-      //     headers: {
-      //       "Content-type": "application/json",
-      //       Authorization: `Bearer ${sessionToken}`,
-      //     },
-      //   };
-      //   console.log("404!!");
-      //   fetch("http://localhost:5464/userProgress/userProgressData", options)
-      //     .then((r) => r.json())
-      //     .then((data) => console.log(data));
-      //   //return data;
-      // }
 
       const intervalo = setInterval(function () {
         // Se crea el Intervalo por segundos y se van acumulando segundos en tlapse.
@@ -181,7 +164,10 @@ function GamePage() {
       body: JSON.stringify(newUserProgress), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
     };
     // inserto en su collection
-    fetch("http://localhost:5464/userProgress/userProgressData", progress);
+    fetch(
+      "https://code-or-die-backend.herokuapp.com/userProgress/userProgressData",
+      progress
+    );
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.

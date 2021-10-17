@@ -29,7 +29,10 @@ function HowItWorks() {
           Authorization: `Bearer ${sessionToken}`,
         },
       };
-      fetch("http://localhost:5464/userProgress/userProgressData", options)
+      fetch(
+        "https://code-or-die-backend.herokuapp.com/userProgress/userProgressData",
+        options
+      )
         .then((r) => {
           if (r) r.json();
         })
@@ -65,7 +68,7 @@ function HowItWorks() {
           Authorization: `Bearer ${sessionToken}`,
         },
       };
-      fetch("http://localhost:5464/user/userInfo", options)
+      fetch("https://code-or-die-backend.herokuapp.com/user/userInfo", options)
         .then((r) => r.json())
         .then((data) => setName(data.alias));
     }

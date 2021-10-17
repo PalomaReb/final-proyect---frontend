@@ -9,7 +9,6 @@ import BathroomGame from "../../componentes-webpage/games/gameComponents/bathroo
 import ThemeWrapper from "../../componentes-webpage/games/gameComponents/themeChange";
 import MindReader from "../../componentes-webpage/games/gameComponents/mindReader";
 //import { UserState } from "../functions/index";
-// import { useAuth } from "../hooks";
 import ReactAudioPlayer from "react-audio-player";
 import sawSong from "../../assets/sound/sawThemeSong.mp3";
 import { useTranslation } from "react-i18next";
@@ -50,7 +49,7 @@ function GamePage() {
   useEffect(() => {
     // para que se rederize el juego cuando se refresca la pagina
     if (id > 0 && id <= numGames) {
-      fetch(`http://localhost:5464/games/${id}`) //llama al param "game" por id de juego
+      fetch(`https://code-or-die-backend.herokuapp.com/games/${id}`) //llama al param "game" por id de juego
         .then((r) => r.json()) //promesa que devuelve el json
         .then((data) => {
           setGameInfo(data);
@@ -163,7 +162,10 @@ function GamePage() {
       body: JSON.stringify(newUserProgress), //A partir del segundo juego tengo dudas de cómo gestionar estas inserciones en Mongo
     };
     // inserto en su collection
-    fetch("http://localhost:5464/userProgress/userProgressData", progress);
+    fetch(
+      "https://code-or-die-backend.herokuapp.com/userProgress/userProgressData",
+      progress
+    );
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.
