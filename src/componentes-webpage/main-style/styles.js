@@ -25,7 +25,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     center: {
         textAlign: "center",
-        textDecoration: "none"
+        textDecoration: "none",
+        '&:hover': {
+            cursor: "pointer",
+        },
     },
     title: {
         textAlign: "center",

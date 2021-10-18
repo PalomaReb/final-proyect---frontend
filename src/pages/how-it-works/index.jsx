@@ -42,20 +42,25 @@ function HowItWorks() {
               history.push(
                 "/game/" + data.gameList[data.gameList.length - 1].gameId
               );
+              console.log("entre aqui --- status dead");
             } else {
               if (data.gameList.length === numGames) {
                 history.push("/game/1");
+                console.log("entre aqui, history push game1 (numgame) ");
               } else {
                 history.push("/game/" + parseInt(data.gameList.length + 1));
+                console.log("entre aqui- else history push game +");
               }
             }
           } else {
             history.push("/game/1");
+            console.log("else game 1");
           }
         });
       //return data;
     } else {
       history.push("/game/1");
+      console.log("else primera vez game 1");
     }
   }
 
