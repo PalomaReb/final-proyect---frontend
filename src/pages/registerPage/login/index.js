@@ -35,8 +35,7 @@ function Login() {
     console.log(token);
     if (token !== null) {
       // llamamos a nuestro API para hacer check del validity
-      fetch(`https://code-or-die-backend.herokuapp.com
-      /auth/validate?token=${token}`) // validamos tipo GET pasando el token por query param
+      fetch(`https://code-or-die-backend.herokuapp.com/auth/validate?token=${token}`) // validamos tipo GET pasando el token por query param
         .then((r) => {
           setLoading(false); // dejamos de cargar
           if (!r.ok) throw new Error("No se ha validado correctamente"); // si no okey lanzamos error que captura el catch
