@@ -30,9 +30,7 @@ function HowItWorks() {
         },
       };
       fetch("https://code-or-die-backend.herokuapp.com/userProgress/userProgressData", options)
-        .then((r) => {
-          if (r) r.json();
-        })
+        .then((r) => r.json())
         .then((data) => {
           if (data !== null && data.gameList.length > 0) {
             if (data.gameList[data.gameList.length - 1].status === "dead") {
