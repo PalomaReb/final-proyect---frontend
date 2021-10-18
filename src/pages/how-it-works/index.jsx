@@ -37,7 +37,7 @@ function HowItWorks() {
           if (r) r.json();
         })
         .then((data) => {
-          console.log(data.gameList.length);
+          // console.log(data.gameList.length);
           if (data && data?.gameList.length > 0) {
             if (data?.gameList[data?.gameList.length - 1].status === "dead") {
               history.push(
