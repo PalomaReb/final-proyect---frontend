@@ -37,10 +37,10 @@ export const useStyles = makeStyles((theme) => ({
 
     },
     handsIMG: {
-        height: "30rem",
+        height: "34rem",
         position: "absolute",
         right: "12%",
-        button: "12vh",
+        bottom: "11vh",
         marginLeft: "4rem",
 
     },
