@@ -23,6 +23,7 @@ function Register() {
 
   const [t] = useTranslation("global");
   const [emailVerified, setEmailVerified] = useState("");
+  const [colorVer, setColorVer] = useState("secondary");
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
     e.preventDefault();
@@ -56,10 +57,11 @@ function Register() {
             return response;
           })
           .then((data) => {
-            setEmailVerified("Revisa tu email para continuar");
+            setEmailVerified(t("Register.emailCheckyes"));
           })
           .catch(function (error) {
-            setEmailVerified("Upps User is already registreded!!");
+            setEmailVerified(t("Register.emailCheckno"));
+            setColorVer("primary");
           });
       } else {
         // Muestro al usuario el error de que las passwords no coinciden
@@ -112,6 +114,7 @@ function Register() {
                 label={t("Register.rPassword")}
                 variant="outlined"
               />
+              <Typography variant="h3" color={colorVer}>{emailVerified}</Typography>
               <Button
                 type="submit"
                 fullWidth
@@ -119,7 +122,6 @@ function Register() {
                 color="primary"
                 className={classes.submitBtn}
               >
-                {" "}
                 {t("Register.btnReg")}
               </Button>
               <FormControlLabel
@@ -129,8 +131,6 @@ function Register() {
                 labelPlacement="end"
               />
             </form>
-            <Typography>{emailVerified}</Typography>
-
             <Link to="/howitworks">
               <Buttons buttonInfo={t("Register.btnContinue")}> </Buttons>
             </Link>

@@ -28,7 +28,9 @@
     "btnReg": "Regístrame",
     "privacy": "He leído y acepto la política de privacidad",
     "btnContinue": "Continuar sin registrarme",
-    "btnLogin": "Ya tengo cuenta"
+    "btnLogin": "Ya tengo cuenta",
+    "emailCheckyes": "Check your email to continue!!!",
+    "emailCheckno": "¡UUPS! Usuario ya registrado!"
   },
 
   "Login": {
@@ -36,7 +38,8 @@
     "Email": "Email",
     "password": "Contraseña",
     "btnLogin": "Inciar sessión",
-    "btnAccount": "Crear una cuenta nueva"
+    "btnAccount": "Crear una cuenta nueva",
+    "notFound": "Usuario o contraseña incorrecto, por favor inténtalo de nuevo"
   },
 
   "HowItWorks": {

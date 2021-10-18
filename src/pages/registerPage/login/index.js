@@ -15,6 +15,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 function Login() {
+  const [loginVal, setLogVer] = useState('');
   const isAuth = useAuth();
   const history = useHistory();
   const classes = useStyles();
@@ -72,7 +73,10 @@ function Login() {
         .then((d) => {
           sessionStorage.setItem("sessionToken", d.access_token);
           history.push("/howitworks");
-        }); // aqui tendríamos el access token
+        }) // aqui tendríamos el access token
+        .catch(function (error) {
+          setLogVer(t("Login.notFound"));
+        });
     } else {
       // mostrar error al usuario con el campo que no es válido
     }
@@ -106,6 +110,7 @@ function Login() {
                   variant="outlined"
 
                 />
+                <Typography variant="h3" color="primary">{loginVal}</Typography>
                 <div className={classes.registerButton}>
                   <Button
                     type="submit"

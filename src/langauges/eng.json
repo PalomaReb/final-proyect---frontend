@@ -28,7 +28,9 @@
     "btnReg": "Register me",
     "privacy": "I accept term and conditions of use",
     "btnContinue": "Continue without registering",
-    "btnLogin": "I already have an account"
+    "btnLogin": "I already have an account",
+    "emailCheckyes": "Check your email to continue!!!",
+    "emailCheckno": "OOOPS! User already registered"
   },
 
   "Login": {
@@ -36,7 +38,8 @@
     "Email": "Email",
     "password": "Password",
     "btnLogin": "Log in",
-    "btnAccount": "Create a new account"
+    "btnAccount": "Create a new account",
+    "notFound": "User or password incorrect, please try again"
   },
 
   "HowItWorks": {
