@@ -34,7 +34,7 @@ function HowItWorks() {
           if (r) r.json();
         })
         .then((data) => {
-          if (data !== null && data.gameList.length > 0) {
+          if (data && data.gameList.length > 0) {
             if (data.gameList[data.gameList.length - 1].status === "dead") {
               history.push(
                 "/game/" + data.gameList[data.gameList.length - 1].gameId
