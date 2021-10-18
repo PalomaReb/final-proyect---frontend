@@ -32,6 +32,7 @@ function Login() {
 
     // solo la primera vez llamo a la validación del token, recogiendo el valor por parámetro
     const token = query.get("token"); // obtengo el query param del token
+    console.log(token);
     if (token !== null) {
       // llamamos a nuestro API para hacer check del validity
       fetch(`https://code-or-die-backend.herokuapp.com
