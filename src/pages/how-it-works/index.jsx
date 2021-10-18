@@ -29,27 +29,23 @@ function HowItWorks() {
           Authorization: `Bearer ${sessionToken}`,
         },
       };
-      fetch(
-        "https://code-or-die-backend.herokuapp.com/userProgress/userProgressData",
-        options
-      )
+      fetch("https://code-or-die-backend.herokuapp.com/userProgress/userProgressData", options)
         .then((r) => {
           if (r) r.json();
         })
         .then((data) => {
-          // console.log(data.gameList.length);
-          if (data && data?.gameList.length > 0) {
-            if (data?.gameList[data?.gameList.length - 1].status === "dead") {
+          if (data !== null && data.gameList.length > 0) {
+            if (data.gameList[data.gameList.length - 1].status === "dead") {
               history.push(
-                "/game/" + data?.gameList[data?.gameList.length - 1].gameId
+                "/game/" + data.gameList[data.gameList.length - 1].gameId
               );
               console.log("entre aqui --- status dead");
             } else {
-              if (data?.gameList.length === numGames) {
+              if (data.gameList.length === numGames) {
                 history.push("/game/1");
                 console.log("entre aqui, history push game1 (numgame) ");
               } else {
-                history.push("/game/" + parseInt(data?.gameList.length + 1));
+                history.push("/game/" + parseInt(data.gameList.length + 1));
                 console.log("entre aqui- else history push game +");
               }
             }
