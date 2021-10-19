@@ -11,7 +11,8 @@
     "logIn": "Log in",
     "usrRvw": "Reviews",
     "review": "Give a review",
-    "game": "Go to game"
+    "game": "Go to game",
+    "logout": "Log out"
   },
 
   "Footer": {

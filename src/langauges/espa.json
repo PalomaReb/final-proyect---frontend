@@ -11,7 +11,8 @@
     "logIn": "Iniciar sesión",
     "usrRvw": "Experiencias",
     "review": "Deja tu experiencia",
-    "game": "Ir al juego"
+    "game": "Ir al juego",
+    "logout": "Cerrar sesión"
   },
 
   "Footer": {

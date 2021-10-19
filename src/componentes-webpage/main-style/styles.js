@@ -11,8 +11,8 @@ export const useStyles = makeStyles((theme) => ({
     bannerContainer: {
         maxWidth: "100%",
         margin: "0",
-        padding: "5rem",
-        height: "100vh",
+        padding: "2rem",
+        height: "90vh",
     },
     backgroundHome: {
         background: `url(${neonClown})`,

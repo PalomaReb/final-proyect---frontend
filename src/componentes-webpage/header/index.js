@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { Container, Grid } from '@material-ui/core';
 import { useAuth } from '../hooks';
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
 
 function Header(props) {
     const classes = useStyles();
@@ -13,6 +14,7 @@ function Header(props) {
         i18n.changeLanguage(lng);
     }
     const isAuth = useAuth();
+    const history = useHistory();
 
     let loggedclasses = `${classes.headerLink} `;
     let notLoggedClasses = `${classes.headerLink} `;
@@ -22,6 +24,11 @@ function Header(props) {
     }
     else {
         notLoggedClasses += `${classes.displayNone}`;
+    }
+
+    function logout() {
+        sessionStorage.removeItem('sessionToken');
+        history.push('/');
     }
 
     return (
@@ -36,6 +43,8 @@ function Header(props) {
                             <NavLink activeClassName={classes.active} to='/login'><Button className={loggedclasses} color="primary" buttonInfo={t("Header.logIn")}></Button></NavLink>
                             <NavLink activeClassName={classes.active} to='/reviews'><Button className={notLoggedClasses} color="primary" buttonInfo={t("Header.review")}></Button></NavLink>
                             <NavLink activeClassName={classes.active} to='/view-reviews'><Button className={classes.headerLink} color="primary" buttonInfo={t("Header.usrRvw")}></Button></NavLink>
+                            <Button onClick={() => { logout() }} className={notLoggedClasses} color="primary" buttonInfo={t("Header.logout")}></Button>
+
                         </Grid>
                         <Grid item xs={3} align="right">
                             <Button buttonInfo="En" onClick={() => { i18n.options.lng = "en"; changeLanguage('en') }}></Button>
