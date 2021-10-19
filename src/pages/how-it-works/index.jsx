@@ -39,12 +39,12 @@ function HowItWorks() {
               );
               console.log("entre aqui --- status dead");
             } else {
-              if (data.gameList.length === numGames) {
+              if (parseInt(data.gameList[data.gameList.length - 1].gameId) === numGames) {
                 history.push("/game/1");
-                console.log("entre aqui, history push game1 (numgame) ");
+                console.log("entre aqui, history push game1 (numgame) = new game");
               } else {
-                history.push("/game/" + parseInt(data.gameList.length + 1));
-                console.log("entre aqui- else history push game +");
+                history.push("/game/" + parseInt(parseInt(data.gameList[data.gameList.length - 1].gameId) + 1));
+                console.log("entre aqui- else history push game de donde me sali");
               }
             }
           } else {
@@ -53,7 +53,7 @@ function HowItWorks() {
           }
         });
       //return data;
-    } else {
+    } else { // Sin login se empieza siempre desde el principio ya que no guarda el avance.
       history.push("/game/1");
       console.log("else primera vez game 1");
     }
