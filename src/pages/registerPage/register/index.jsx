@@ -43,6 +43,8 @@ function Register() {
             email: e.target.email.value, // obtengo el value de un input por su name
             alias: e.target.alias.value,
             password: e.target.pass.value,
+            date: new Date(),
+
           }),
         };
         // llamo al registro

@@ -40,7 +40,7 @@ function ViewReview(props) {
               centerSlidePercentage={50}
               showStatus={false}
             >
-              {review.map((userReview, i) => (
+              {review.slice(0).reverse().map((userReview, i) => (
                 <ReviewCard
                   key={i}
                   img={red}

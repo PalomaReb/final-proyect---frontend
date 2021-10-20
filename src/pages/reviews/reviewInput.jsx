@@ -44,6 +44,8 @@ function Reviewsinput() {
         body: JSON.stringify({
           review: e.target.review.value,
           alias: e.target.alias.value,
+          date: new Date(),
+
         }),
       };
       fetch("https://code-or-die-backend.herokuapp.com/user/reviews", options)
