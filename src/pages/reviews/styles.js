@@ -31,6 +31,9 @@ export const useStyles = makeStyles((theme) => ({
     imgContainer: {
         textAlign: "center"
     },
+    registerButton: {
+        margin: "1rem"
+    },
 
     teethIMG: {
         borderRadius: "4.5rem",

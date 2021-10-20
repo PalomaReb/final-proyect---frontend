@@ -45,7 +45,6 @@ function Reviewsinput() {
           review: e.target.review.value,
           alias: e.target.alias.value,
           date: new Date(),
-
         }),
       };
       fetch("https://code-or-die-backend.herokuapp.com/user/reviews", options)
@@ -99,6 +98,7 @@ function Reviewsinput() {
                   placeholder={t("usrRvw.txtBox")}
                   name="review"
                 />
+                <Typography variant="h3" color="secondary">{sendReview}</Typography>
                 <div className={classes.registerButton}>
                   <Button
                     type="submit"
@@ -111,7 +111,6 @@ function Reviewsinput() {
                   </Button>
                 </div>
               </form>
-              <Typography>{sendReview}</Typography>
               <Link to="/">
                 <Buttons buttonInfo={t("usrRvw.btnHome")}> </Buttons>
               </Link>

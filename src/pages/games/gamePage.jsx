@@ -106,12 +106,12 @@ function GamePage() {
             e.preventDefault();
             e.target.innerHTML = alphaArray[ax];
             setShowReload(true);
+            setAx(calculateRandomIndex());
           }}
           reload={(e) => {
             e.target.previousSibling.children[0].children[0].cells[0].innerHTML =
-              "¿?";
+              "?";
             setShowReload(false);
-            setAx(calculateRandomIndex());
           }}
         ></MindReader>
       );
@@ -213,33 +213,32 @@ function GamePage() {
           <Typography variant="h2" color="primary" className={classes.acertijo}>
             {txt?.map((clue) => clue)}
           </Typography>
+          <Grid item xs={12} className={classes.inputCenter}>
+            <TextField
+              color="secondary"
+              className={classes.inputBackGround}
+              type="password"
+              name="answer"
+              label={t("game.input")}
+              variant="outlined"
+              value={userAnswer}
+              onChange={(e) => setAnswer(e.target.value)}
+            />
+            <Button
+              onClick={() => {
+                if (userAnswer === gameAnswer) {
+                  handleSubmit();
+                } else {
+                  //"Sigue intentandolo!"
+                }
+              }}
+              color="primary"
+              buttonInfo={t("game.btnInput")}
+            ></Button>
+          </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
           {printNewGameSection}
-        </Grid>
-
-        <Grid item xs={12} md={6} className={classes.inputCenter}>
-          <TextField
-            color="secondary"
-            className={classes.inputBackGround}
-            type="password"
-            name="answer"
-            label={t("game.input")}
-            variant="outlined"
-            value={userAnswer}
-            onChange={(e) => setAnswer(e.target.value)}
-          />
-          <Button
-            onClick={() => {
-              if (userAnswer === gameAnswer) {
-                handleSubmit();
-              } else {
-                //"Sigue intentandolo!"
-              }
-            }}
-            color="primary"
-            buttonInfo={t("game.btnInput")}
-          ></Button>
         </Grid>
       </Grid>
       <Footer></Footer>
