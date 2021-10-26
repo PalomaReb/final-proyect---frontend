@@ -27,7 +27,6 @@ function Register() {
   const handleSubmit = (e) => {
     // gestiono el submit del formulario
     e.preventDefault();
-    console.log(e.target.pass.value);
     if (e.target.checkValidity()) {
       // compruebo que todos los campos del formulario son validos
       if (e.target.pass.value === e.target.repeated_pass.value) {
@@ -67,9 +66,11 @@ function Register() {
           });
       } else {
         // Muestro al usuario el error de que las passwords no coinciden
+        setEmailVerified(t('Register.pwdNotMatch'));
       }
     } else {
       // mostrar error al usuario con el campo que no es válido
+      setEmailVerified(e.target.validationMessage);
     }
   };
 
@@ -116,7 +117,7 @@ function Register() {
                 label={t("Register.rPassword")}
                 variant="outlined"
               />
-              <Typography variant="h3" color={colorVer}>{emailVerified}</Typography>
+              <Typography component="p" color={colorVer}>{emailVerified}</Typography>
               <Button
                 type="submit"
                 fullWidth

@@ -30,7 +30,7 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     registerButton: {
-        marginTop: "3rem",
+        marginTop: "2rem",
         [theme.breakpoints.down('sm')]: {
             width: "50%"
         }
@@ -39,8 +39,8 @@ export const useStyles = makeStyles((theme) => ({
     handsIMG: {
         height: "34rem",
         position: "absolute",
-        right: "12%",
-        bottom: "11vh",
+        right: "11%",
+        bottom: "10.66vh",
         marginLeft: "4rem",
 
     },

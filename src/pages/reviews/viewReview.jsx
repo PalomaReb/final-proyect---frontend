@@ -24,20 +24,19 @@ function ViewReview(props) {
   return (
     <React.Fragment>
       <Header></Header>
-      <Grid container>
-        <Container className={classes.viewContainer}>
-          <Grid>
-            <Typography variant="h1" color="primary">
-              {t("Reviews.title")}
-            </Typography>
-          </Grid>
+      <Container className={classes.viewContainer}>
+        <Grid>
+          <Typography variant="h1" color="primary">
+            {t("Reviews.title")}
+          </Typography>
           {review.length > 0 ? (
             <Carousel
               autoPlay={true}
               showThumbs={false}
               infiniteLoop={true}
               centerMode={true}
-              centerSlidePercentage={50}
+              interval={8000}
+              centerSlidePercentage={65}
               showStatus={false}
             >
               {review.slice(0).reverse().map((userReview, i) => (
@@ -54,8 +53,8 @@ function ViewReview(props) {
               {t("Reviews.mainText")}
             </Typography>
           )}
-        </Container>
-      </Grid>
+        </Grid>
+      </Container>
       <Footer></Footer>
     </React.Fragment>
   );

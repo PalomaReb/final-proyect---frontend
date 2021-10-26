@@ -17,19 +17,15 @@ const theme = createTheme({
     typography: {
         fontFamily: "'computer', 'sans-serif'",
         letterSpacing: "5px",
-        fontSize: "1.25rem",
+        fontSize: 16,
         h1: {
-            fontSize: "2.5rem",
+            fontSize: 40,
             letterSpacing: "5px",
             marginBottom: "1rem",
         },
         h2: {
-            fontSize: "1.2rem",
+            fontSize: 19,
             letterSpacing: "5px",
-
-        },
-        p: {
-
 
         },
     },

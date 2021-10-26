@@ -8,7 +8,6 @@ import { useHistory, useParams } from "react-router";
 import BathroomGame from "../../componentes-webpage/games/gameComponents/bathroom";
 import ThemeWrapper from "../../componentes-webpage/games/gameComponents/themeChange";
 import MindReader from "../../componentes-webpage/games/gameComponents/mindReader";
-//import { UserState } from "../functions/index";
 import ReactAudioPlayer from "react-audio-player";
 import sawSong from "../../assets/sound/sawThemeSong.mp3";
 import { useTranslation } from "react-i18next";
@@ -30,6 +29,7 @@ function GamePage() {
   const [ax, setAx] = useState(calculateRandomIndex()); //Para el juego de MindReader
   const [showReload, setShowReload] = useState(false);
   const numGames = 4;
+  const [tryAgain, setTryAgain] = useState('');
 
   //const [tlapse, setTlapse] = useState(0); // Cuenta segundos trasncurridos por cada juego
   // Cuenta segundos trasncurridos por cada juego
@@ -64,7 +64,6 @@ function GamePage() {
         // NOTA: No se reinicializa aquí el interval ni el timeout, el contador tlapse continua hasta que llega al final. La forma correcta es en el return del useEffect!!!!!!
         // Funciones a ejecutar cuando se termine el tiempo.
         handleSubmit();
-        history.push("/death"); // Usamos "replace" en lugar de push para evitar reinicializar los tiempos volviendo atrás y adelante con el navegador. NOTA: Si no se limpia el interval o el timeout en el return, estos continuan a pesar de la navegación**
       }, deathTime * 1000);
 
       return () => {
@@ -169,10 +168,15 @@ function GamePage() {
     //.then((r) => r.json())
     //.then((d) => {}); // Aquí se podría mostrar un mensaje.
     setAnswer(""); // Se limpia la respuesta del usuario.
-    if (id < numGames) history.replace(`${parseInt(id) + 1}`);
-    else history.push("/alive");
+    //controlamos las posibles sitauciones de redirección 
+    if (id < numGames && gameStatus === "completed") {
+      history.replace(`${parseInt(id) + 1}`);
+    } else if (gameStatus === "dead") {
+      history.replace("/death");
+    } else {
+      history.replace("/alive");
+    }
   }
-
   return (
     <React.Fragment>
       <Header></Header>
@@ -223,18 +227,25 @@ function GamePage() {
               variant="outlined"
               value={userAnswer}
               onChange={(e) => setAnswer(e.target.value)}
+              onBlur={(e) => {
+                if (id === 1) console.log('Magnum opus');
+              }}
             />
             <Button
               onClick={() => {
                 if (userAnswer === gameAnswer) {
                   handleSubmit();
                 } else {
-                  //"Sigue intentandolo!"
+                  setTryAgain(t('game.tryAgain'))
+                  setTimeout(() => setTryAgain(''), 5000);
                 }
               }}
               color="primary"
               buttonInfo={t("game.btnInput")}
             ></Button>
+            <Typography component="p" color="primary">
+              {tryAgain}
+            </Typography>
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>

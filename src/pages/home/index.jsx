@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useStyles } from "../../componentes-webpage/main-style/styles.js";
-import { Grid } from "@material-ui/core";
 import ButtonHome from "../../componentes-webpage/buttons/buttonHome";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
 import { useAuth } from "../../componentes-webpage/hooks";
 import { useTranslation } from "react-i18next";
 import Button from "../../componentes-webpage/buttons/index.jsx";

@@ -8,7 +8,7 @@ import hands from "../../../assets/images/hands.png";
 import { useHistory } from "react-router";
 import Buttons from "../../../componentes-webpage/buttons/index";
 import { Typography, Grid, Container } from "@material-ui/core";
-import { useAuth } from '../../../componentes-webpage/hooks'
+// import { useAuth } from '../../../componentes-webpage/hooks'
 import { useTranslation } from "react-i18next";
 
 function useQuery() {
@@ -16,7 +16,7 @@ function useQuery() {
 }
 function Login() {
   const [loginVal, setLogVer] = useState('');
-  const isAuth = useAuth();
+  // const isAuth = useAuth();
   const history = useHistory();
   const classes = useStyles();
   const query = useQuery(); // obtengo los query params
@@ -110,7 +110,7 @@ function Login() {
                   variant="outlined"
 
                 />
-                <Typography variant="h3" color="primary">{loginVal}</Typography>
+                <Typography component="p" color="primary">{loginVal}</Typography>
                 <div className={classes.registerButton}>
                   <Button
                     type="submit"

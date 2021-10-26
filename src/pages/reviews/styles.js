@@ -24,6 +24,13 @@ export const useStyles = makeStyles((theme) => ({
         width: "100%",
     },
 
+    textArea: {
+        width: "80%",
+        marginBottom: "1rem",
+        padding: ".6rem",
+        backgroundColor: "rgb(230, 218, 218, .3)",
+    },
+
     formContainer: {
         textAlign: "center",
     },
@@ -52,11 +59,11 @@ export const useStyles = makeStyles((theme) => ({
 
 
     cardContainer: {
-        height: "18rem",
+        height: "auto",
         width: "18rem",
         display: "flex",
         flexDirection: "column",
-        margin: ".5rem",
+        margin: ".5rem auto",
         borderRadius: "40px",
 
     },
@@ -76,10 +83,4 @@ export const useStyles = makeStyles((theme) => ({
         paddingTop: "2rem",
         paddingBottom: "1rem"
     },
-    textArea: {
-        width: "80%",
-        marginBottom: "1rem",
-        padding: ".6rem",
-        backgroundColor: "rgb(230, 218, 218, .3)",
-    }
 }));

@@ -30,8 +30,9 @@
     "privacy": "He leído y acepto la política de privacidad",
     "btnContinue": "Continuar sin registrarme",
     "btnLogin": "Ya tengo cuenta",
-    "emailCheckyes": "Check your email to continue!!!",
-    "emailCheckno": "¡UUPS! Usuario ya registrado!"
+    "emailCheckyes": "Revisa tu email para continuar",
+    "emailCheckno": "¡UUPS! Usuario ya registrado",
+    "pwdNotMatch": "Las contraseñas no coinciden"
   },
 
   "Login": {
@@ -80,7 +81,8 @@
     "timerHU": "¡Espabila!",
     "timerRM": "Te quedan...",
     "input": "Respuesta",
-    "btnInput": "Escapar???"
+    "btnInput": "Escapar???",
+    "tryAgain": "Intenta de nuevo"
   },
   "alive": {
     "metaTitle": "¡Enhorabuena! | Code or Die",

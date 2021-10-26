@@ -31,7 +31,8 @@
     "btnContinue": "Continue without registering",
     "btnLogin": "I already have an account",
     "emailCheckyes": "Check your email to continue!!!",
-    "emailCheckno": "OOOPS! User already registered"
+    "emailCheckno": "OOOPS! User already registered",
+    "pwdNotMatch": "Passwords do not match"
   },
 
   "Login": {
@@ -80,7 +81,8 @@
     "timerHU": "Hurry up!",
     "timerRM": "Remaining",
     "input": "Answer",
-    "btnInput": "Escape???"
+    "btnInput": "Escape???",
+    "tryAgain": "Try again"
   },
   "alive": {
     "metaTitle": "Congratulations! | Code or Die",

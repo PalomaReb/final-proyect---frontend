@@ -13,7 +13,7 @@ function TermsPage() {
       <Typography
         color="secondary"
         component="p"
-        variant="p"
+        variant="inherit"
         align="center"
         gutterBottom
       >
@@ -23,7 +23,7 @@ function TermsPage() {
         página fue creada como trabajo final de un curso y no tiene ningún animo
         de lucro.
       </Typography>
-      <Typography color="secondary" component="p" variant="p" align="center">
+      <Typography color="secondary" component="p" variant="inherit" align="center">
         ADVERTENCIA! Se recomienda un uso responsable de la página, así como
         evitar acceder si se padecen afecciones del corazón.
       </Typography>

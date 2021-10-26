@@ -9,7 +9,7 @@ function CookiesPage() {
   const ptitle = "Aviso de cookies";
   const title = "AVISO DE COOKIES";
   const contenido = (
-    <Typography color="secondary" component="p" variant="p" align="center">
+    <Typography color="secondary" component="p" variant="inherit" align="center">
       Únicame utilizamos cookies estrictamente necesarias para el funcionamiento
       de esta web y la identificación de sus usuarios.
     </Typography>
