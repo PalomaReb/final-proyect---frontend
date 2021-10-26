@@ -65,6 +65,9 @@ export const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         margin: ".5rem auto",
         borderRadius: "40px",
+        [theme.breakpoints.down('sm')]: {
+            width: "90%",
+        },
 
     },
 

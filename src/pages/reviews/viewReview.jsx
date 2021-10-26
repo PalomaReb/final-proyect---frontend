@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Container, Typography } from "@material-ui/core";
+import { Grid, Container, Typography, useTheme, useMediaQuery } from "@material-ui/core";
 import Header from "../../componentes-webpage/header";
 import Footer from "../../componentes-webpage/footer";
 import ReviewCard from "./cardComponent";
@@ -13,6 +13,8 @@ function ViewReview(props) {
   const classes = useStyles();
   const [review, setReview] = useState([]);
   const [t] = useTranslation("global");
+  const theme = useTheme();
+  const showCards = useMediaQuery(theme.breakpoints.up('sm'));
 
   useEffect(() => {
     document.title = t("Reviews.title");
@@ -36,7 +38,7 @@ function ViewReview(props) {
               infiniteLoop={true}
               centerMode={true}
               interval={8000}
-              centerSlidePercentage={65}
+              centerSlidePercentage={showCards ? 33 : 80}
               showStatus={false}
             >
               {review.slice(0).reverse().map((userReview, i) => (
