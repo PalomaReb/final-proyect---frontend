@@ -77,7 +77,6 @@ function Reviewsinput() {
 
               <Typography
                 className={classes.finalSentence}
-                variant="h3"
                 color="#000000"
               >
                 {t("usrRvw.mainText")}
@@ -98,7 +97,7 @@ function Reviewsinput() {
                   placeholder={t("usrRvw.txtBox")}
                   name="review"
                 />
-                <Typography variant="h3" color="secondary">{sendReview}</Typography>
+                <Typography color="secondary">{sendReview}</Typography>
                 <div className={classes.registerButton}>
                   <Button
                     type="submit"

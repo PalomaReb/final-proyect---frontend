@@ -67,6 +67,7 @@ function Register() {
       } else {
         // Muestro al usuario el error de que las passwords no coinciden
         setEmailVerified(t('Register.pwdNotMatch'));
+        setColorVer("primary");
       }
     } else {
       // mostrar error al usuario con el campo que no es válido
