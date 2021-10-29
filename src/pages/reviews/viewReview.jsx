@@ -51,7 +51,7 @@ function ViewReview(props) {
               ))}
             </Carousel>
           ) : (
-            <Typography color="primary" variant="h2">
+            <Typography color="primary" variant="p" content="inherit">
               {t("Reviews.mainText")}
             </Typography>
           )}
